@@ -1,0 +1,78 @@
+{
+  "nav": {
+    "company": "Company",
+    "about": "About",
+    "sustainable": "Sustainable Development",
+    "services": "Services",
+    "drilling": "Drilling",
+    "service": "Service",
+    "pressCenter": "Press Center",
+    "careers": "Careers",
+    "procurement": "Procurement",
+    "contacts": "Contacts"
+  },
+  "home": {
+    "heroTitle": "Drilling for Resources",
+    "heroSubtitle": "Reliable implementation of your oil and gas strategy",
+    "heroCtaDrilling": "Drilling",
+    "heroCtaServices": "Services",
+    "locationsTitle": "Our Locations",
+    "locationsSubtitle": "Operating across major oil and gas regions",
+    "managementTitle": "Management Message",
+    "statsTitle": "Our Performance",
+    "statsDrilled": "Drilled (m)",
+    "statsWells": "Wells Completed",
+    "statsYears": "Years of Experience",
+    "statsProjects": "Active Projects",
+    "pressTitle": "Press Center",
+    "pressViewAll": "View All News",
+    "partnersTitle": "Our Partners"
+  },
+  "about": {
+    "title": "About the Company",
+    "description": "We are a leading provider of drilling and oilfield services with decades of experience in the industry.",
+    "heroTitle": "About GazStart",
+    "heroSubtitle": "A trusted partner in oil and gas exploration and production"
+  },
+  "sustainable": {
+    "title": "Sustainable Development",
+    "heroTitle": "Sustainable Development",
+    "heroSubtitle": "Committed to responsible resource development"
+  },
+  "drilling": {
+    "title": "Drilling Services",
+    "heroTitle": "Drilling Services",
+    "heroSubtitle": "Advanced drilling solutions for complex formations"
+  },
+  "service": {
+    "title": "Oilfield Services",
+    "heroTitle": "Oilfield Services",
+    "heroSubtitle": "Comprehensive support for your production operations"
+  },
+  "pressCenter": {
+    "title": "Press Center",
+    "heroTitle": "Press Center",
+    "heroSubtitle": "Latest news and announcements"
+  },
+  "careers": {
+    "title": "Careers",
+    "heroTitle": "Join Our Team",
+    "heroSubtitle": "Build your career in the energy industry"
+  },
+  "procurement": {
+    "title": "Procurement",
+    "heroTitle": "Procurement",
+    "heroSubtitle": "Partnership and supplier information"
+  },
+  "contacts": {
+    "title": "Contacts",
+    "heroTitle": "Contact Us",
+    "heroSubtitle": "Get in touch with our team"
+  },
+  "common": {
+    "learnMore": "Learn More",
+    "readMore": "Read More",
+    "contactUs": "Contact Us",
+    "backToList": "Back to List"
+  }
+}
