@@ -13,21 +13,43 @@ export default function Header() {
   const router = useRouter();
 
   const [scrolled, setScrolled] = useState(false);
+  const [headerVisible, setHeaderVisible] = useState(true);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [hotlineOpen, setHotlineOpen] = useState(false);
   const [companyOpen, setCompanyOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const lastScrollY = useRef(0);
 
   const hotlineTimer = useRef<ReturnType<typeof setTimeout>>();
   const companyTimer = useRef<ReturnType<typeof setTimeout>>();
   const servicesTimer = useRef<ReturnType<typeof setTimeout>>();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    const onScroll = () => {
+      const currentScrollY = window.scrollY;
+      setScrolled(currentScrollY > 8);
+
+      if (currentScrollY <= 8) {
+        setHeaderVisible(true);
+      } else if (currentScrollY > lastScrollY.current + 8) {
+        setHeaderVisible(false);
+      } else if (currentScrollY < lastScrollY.current) {
+        setHeaderVisible(true);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    if (mobileOpen || hotlineOpen || companyOpen || servicesOpen) {
+      setHeaderVisible(true);
+    }
+  }, [mobileOpen, hotlineOpen, companyOpen, servicesOpen]);
 
   const open = (
     setter: (v: boolean) => void,
@@ -72,16 +94,12 @@ export default function Header() {
 
   return (
     <header
-      className={`header fixed top-0 z-50 w-full transition-colors duration-500 ${
-        scrolled || mobileOpen ? "bg-[#0e1a27]" : "bg-transparent"
-      }`}
+      className={`header fixed top-0 z-50 w-full transition-transform duration-500 ${
+        headerVisible ? "translate-y-0" : "-translate-y-full"
+      } ${scrolled || mobileOpen ? "bg-dark-900" : "bg-transparent"}`}
     >
       {/* ── Row 1: primary bar ── */}
-      <div
-        className={`header__primary transition-colors duration-500 ${
-          scrolled ? "border-white/10" : "border-white/0"
-        }`}
-      >
+      <div className="header__primary transition-colors duration-500">
         <div
           className="container-h mx-auto flex max-w-[1680px] items-center px-5 sm:px-[60px] lg:px-[140px]"
           id="header"
@@ -148,7 +166,7 @@ export default function Header() {
               </button>
 
               <AnimatePresence>
-{hotlineOpen && (
+                {hotlineOpen && (
                   <motion.div
                     initial={{ opacity: 0, y: -6 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -166,7 +184,7 @@ export default function Header() {
                         8 800 444 71 09
                       </a>
                       <div className="mt-5 border-t border-dark-900/10" />
-                      <p         className="mt-4 text-[12px] text-dark-900/50">
+                      <p className="mt-4 text-[12px] text-dark-900/50">
                         <span className="font-medium text-dark-900">Security Hotline</span>
                         <span className="mx-2 text-dark-900/25">|</span>
                         <span>Toll-free in Russia</span>
@@ -195,7 +213,7 @@ export default function Header() {
             {/* Language toggle — square outline */}
             <button
               onClick={() => switchLocale(otherLocale)}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 text-[13px] font-medium text-white/75 transition-all duration-300 hover:border-white/60 hover:text-white"
+              className="flex h-8 w-8 items-center justify-center rounded-full border border-white/30 text-[13px] font-medium text-white/75 transition-all duration-300 hover:border-white/60 hover:text-white"
               aria-label={`Switch language to ${otherLocale}`}
             >
               {otherLocaleLabel}

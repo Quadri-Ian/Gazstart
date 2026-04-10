@@ -1,17 +1,43 @@
 "use client";
 
+import type { MouseEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import heroBg from "@/assets/intro-background-xxxl-min.jpg";
 import manImg from "@/assets/man-1-xxxl.png";
 
 export default function HeroSection() {
   const t = useTranslations("home");
   const locale = useLocale();
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const springX = useSpring(mouseX, { stiffness: 40, damping: 25, mass: 0.6 });
+  const springY = useSpring(mouseY, { stiffness: 40, damping: 25, mass: 0.6 });
+  const manX = useTransform(springX, [-0.5, 0.5], [-15, 15]);
+  const manY = useTransform(springY, [-0.5, 0.5], [-8, 8]);
+
+  const handleMouseMove = (event: MouseEvent<HTMLElement>) => {
+    const bounds = event.currentTarget.getBoundingClientRect();
+    const normalizedX = (event.clientX - bounds.left) / bounds.width - 0.5;
+    const normalizedY = (event.clientY - bounds.top) / bounds.height - 0.5;
+    mouseX.set(normalizedX);
+    mouseY.set(normalizedY);
+  };
+
+  const resetMousePosition = () => {
+    mouseX.set(0);
+    mouseY.set(0);
+  };
 
   return (
-    <section className="relative flex min-h-screen overflow-hidden bg-[#0e1a27]" id="top">
+    <section
+      className="relative flex min-h-screen overflow-hidden bg-dark-900"
+      id="top"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={resetMousePosition}
+    >
       {/* Background image */}
       <Image
         src={heroBg}
@@ -24,7 +50,7 @@ export default function HeroSection() {
       />
 
       {/* Dark overlay */}
-      <div className="absolute inset-0 z-[1] bg-[#0e1a27]/50" />
+      <div className="absolute inset-0 z-[1] bg-dark-900/45" />
 
       {/* NZ geometric logo mark overlay (right side) */}
       <div
@@ -54,7 +80,10 @@ export default function HeroSection() {
       </div>
 
       {/* Man figure */}
-      <div className="pointer-events-none absolute bottom-0 right-[4%] z-[3] h-[88vh] select-none hidden md:block">
+      <motion.div
+        className="pointer-events-none absolute bottom-0 right-[4%] z-[3] hidden h-[88vh] select-none md:block"
+        style={{ x: manX, y: manY }}
+      >
         <Image
           src={manImg}
           alt=""
@@ -65,12 +94,12 @@ export default function HeroSection() {
           className="h-full w-auto object-contain object-bottom"
           draggable={false}
         />
-      </div>
+      </motion.div>
 
       {/* Content */}
       <div className="relative z-[4] flex min-h-screen w-full flex-col">
         {/* Main text content */}
-        <div className="container-h flex-1 flex flex-col justify-center pt-[120px] pb-12">
+        <div className="container-h flex flex-1 flex-col justify-center pb-12 pt-[120px] lg:pt-[152px]">
           <h1
             className="text-white font-light leading-[0.95] tracking-[-0.04em]"
             style={{ fontSize: "clamp(48px, 8vw, 130px)" }}
@@ -96,7 +125,7 @@ export default function HeroSection() {
                 <div className="rising-banner__effect">
                   <div className="rising-banner__effect__image">
                     {/* Placeholder dark bg used when no image */}
-                    <div className="absolute inset-0 bg-[#1e2e40]" />
+                    <div className="absolute inset-0 bg-dark-700" />
                   </div>
                 </div>
                 <div className="rising-banner__content">
@@ -106,7 +135,7 @@ export default function HeroSection() {
                 {/* Arrow icon */}
                 <div className="rising-banner__icon">
                   <span
-                    className="flex items-center justify-center bg-[#BF0632] text-white"
+                    className="flex items-center justify-center rounded-full bg-primary-600 text-white"
                     style={{ width: 28, height: 28 }}
                   >
                     <svg width="5" height="8" viewBox="0 0 5 8" fill="none">
@@ -120,7 +149,7 @@ export default function HeroSection() {
               <Link href={`/${locale}/services/service`} className="rising-banner">
                 <div className="rising-banner__effect">
                   <div className="rising-banner__effect__image">
-                    <div className="absolute inset-0 bg-[#27394e]" />
+                    <div className="absolute inset-0 bg-dark-600" />
                   </div>
                 </div>
                 <div className="rising-banner__content">
@@ -129,7 +158,7 @@ export default function HeroSection() {
                 </div>
                 <div className="rising-banner__icon">
                   <span
-                    className="flex items-center justify-center bg-[#BF0632] text-white"
+                    className="flex items-center justify-center rounded-full bg-primary-600 text-white"
                     style={{ width: 28, height: 28 }}
                   >
                     <svg width="5" height="8" viewBox="0 0 5 8" fill="none">
@@ -144,11 +173,11 @@ export default function HeroSection() {
       </div>
 
       {/* Scroll down button */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-[5]">
+      <div className="absolute bottom-8 right-6 z-[5] md:bottom-10 md:right-10">
         <a
           href="#geography"
           aria-label="Our Locations"
-          className="flex items-center justify-center border border-white/30 text-white transition-colors duration-300 hover:border-white/60"
+          className="flex items-center justify-center rounded-full bg-white text-dark-900 transition-transform duration-300 hover:scale-[1.03]"
           style={{ width: 44, height: 44 }}
         >
           <svg width="12" height="6" viewBox="0 0 12 6" fill="none">
