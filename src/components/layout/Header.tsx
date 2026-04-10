@@ -148,7 +148,7 @@ export default function Header() {
               </button>
 
               <AnimatePresence>
-                {hotlineOpen && (
+{hotlineOpen && (
                   <motion.div
                     initial={{ opacity: 0, y: -6 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -166,7 +166,7 @@ export default function Header() {
                         8 800 444 71 09
                       </a>
                       <div className="mt-5 border-t border-dark-900/10" />
-                      <p className="mt-4 text-[12px] text-dark-900/50">
+                      <p         className="mt-4 text-[12px] text-dark-900/50">
                         <span className="font-medium text-dark-900">Security Hotline</span>
                         <span className="mx-2 text-dark-900/25">|</span>
                         <span>Toll-free in Russia</span>
@@ -195,7 +195,7 @@ export default function Header() {
             {/* Language toggle — square outline */}
             <button
               onClick={() => switchLocale(otherLocale)}
-              className="flex h-8 w-10 items-center justify-center border border-white/30 text-[13px] font-medium text-white/75 transition-all duration-300 hover:border-white/60 hover:text-white"
+              className="flex h-8 w-10 items-center justify-center rounded-full border border-white/30 text-[13px] font-medium text-white/75 transition-all duration-300 hover:border-white/60 hover:text-white"
               aria-label={`Switch language to ${otherLocale}`}
             >
               {otherLocaleLabel}
@@ -208,7 +208,7 @@ export default function Header() {
       <div className="header__secondary hidden lg:block">
         <nav className="mx-auto max-w-[1680px] px-[140px]">
           {/* flex: items fill full width edge-to-edge */}
-          <ul className="nav-primary flex">
+          <ul className="nav-primary flex gap-10">
 
             {/* Company dropdown */}
             <li className="group relative flex-1">
@@ -219,7 +219,7 @@ export default function Header() {
                 onMouseLeave={() => close(setCompanyOpen, companyTimer)}
               >
                 {/* top border sweep */}
-                <span className="pointer-events-none absolute left-0 top-0 h-[1px] w-full bg-white/[0.13]" />
+                {/* <span className="pointer-events-none absolute left-0 top-0 h-[1px] w-full bg-white/[0.13]" /> */}
                 <span className="nav-primary__main-link__line pointer-events-none absolute left-0 top-0 h-[2px] w-0 bg-white/70 transition-[width] duration-500 ease-[cubic-bezier(0.25,0.74,0.22,0.99)] group-hover:w-full" />
 
                 <span>{t("company")}</span>
