@@ -13,7 +13,7 @@ export default function StatsSection() {
   ];
 
   return (
-    <section className="bg-dark-800 py-24">
+    <section className="bg-brand-nav py-24">
       <div className="mx-auto max-w-7xl px-4">
         <ScrollReveal className="mb-12 text-center">
           <h2 className="text-3xl font-bold text-white">{t("statsTitle")}</h2>
