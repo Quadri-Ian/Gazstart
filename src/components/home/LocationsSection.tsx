@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+ï»¿import { useTranslations } from "next-intl";
 
 export default function LocationsSection() {
   const t = useTranslations("home");
@@ -44,7 +44,7 @@ export default function LocationsSection() {
               stroke="rgba(255,255,255,0.08)"
               strokeWidth="1"
             />
-            {/* Location dot 1 — West Siberia */}
+            {/* Location dot 1 â€” West Siberia */}
             <g>
               <ellipse
                 cx="600"
@@ -61,7 +61,7 @@ export default function LocationsSection() {
                 Western Siberia
               </text>
             </g>
-            {/* Location dot 2 — YNAO */}
+            {/* Location dot 2 â€” YNAO */}
             <g>
               <ellipse
                 cx="320"
