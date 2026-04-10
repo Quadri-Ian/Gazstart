@@ -9,9 +9,15 @@
     "pressCenter": "Пресс-центр",
     "careers": "Карьера",
     "procurement": "Закупки",
-    "contacts": "Контакты"
+    "contacts": "Контакты",
+    "phone": "+7 495 589 12 00",
+    "securityHotline": "Горячая линия безопасности",
+    "securityHotlineAnti": "Антикоррупционная линия",
+    "securityHotlineReport": "Сообщить об инциденте"
   },
   "home": {
+    "heroTitleAccent": "Бурение",
+    "heroTitleMain": "для ресурсов",
     "heroTitle": "Бурение для ресурсов",
     "heroSubtitle": "Надёжная реализация вашей нефтегазовой стратегии",
     "heroCtaDrilling": "Бурение",

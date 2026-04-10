@@ -6,12 +6,18 @@
     "services": "Services",
     "drilling": "Drilling",
     "service": "Service",
-    "pressCenter": "Press Center",
+    "pressCenter": "Press-center",
     "careers": "Careers",
     "procurement": "Procurement",
-    "contacts": "Contacts"
+    "contacts": "Contacts",
+    "phone": "+7 495 589 12 00",
+    "securityHotline": "Security Hotline",
+    "securityHotlineAnti": "Anti-corruption hotline",
+    "securityHotlineReport": "Report an incident"
   },
   "home": {
+    "heroTitleAccent": "Drilling",
+    "heroTitleMain": "for resources",
     "heroTitle": "Drilling for Resources",
     "heroSubtitle": "Reliable implementation of your oil and gas strategy",
     "heroCtaDrilling": "Drilling",
