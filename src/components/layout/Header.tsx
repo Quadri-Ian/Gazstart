@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";
@@ -11,6 +11,8 @@ export default function Header() {
   const locale = useLocale();
   const pathname = usePathname();
   const router = useRouter();
+
+  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [hotlineOpen, setHotlineOpen] = useState(false);
   const [companyOpen, setCompanyOpen] = useState(false);
@@ -20,12 +22,25 @@ export default function Header() {
   const companyTimer = useRef<ReturnType<typeof setTimeout>>();
   const servicesTimer = useRef<ReturnType<typeof setTimeout>>();
 
-  const open = (setter: (v: boolean) => void, timer: React.MutableRefObject<ReturnType<typeof setTimeout> | undefined>) => {
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const open = (
+    setter: (v: boolean) => void,
+    timer: React.MutableRefObject<ReturnType<typeof setTimeout> | undefined>
+  ) => {
     clearTimeout(timer.current);
     setter(true);
   };
-  const close = (setter: (v: boolean) => void, timer: React.MutableRefObject<ReturnType<typeof setTimeout> | undefined>) => {
-    timer.current = setTimeout(() => setter(false), 120);
+  const close = (
+    setter: (v: boolean) => void,
+    timer: React.MutableRefObject<ReturnType<typeof setTimeout> | undefined>
+  ) => {
+    timer.current = setTimeout(() => setter(false), 150);
   };
 
   const switchLocale = (newLocale: string) => {
@@ -36,7 +51,7 @@ export default function Header() {
 
   const localePath = (path: string) => `/${locale}${path}`;
   const otherLocale = locale === "en" ? "ru" : "en";
-  const otherLocaleLabel = locale === "en" ? "Рu" : "En";
+  const otherLocaleLabel = locale === "en" ? "Ру" : "En";
 
   const companyItems = [
     { label: t("about"), href: localePath("/company/about") },
@@ -56,28 +71,37 @@ export default function Header() {
   ];
 
   return (
-    <header className="header fixed top-0 z-50 w-full bg-dark-900">
-
-      {/* ══ Row 1: header__primary — Logo + Contact bar ══ */}
-      <div className="header__primary border-b border-white/10">
-        <div className="container-h mx-auto flex max-w-[1680px] items-center px-5 sm:px-[60px] lg:px-[140px]" id="header">
-
+    <header
+      className={`header fixed top-0 z-50 w-full transition-colors duration-500 ${
+        scrolled || mobileOpen ? "bg-[#0e1a27]" : "bg-transparent"
+      }`}
+    >
+      {/* ── Row 1: primary bar ── */}
+      <div
+        className={`header__primary border-b transition-colors duration-500 ${
+          scrolled ? "border-white/10" : "border-white/0"
+        }`}
+      >
+        <div
+          className="container-h mx-auto flex max-w-[1680px] items-center px-5 sm:px-[60px] lg:px-[140px]"
+          id="header"
+        >
           {/* Logo */}
           <Link
             href={localePath("/")}
             className="header__logo mr-auto flex items-center py-[18px] text-white"
             title="GazStart"
           >
-            <span className="text-[17px] font-semibold tracking-[0.12em] uppercase text-white">
+            <span className="text-[17px] font-semibold uppercase tracking-[0.12em] text-white">
               GAZSTART
             </span>
           </Link>
 
-          {/* Mobile: hamburger (hidden on desktop) */}
+          {/* Mobile hamburger */}
           <div className="lg:hidden">
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="flex h-9 w-9 items-center justify-center border border-white/25 text-white transition-colors duration-300 hover:border-white/50"
+              className="flex h-9 w-9 items-center justify-center border border-white/25 text-white"
               aria-label="Open navigation menu"
             >
               {mobileOpen ? (
@@ -94,27 +118,30 @@ export default function Header() {
             </button>
           </div>
 
-          {/* Desktop: phone + hotline + language (hidden on mobile) */}
+          {/* Desktop: phone + hotline + lang */}
           <div className="hidden items-center gap-4 lg:flex">
             <a
               href="tel:+74955891200"
-              className="header__phone text-[13px] text-white/75 transition-colors duration-[400ms] hover:text-white"
+              className="header__phone text-[13px] text-white/75 transition-colors duration-300 hover:text-white"
             >
               {t("phone")}
             </a>
 
-            {/* Security Hotline button + popover */}
+            {/* Security Hotline — rounded pill border */}
             <div className="relative">
               <button
                 id="security-hotline"
                 onMouseEnter={() => open(setHotlineOpen, hotlineTimer)}
                 onMouseLeave={() => close(setHotlineOpen, hotlineTimer)}
-                className="flex items-center gap-2 border border-white/30 px-3.5 py-1.5 text-[13px] text-white/75 transition-all duration-[400ms] hover:border-white/55 hover:text-white"
+                className="flex items-center gap-2 rounded-full border border-white/30 px-4 py-1.5 text-[13px] text-white/75 transition-all duration-300 hover:border-white/60 hover:text-white"
               >
                 <span>{t("securityHotline")}</span>
                 <svg
-                  width="10" height="5" viewBox="0 0 10 5" fill="none"
-                  className={`transition-transform duration-[400ms] ${hotlineOpen ? "rotate-180" : ""}`}
+                  width="10"
+                  height="5"
+                  viewBox="0 0 10 5"
+                  fill="none"
+                  className={`transition-transform duration-300 ${hotlineOpen ? "rotate-180" : ""}`}
                 >
                   <path d="M0 0L5 5L10 0" stroke="currentColor" strokeWidth="1.2" />
                 </svg>
@@ -126,33 +153,35 @@ export default function Header() {
                     initial={{ opacity: 0, y: -6 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -6 }}
-                    transition={{ duration: 0.25, ease: [0.25, 0.74, 0.22, 0.99] }}
+                    transition={{ duration: 0.2, ease: [0.25, 0.74, 0.22, 0.99] }}
                     onMouseEnter={() => open(setHotlineOpen, hotlineTimer)}
                     onMouseLeave={() => close(setHotlineOpen, hotlineTimer)}
-                    className="absolute right-0 top-full z-50 mt-[14px] w-[400px] bg-white shadow-2xl"
+                    className="absolute right-0 top-full z-50 mt-3 w-[420px] bg-white shadow-2xl"
                   >
                     <div className="p-8">
                       <a
                         href="tel:88004447109"
-                        className="block text-[38px] font-medium leading-none tracking-tight text-primary-600 transition-colors duration-[400ms] hover:text-dark-900"
+                        className="block text-[38px] font-medium leading-none tracking-tight text-primary-600 transition-colors duration-300 hover:text-dark-900"
                       >
                         8 800 444 71 09
                       </a>
-                      <div className="security-hotline__line mt-5 border-t border-dark-900/10" />
-                      <p className="mt-4 text-[12px] text-dark-600/60">
+                      <div className="mt-5 border-t border-dark-900/10" />
+                      <p className="mt-4 text-[12px] text-dark-900/50">
                         <span className="font-medium text-dark-900">Security Hotline</span>
                         <span className="mx-2 text-dark-900/25">|</span>
                         <span>Toll-free in Russia</span>
                       </p>
-                      <p className="mt-3 text-[13px] leading-relaxed text-dark-900/65">
-                        To inform on imminent crimes, actual or reasonably suspected economic, financial or goodwill damage to the interests and assets of the Group of Companies.
+                      <p className="mt-3 text-[13px] leading-relaxed text-dark-900/60">
+                        To inform on imminent crimes, actual or reasonably suspected economic,
+                        financial or goodwill damage to the interests and assets of the Group of
+                        Companies.
                       </p>
                       <Link
                         href={localePath("/contacts")}
-                        className="mt-5 flex items-center justify-between border border-dark-900/15 px-4 py-3 text-[13px] font-medium text-dark-900 transition-all duration-[400ms] hover:bg-dark-900 hover:text-white"
+                        className="mt-5 flex items-center justify-between border border-dark-900/15 px-4 py-3 text-[13px] text-dark-900 transition-all duration-300 hover:bg-dark-900 hover:text-white"
                         onClick={() => setHotlineOpen(false)}
                       >
-                        <span className="flex h-6 w-6 items-center justify-center bg-dark-900 text-[11px] text-white transition-colors duration-[400ms] group-hover:bg-white group-hover:text-dark-900">
+                        <span className="flex h-6 w-6 items-center justify-center bg-dark-900 text-[11px] text-white">
                           →
                         </span>
                         <span>Learn more</span>
@@ -163,60 +192,64 @@ export default function Header() {
               </AnimatePresence>
             </div>
 
-            {/* Language switcher — single button for the OTHER locale */}
+            {/* Language toggle — square outline */}
             <button
               onClick={() => switchLocale(otherLocale)}
-              className="flex h-8 w-10 items-center justify-center border border-white/30 text-[13px] font-medium text-white/75 transition-all duration-[400ms] hover:border-white/55 hover:text-white"
+              className="flex h-8 w-10 items-center justify-center border border-white/30 text-[13px] font-medium text-white/75 transition-all duration-300 hover:border-white/60 hover:text-white"
               aria-label={`Switch language to ${otherLocale}`}
             >
               {otherLocaleLabel}
             </button>
           </div>
         </div>
-
-        {/* Mobile separator line */}
-        <div className="header__line border-b border-white/10 lg:hidden" />
       </div>
 
-      {/* ══ Row 2: header__secondary — Navigation (desktop only) ══ */}
-      <div className="header__secondary hidden border-b border-white/10 lg:block">
+      {/* ── Row 2: nav bar — desktop only ── */}
+      <div className="header__secondary hidden lg:block">
         <nav className="mx-auto max-w-[1680px] px-[140px]">
-          <ul className="nav-primary flex items-center gap-8">
+          {/* flex: items fill full width edge-to-edge */}
+          <ul className="nav-primary flex">
 
             {/* Company dropdown */}
-            <li className="relative">
+            <li className="group relative flex-1">
+              {/* faint top border always; sweep line on hover (left→right) */}
               <div
-                className="nav-primary__main-link group relative flex cursor-default items-center gap-1.5 py-4 text-[13px] text-white/70 transition-colors duration-[400ms] hover:text-white"
+                className="nav-primary__main-link relative flex h-full cursor-default items-center justify-between py-[18px] text-[13px] text-white/60 transition-colors duration-300 group-hover:text-white"
                 onMouseEnter={() => open(setCompanyOpen, companyTimer)}
                 onMouseLeave={() => close(setCompanyOpen, companyTimer)}
               >
+                {/* top border sweep */}
+                <span className="pointer-events-none absolute left-0 top-0 h-[1px] w-full bg-white/[0.13]" />
+                <span className="nav-primary__main-link__line pointer-events-none absolute left-0 top-0 h-[2px] w-0 bg-white/70 transition-[width] duration-500 ease-[cubic-bezier(0.25,0.74,0.22,0.99)] group-hover:w-full" />
+
                 <span>{t("company")}</span>
                 <svg
-                  width="10" height="5" viewBox="0 0 10 5" fill="none"
-                  className={`transition-transform duration-[400ms] ${companyOpen ? "rotate-180" : ""}`}
+                  width="10"
+                  height="5"
+                  viewBox="0 0 10 5"
+                  fill="none"
+                  className={`transition-transform duration-300 ${companyOpen ? "rotate-180" : ""}`}
                 >
                   <path d="M0 0L5 5L10 0" stroke="currentColor" strokeWidth="1.2" />
                 </svg>
-                {/* Red underline — slides from left on hover */}
-                <span className="nav-primary__main-link__line absolute bottom-0 left-0 h-[1px] w-full origin-left scale-x-0 bg-primary-600 transition-transform duration-[400ms] ease-[cubic-bezier(0.25,0.74,0.22,0.99)] group-hover:scale-x-100" />
               </div>
 
               <AnimatePresence>
                 {companyOpen && (
                   <motion.div
-                    initial={{ opacity: 0, y: -6 }}
+                    initial={{ opacity: 0, y: -4 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -6 }}
-                    transition={{ duration: 0.2, ease: [0.25, 0.74, 0.22, 0.99] }}
+                    exit={{ opacity: 0, y: -4 }}
+                    transition={{ duration: 0.18, ease: [0.25, 0.74, 0.22, 0.99] }}
                     onMouseEnter={() => open(setCompanyOpen, companyTimer)}
                     onMouseLeave={() => close(setCompanyOpen, companyTimer)}
-                    className="header-choice absolute left-0 top-full z-50 bg-white shadow-xl"
+                    className="header-choice absolute left-0 top-full z-50 min-w-[260px] bg-white shadow-xl"
                   >
                     {companyItems.map((item) => (
                       <Link
                         key={item.href}
                         href={item.href}
-                        className="header-choice__link flex items-center justify-between gap-10 px-6 py-[18px] transition-colors duration-[400ms] hover:bg-gray-50"
+                        className="header-choice__link flex items-center justify-between gap-8 border-b border-dark-900/8 px-6 py-[18px] transition-colors duration-300 last:border-0 hover:bg-[#f5f5f5]"
                         onClick={() => setCompanyOpen(false)}
                       >
                         <p className="whitespace-nowrap text-[13px] text-dark-900">{item.label}</p>
@@ -231,45 +264,47 @@ export default function Header() {
             </li>
 
             {/* Services dropdown */}
-            <li className="relative">
+            <li className="group relative flex-1">
               <div
-                className="nav-primary__main-link group relative flex cursor-default items-center gap-1.5 py-4 text-[13px] text-white/70 transition-colors duration-[400ms] hover:text-white"
+                className="nav-primary__main-link relative flex h-full cursor-default items-center justify-between py-[18px] text-[13px] text-white/60 transition-colors duration-300 group-hover:text-white"
                 onMouseEnter={() => open(setServicesOpen, servicesTimer)}
                 onMouseLeave={() => close(setServicesOpen, servicesTimer)}
               >
+                <span className="pointer-events-none absolute left-0 top-0 h-[1px] w-full bg-white/[0.13]" />
+                <span className="nav-primary__main-link__line pointer-events-none absolute left-0 top-0 h-[2px] w-0 bg-white/70 transition-[width] duration-500 ease-[cubic-bezier(0.25,0.74,0.22,0.99)] group-hover:w-full" />
+
                 <span>{t("services")}</span>
                 <svg
-                  width="10" height="5" viewBox="0 0 10 5" fill="none"
-                  className={`transition-transform duration-[400ms] ${servicesOpen ? "rotate-180" : ""}`}
+                  width="10"
+                  height="5"
+                  viewBox="0 0 10 5"
+                  fill="none"
+                  className={`transition-transform duration-300 ${servicesOpen ? "rotate-180" : ""}`}
                 >
                   <path d="M0 0L5 5L10 0" stroke="currentColor" strokeWidth="1.2" />
                 </svg>
-                <span className="nav-primary__main-link__line absolute bottom-0 left-0 h-[1px] w-full origin-left scale-x-0 bg-primary-600 transition-transform duration-[400ms] ease-[cubic-bezier(0.25,0.74,0.22,0.99)] group-hover:scale-x-100" />
               </div>
 
               <AnimatePresence>
                 {servicesOpen && (
                   <motion.div
-                    initial={{ opacity: 0, y: -6 }}
+                    initial={{ opacity: 0, y: -4 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -6 }}
-                    transition={{ duration: 0.2, ease: [0.25, 0.74, 0.22, 0.99] }}
+                    exit={{ opacity: 0, y: -4 }}
+                    transition={{ duration: 0.18, ease: [0.25, 0.74, 0.22, 0.99] }}
                     onMouseEnter={() => open(setServicesOpen, servicesTimer)}
                     onMouseLeave={() => close(setServicesOpen, servicesTimer)}
-                    className="header-choice absolute left-0 top-full z-50 bg-white shadow-xl"
+                    className="header-choice absolute left-0 top-full z-50 min-w-[260px] bg-white shadow-xl"
                   >
-                    {serviceItems.map((item, i) => (
+                    {serviceItems.map((item) => (
                       <Link
                         key={item.href}
                         href={item.href}
-                        className="header-choice__link flex items-center gap-4 px-6 py-[14px] transition-colors duration-[400ms] hover:bg-gray-50"
+                        className="header-choice__link flex items-center gap-4 border-b border-dark-900/8 px-6 py-[14px] transition-colors duration-300 last:border-0 hover:bg-[#f5f5f5]"
                         onClick={() => setServicesOpen(false)}
                       >
-                        {/* Thumbnail placeholder (141×141 in reference) */}
-                        <div className="h-[72px] w-[72px] flex-shrink-0 overflow-hidden bg-dark-700">
-                          <div className="h-full w-full bg-gradient-to-br from-dark-700 to-dark-600" />
-                        </div>
-                        <div className="flex items-center justify-between gap-10">
+                        <div className="h-[72px] w-[72px] flex-shrink-0 bg-dark-700" />
+                        <div className="flex flex-1 items-center justify-between">
                           <p className="whitespace-nowrap text-[13px] text-dark-900">{item.label}</p>
                           <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center bg-primary-600 text-[10px] text-white">
                             →
@@ -282,15 +317,16 @@ export default function Header() {
               </AnimatePresence>
             </li>
 
-            {/* Plain nav links */}
+            {/* Plain links */}
             {plainLinks.map((item) => (
-              <li key={item.href} className="relative">
+              <li key={item.href} className="group relative flex-1">
                 <Link
                   href={item.href}
-                  className="nav-primary__main-link group relative flex items-center py-4 text-[13px] text-white/70 transition-colors duration-[400ms] hover:text-white"
+                  className="nav-primary__main-link relative flex h-full items-center justify-between py-[18px] text-[13px] text-white/60 transition-colors duration-300 group-hover:text-white"
                 >
+                  <span className="pointer-events-none absolute left-0 top-0 h-[1px] w-full bg-white/[0.13]" />
+                  <span className="nav-primary__main-link__line pointer-events-none absolute left-0 top-0 h-[2px] w-0 bg-white/70 transition-[width] duration-500 ease-[cubic-bezier(0.25,0.74,0.22,0.99)] group-hover:w-full" />
                   <span>{item.label}</span>
-                  <span className="nav-primary__main-link__line absolute bottom-0 left-0 h-[1px] w-full origin-left scale-x-0 bg-primary-600 transition-transform duration-[400ms] ease-[cubic-bezier(0.25,0.74,0.22,0.99)] group-hover:scale-x-100" />
                 </Link>
               </li>
             ))}
@@ -298,7 +334,7 @@ export default function Header() {
         </nav>
       </div>
 
-      {/* ══ Mobile drawer ══ */}
+      {/* ── Mobile drawer ── */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -306,10 +342,12 @@ export default function Header() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: [0.25, 0.74, 0.22, 0.99] }}
-            className="overflow-hidden bg-dark-900 lg:hidden"
+            className="overflow-hidden bg-[#0e1a27] lg:hidden"
           >
             <div className="px-5 pb-8 pt-2 sm:px-[60px]">
-              <p className="mb-2 mt-4 text-[11px] uppercase tracking-widest text-white/30">{t("company")}</p>
+              <p className="mb-2 mt-4 text-[11px] uppercase tracking-widest text-white/30">
+                {t("company")}
+              </p>
               {companyItems.map((item) => (
                 <Link
                   key={item.href}
@@ -321,7 +359,9 @@ export default function Header() {
                 </Link>
               ))}
 
-              <p className="mb-2 mt-6 text-[11px] uppercase tracking-widest text-white/30">{t("services")}</p>
+              <p className="mb-2 mt-6 text-[11px] uppercase tracking-widest text-white/30">
+                {t("services")}
+              </p>
               {serviceItems.map((item) => (
                 <Link
                   key={item.href}
@@ -333,7 +373,9 @@ export default function Header() {
                 </Link>
               ))}
 
-              <p className="mb-2 mt-6 text-[11px] uppercase tracking-widest text-white/30">Navigation</p>
+              <p className="mb-2 mt-6 text-[11px] uppercase tracking-widest text-white/30">
+                Navigation
+              </p>
               {plainLinks.map((item) => (
                 <Link
                   key={item.href}

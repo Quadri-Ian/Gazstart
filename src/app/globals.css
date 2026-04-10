@@ -586,9 +586,27 @@ body {
 .footer__bottom a:hover { color: #0e1a27; }
 
 /* ─────────────────────────────────────────────────
-   HEADER OVERRIDES (ensure no rounding)
+   HEADER CHOICE (dropdown links)
 ───────────────────────────────────────────────── */
 .header-choice__link {
-  border-radius: 0 !important;
+  border-radius: 0;
+  text-decoration: none;
+}
+
+/* ─────────────────────────────────────────────────
+   NAV PRIMARY — full-width items
+───────────────────────────────────────────────── */
+.nav-primary {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-primary > li {
+  flex: 1;
+}
+.nav-primary__main-link {
+  /* overflow hidden so the sweep line clips at item edge */
+  overflow: hidden;
 }
 
