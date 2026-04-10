@@ -8,6 +8,7 @@ interface CountUpStatProps {
   prefix?: string;
   duration?: number;
   label: string;
+  className?: string;
 }
 
 export default function CountUpStat({
@@ -16,6 +17,7 @@ export default function CountUpStat({
   prefix = "",
   duration = 2000,
   label,
+  className,
 }: CountUpStatProps) {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
@@ -47,13 +49,13 @@ export default function CountUpStat({
   }, [end, duration]);
 
   return (
-    <div ref={ref} className="text-center">
-      <div className="text-4xl font-bold text-white md:text-5xl">
+    <div ref={ref} className={label ? "text-center" : undefined}>
+      <div className={className ?? "text-4xl font-bold text-white md:text-5xl"}>
         {prefix}
         {count.toLocaleString()}
         {suffix}
       </div>
-      <div className="mt-2 text-sm text-white/60">{label}</div>
+      {label && <div className="mt-2 text-sm text-white/60">{label}</div>}
     </div>
   );
 }

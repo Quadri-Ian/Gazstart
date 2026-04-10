@@ -9,55 +9,79 @@
     "pressCenter": "Пресс-центр",
     "careers": "Карьера",
     "procurement": "Закупки",
-    "contacts": "Контакты"
+    "contacts": "Контакты",
+    "securityHotline": "Горячая линия безопасности"
   },
   "home": {
     "heroTitle": "Бурение для ресурсов",
     "heroSubtitle": "Надёжная реализация вашей нефтегазовой стратегии",
     "heroCtaDrilling": "Бурение",
     "heroCtaServices": "Услуги",
+    "heroCard1Label": "Бурение",
+    "heroCard1Num": "01",
+    "heroCard2Label": "Услуги",
+    "heroCard2Num": "02",
     "locationsTitle": "Наши объекты",
     "locationsSubtitle": "Работаем в ключевых нефтегазоносных регионах",
-    "managementTitle": "Слово руководства",
+    "locationsRegion1": "Западная Сибирь",
+    "locationsRegion1Desc": "Ключевые буровые операции на крупных нефтяных месторождениях",
+    "locationsRegion2": "Поволжье",
+    "locationsRegion2Desc": "Добыча газа и перерабатывающие предприятия",
+    "locationsRegion3": "Полуостров Ямал",
+    "locationsRegion3Desc": "Арктическое бурение и СПГ-инфраструктура",
+    "locationsRegion4": "Каспийский регион",
+    "locationsRegion4Desc": "Морские и наземные геологоразведочные проекты",
+    "mapStatNumber": "6 800 000+",
+    "mapStatLabel": "Метров пробурено по всем регионам",
     "statsTitle": "Наши результаты",
+    "statsSubtitle": "Годы стабильной работы в самых сложных условиях",
     "statsDrilled": "Пробурено (м)",
     "statsWells": "Скважин завершено",
     "statsYears": "Лет опыта",
     "statsProjects": "Активных проектов",
+    "statsIllustrationAlt": "Техническая иллюстрация буровой установки",
+    "csrTitle": "Социальная ответственность",
+    "csrSubtitle": "Мы инвестируем в сообщества, окружающую среду и людей везде, где работаем.",
+    "csrCta": "Подробнее",
     "pressTitle": "Пресс-центр",
-    "pressViewAll": "Все новости",
-    "partnersTitle": "Наши партнёры"
+    "pressViewAll": "Все материалы",
+    "pressFilterAll": "Все",
+    "pressFilterNews": "Новости",
+    "pressFilterPress": "Пресс-релизы",
+    "pressFilterAnnouncements": "Объявления",
+    "partnersTitle": "Наши партнёры",
+    "managementTitle": "Слово руководства"
   },
   "about": {
     "title": "О компании",
-    "description": "Мы ведущий поставщик буровых и нефтесервисных услуг с многолетним опытом работы в отрасли.",
+    "description": "Мы являемся ведущим поставщиком буровых и нефтесервисных услуг с многолетним опытом работы в отрасли.",
     "heroTitle": "О GazStart",
     "heroSubtitle": "Надёжный партнёр в разведке и добыче нефти и газа"
   },
   "sustainable": {
     "title": "Устойчивое развитие",
     "heroTitle": "Устойчивое развитие",
-    "heroSubtitle": "Ответственная разработка ресурсов"
+    "heroSubtitle": "Ответственное освоение ресурсов"
   },
   "drilling": {
     "title": "Буровые услуги",
     "heroTitle": "Буровые услуги",
-    "heroSubtitle": "Передовые решения для сложных пластов"
+    "heroSubtitle": "Современные решения бурения для сложных условий"
   },
   "service": {
     "title": "Нефтесервисные услуги",
     "heroTitle": "Нефтесервисные услуги",
-    "heroSubtitle": "Комплексная поддержка добычи"
+    "heroSubtitle": "Комплексная поддержка производственных операций"
   },
   "pressCenter": {
     "title": "Пресс-центр",
     "heroTitle": "Пресс-центр",
-    "heroSubtitle": "Последние новости и объявления"
+    "heroSubtitle": "Последние новости и анонсы"
   },
   "careers": {
     "title": "Карьера",
-    "heroTitle": "Присоединяйтесь к нашей команде",
-    "heroSubtitle": "Развивайте карьеру в энергетической отрасли"
+    "heroTitle": "Присоединяйтесь к команде",
+    "heroSubtitle": "Стройте карьеру в энергетической отрасли"
   },
   "procurement": {
     "title": "Закупки",
@@ -67,12 +91,12 @@
   "contacts": {
     "title": "Контакты",
     "heroTitle": "Свяжитесь с нами",
-    "heroSubtitle": "Свяжитесь с нашей командой"
+    "heroSubtitle": "Получите консультацию нашей команды"
   },
   "common": {
-    "learnMore": "Узнать больше",
+    "learnMore": "Подробнее",
     "readMore": "Читать далее",
     "contactUs": "Связаться с нами",
-    "backToList": "Вернуться к списку"
+    "backToList": "Назад к списку"
   }
 }

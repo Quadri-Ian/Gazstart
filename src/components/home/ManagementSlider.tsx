@@ -28,14 +28,14 @@ export default function ManagementSlider() {
       className="flex flex-col gap-6 px-2 py-4 md:flex-row md:items-center md:gap-12"
     >
       <div className="flex-shrink-0">
-        <div className="flex h-32 w-32 items-center justify-center rounded-full border-2 border-primary-500/30 bg-dark-700 text-4xl text-white/20">
+        <div className="flex h-32 w-32 items-center justify-center rounded-full border-2 border-brand-red/30 bg-brand-nav text-4xl text-white/20">
           👤
         </div>
       </div>
       <div>
         <p className="text-xl font-bold text-white">{person.name}</p>
-        <p className="mb-4 text-sm text-primary-400">{person.title}</p>
-        <blockquote className="border-l-2 border-primary-500 pl-4 italic leading-relaxed text-white/70">
+        <p className="mb-4 text-sm text-brand-red">{person.title}</p>
+        <blockquote className="border-l-2 border-brand-red pl-4 italic leading-relaxed text-white/70">
           &ldquo;{person.message}&rdquo;
         </blockquote>
       </div>
@@ -43,10 +43,10 @@ export default function ManagementSlider() {
   ));
 
   return (
-    <section className="border-t border-white/5 bg-dark-900 py-24">
+    <section className="border-t border-white/5 bg-brand-dark py-24">
       <div className="mx-auto max-w-7xl px-4">
         <ScrollReveal className="mb-12">
-          <p className="mb-2 text-xs uppercase tracking-widest text-primary-500">Leadership</p>
+          <p className="mb-2 text-xs uppercase tracking-widest text-brand-red">Leadership</p>
           <h2 className="text-3xl font-bold text-white">{t("managementTitle")}</h2>
         </ScrollReveal>
         <Carousel slides={slides} loop />

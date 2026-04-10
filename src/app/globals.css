@@ -3,7 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --font-inter: "Inter", sans-serif;
+  --color-bg: #394854;
+  --color-red: #ab052d;
+  --color-white: #ffffff;
+  --color-card: #f8f8f9;
+  --color-nav: #2b3944;
+  --font-sans: "Suisse Intl", Helvetica, Arial, sans-serif;
 }
 
 * {
@@ -16,12 +21,25 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  font-family: var(--font-sans);
 }
 
+/* Swiper overrides */
 .swiper-pagination-bullet {
-  background: white !important;
+  background: rgba(255, 255, 255, 0.4) !important;
 }
 
 .swiper-pagination-bullet-active {
-  background: theme("colors.primary.500") !important;
+  background: #ab052d !important;
+}
+
+/* Press card image reveal */
+.press-card-image {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.press-card:hover .press-card-image {
+  max-height: 200px;
 }

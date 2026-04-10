@@ -9,32 +9,37 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        brand: {
+          dark: "#394854",
+          red: "#ab052d",
+          white: "#ffffff",
+          card: "#f8f8f9",
+          nav: "#2b3944",
+        },
+        /* keep legacy aliases for backward compat */
         primary: {
           50: "#f0f9ff",
           100: "#e0f2fe",
-          500: "#0ea5e9",
-          600: "#0284c7",
-          700: "#0369a1",
-          900: "#0c4a6e",
+          500: "#ab052d",
+          600: "#8b0424",
+          700: "#6b031b",
+          900: "#3b0110",
         },
         accent: {
-          500: "#f97316",
-          600: "#ea580c",
+          500: "#ab052d",
+          600: "#8b0424",
         },
         dark: {
-          900: "#0a0f1e",
-          800: "#111827",
-          700: "#1f2937",
+          900: "#394854",
+          800: "#2b3944",
+          700: "#3a4d5c",
         },
       },
       fontFamily: {
         sans: [
-          "Inter",
-          "ui-sans-serif",
-          "system-ui",
-          "-apple-system",
-          "BlinkMacSystemFont",
-          "Segoe UI",
+          "Suisse Intl",
+          "Helvetica",
+          "Arial",
           "sans-serif",
         ],
       },
