@@ -78,7 +78,7 @@ export default function Header() {
     >
       {/* ── Row 1: primary bar ── */}
       <div
-        className={`header__primary border-b transition-colors duration-500 ${
+        className={`header__primary transition-colors duration-500 ${
           scrolled ? "border-white/10" : "border-white/0"
         }`}
       >
@@ -195,7 +195,7 @@ export default function Header() {
             {/* Language toggle — square outline */}
             <button
               onClick={() => switchLocale(otherLocale)}
-              className="flex h-8 w-10 items-center justify-center rounded-full border border-white/30 text-[13px] font-medium text-white/75 transition-all duration-300 hover:border-white/60 hover:text-white"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 text-[13px] font-medium text-white/75 transition-all duration-300 hover:border-white/60 hover:text-white"
               aria-label={`Switch language to ${otherLocale}`}
             >
               {otherLocaleLabel}
@@ -219,7 +219,7 @@ export default function Header() {
                 onMouseLeave={() => close(setCompanyOpen, companyTimer)}
               >
                 {/* top border sweep */}
-                {/* <span className="pointer-events-none absolute left-0 top-0 h-[1px] w-full bg-white/[0.13]" /> */}
+                <span className="pointer-events-none absolute left-0 top-0 h-[1px] w-full bg-white/[0.13]" />
                 <span className="nav-primary__main-link__line pointer-events-none absolute left-0 top-0 h-[2px] w-0 bg-white/70 transition-[width] duration-500 ease-[cubic-bezier(0.25,0.74,0.22,0.99)] group-hover:w-full" />
 
                 <span>{t("company")}</span>
