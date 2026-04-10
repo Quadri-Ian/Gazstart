@@ -1,9 +1,3 @@
-"use client";
-
-import { useTranslations } from "next-intl";
-import ScrollReveal from "@/components/ui/ScrollReveal";
-import Carousel from "@/components/ui/Carousel";
-
 const partners = [
   "Gazprom",
   "Rosneft",
@@ -13,30 +7,40 @@ const partners = [
   "Halliburton",
   "Baker Hughes",
   "Weatherford",
+  "TotalEnergies",
+  "Shell",
 ];
 
 export default function PartnersSection() {
-  const t = useTranslations("home");
-
-  const slides = partners.map((partner) => (
-    <div
-      key={partner}
-      className="flex h-20 items-center justify-center rounded-lg border border-white/10 bg-dark-800 px-8"
-    >
-      <span className="text-lg font-semibold text-white/40">{partner}</span>
-    </div>
-  ));
-
   return (
-    <section className="border-t border-white/5 bg-dark-900 py-24">
-      <div className="mx-auto max-w-7xl px-4">
-        <ScrollReveal className="mb-12 text-center">
-          <p className="mb-2 text-xs uppercase tracking-widest text-primary-500">
-            Clients & Partners
-          </p>
-          <h2 className="text-3xl font-bold text-white">{t("partnersTitle")}</h2>
-        </ScrollReveal>
-        <Carousel slides={slides} slidesPerView={4} spaceBetween={16} autoplay loop />
+    <section className="ui-light-background">
+      <div className="container-h py-0">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
+          {/* Header cell */}
+          <div className="partners__item--head col-span-2 md:col-span-2">
+            <h2>
+              Our
+              <br />
+              Partners
+            </h2>
+          </div>
+
+          {/* Partner logo cells */}
+          {partners.map((name) => (
+            <div key={name} className="partners__item">
+              <span
+                className="font-light"
+                style={{
+                  fontSize: "clamp(12px, 1.2vw, 15px)",
+                  letterSpacing: "0.02em",
+                  color: "rgba(14,26,39,0.4)",
+                }}
+              >
+                {name}
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

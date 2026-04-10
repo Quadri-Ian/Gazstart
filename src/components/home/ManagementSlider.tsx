@@ -1,55 +1,174 @@
 "use client";
 
-import { useTranslations } from "next-intl";
-import ScrollReveal from "@/components/ui/ScrollReveal";
-import Carousel from "@/components/ui/Carousel";
+import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
+import { useLocale } from "next-intl";
 
-const management = [
+const people = [
   {
-    name: "Alexander Petrov",
-    title: "Chief Executive Officer",
-    message:
-      "Our commitment to excellence in drilling and oilfield services has positioned GazStart as a trusted partner across the energy industry. We continue to invest in technology and our people to deliver reliable results.",
+    id: 0,
+    name: ["Tural", "Kerimov"],
+    post: ["Chairman", "of the", "Board"],
+    quote:
+      "GazStart is one of key drilling contractors in Yamal-Nenets and Khanty-Mansiysk Autonomous Okrugs, Tyumen and Tomsk Oblasts. The Company is on the path of sustainable growth outlined by our long-term business strategy.",
+    href: "/company/about",
+    bgColor: "#152030",
   },
   {
-    name: "Nikolai Grishankov",
-    title: "Chief Operations Officer",
-    message:
-      "Safety, efficiency, and innovation drive everything we do. Our operations teams work tirelessly to meet the highest standards while pushing the boundaries of what's possible in difficult formations.",
+    id: 1,
+    name: ["Nikolay", "Grishankov"],
+    post: ["Chief", "Executive", "Officer"],
+    quote:
+      "Safety, efficiency, and innovation drive everything we do. Our operations teams work tirelessly to meet the highest standards while pushing the boundaries of what is possible in difficult formations.",
+    href: "/company/about",
+    bgColor: "#1e2e40",
   },
 ];
 
 export default function ManagementSlider() {
-  const t = useTranslations("home");
+  const locale = useLocale();
+  const [active, setActive] = useState(0);
+  const fillRef = useRef<HTMLDivElement>(null);
 
-  const slides = management.map((person) => (
-    <div
-      key={person.name}
-      className="flex flex-col gap-6 px-2 py-4 md:flex-row md:items-center md:gap-12"
-    >
-      <div className="flex-shrink-0">
-        <div className="flex h-32 w-32 items-center justify-center rounded-full border-2 border-primary-500/30 bg-dark-700 text-4xl text-white/20">
-          👤
-        </div>
-      </div>
-      <div>
-        <p className="text-xl font-bold text-white">{person.name}</p>
-        <p className="mb-4 text-sm text-primary-400">{person.title}</p>
-        <blockquote className="border-l-2 border-primary-500 pl-4 italic leading-relaxed text-white/70">
-          &ldquo;{person.message}&rdquo;
-        </blockquote>
-      </div>
-    </div>
-  ));
+  useEffect(() => {
+    const fill = fillRef.current;
+    if (!fill) return;
+    // Reset the bar
+    fill.style.transition = "none";
+    fill.style.width = "0%";
+    // Force reflow
+    void fill.offsetWidth;
+    fill.style.transition = "width 8s linear";
+    fill.style.width = "100%";
+
+    const timer = setTimeout(() => {
+      setActive((prev) => (prev + 1) % people.length);
+    }, 8000);
+    return () => clearTimeout(timer);
+  }, [active]);
+
+  const person = people[active];
+  const next = people[(active + 1) % people.length];
 
   return (
-    <section className="border-t border-white/5 bg-dark-900 py-24">
-      <div className="mx-auto max-w-7xl px-4">
-        <ScrollReveal className="mb-12">
-          <p className="mb-2 text-xs uppercase tracking-widest text-primary-500">Leadership</p>
-          <h2 className="text-3xl font-bold text-white">{t("managementTitle")}</h2>
-        </ScrollReveal>
-        <Carousel slides={slides} loop />
+    <section className="ui-dark-background" id="ceo">
+      <div className="grid grid-cols-1 md:grid-cols-2">
+        {/* Left: photo panel */}
+        <div className="appeal-ceo__top" style={{ backgroundColor: person.bgColor }}>
+          {/* Person avatar placeholder */}
+          <div className="appeal-ceo__image flex items-end justify-center">
+            <div
+              className="w-full h-full flex items-end justify-center"
+              style={{
+                background: `linear-gradient(to top, ${person.bgColor}, transparent 60%)`,
+                position: "absolute",
+                inset: 0,
+                zIndex: 2,
+              }}
+            />
+            {/* Initials placeholder since no photo assets */}
+            <div
+              className="absolute inset-0 flex items-center justify-center"
+              style={{ zIndex: 1 }}
+            >
+              <span
+                className="text-white/10 font-light select-none"
+                style={{ fontSize: "clamp(80px, 14vw, 200px)", letterSpacing: "-0.06em" }}
+              >
+                {person.name[0][0]}
+                {person.name[1][0]}
+              </span>
+            </div>
+          </div>
+
+          {/* Post title overlay */}
+          <div className="appeal-ceo__post" style={{ zIndex: 10 }}>
+            {person.post.map((line, i) => (
+              <span key={i}>
+                {line}
+                {i < person.post.length - 1 && <br />}
+              </span>
+            ))}
+          </div>
+
+          {/* Next person tab — bottom right */}
+          <button
+            onClick={() => setActive((prev) => (prev + 1) % people.length)}
+            className="absolute bottom-6 right-6 flex items-center gap-3 group"
+            style={{ zIndex: 10 }}
+            aria-label="Next person"
+          >
+            <div className="text-right">
+              <p className="text-xs text-white/40">{next.name[0]}</p>
+              <p className="text-xs text-white/40">{next.name[1]}</p>
+            </div>
+            <span
+              className="flex items-center justify-center bg-[#BF0632] text-white transition-transform group-hover:scale-105"
+              style={{ width: 32, height: 32 }}
+            >
+              <svg width="6" height="10" viewBox="0 0 6 10" fill="none" aria-hidden="true">
+                <path d="M1 1l4 4-4 4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </span>
+          </button>
+        </div>
+
+        {/* Right: text panel */}
+        <div className="appeal-ceo__bottom">
+          {/* Title */}
+          <div className="title-border mb-8">
+            <h2>Management message</h2>
+          </div>
+
+          {/* Name */}
+          <div className="appeal-ceo__name">
+            <h4>
+              {person.name[0]}
+              <br />
+              {person.name[1]}
+            </h4>
+          </div>
+
+          {/* Quote */}
+          <div className="appeal-ceo__text__quote">
+            <blockquote>
+              {/* Quote icon */}
+              <svg width="34" height="30" viewBox="0 0 34 30" fill="none" aria-hidden="true" className="mb-2 opacity-40">
+                <path d="M0 30V18C0 7.333 4.667 1.333 14 0l2 3C11.333 4.333 9.333 7 9 11h5v19H0zm19 0V18C19 7.333 23.667 1.333 33 0l2 3c-4.667 1.333-6.667 4-7 8h5v19H19z" fill="white" />
+              </svg>
+              <p>{person.quote}</p>
+            </blockquote>
+            <Link
+              href={`/${locale}${person.href}`}
+              className="appeal-ceo__text__more"
+            >
+              Learn more
+            </Link>
+          </div>
+
+          {/* Progress bar */}
+          <div className="appeal-ceo__load-bar mt-10">
+            <div ref={fillRef} className="appeal-ceo__load-fill" />
+          </div>
+
+          {/* Person dots */}
+          <div className="flex gap-3 mt-4">
+            {people.map((p, i) => (
+              <button
+                key={p.id}
+                onClick={() => setActive(i)}
+                aria-label={`${p.name[0]} ${p.name[1]}`}
+                className="transition-colors duration-200"
+                style={{
+                  width: 6,
+                  height: 6,
+                  borderRadius: 0,
+                  background: i === active ? "#BF0632" : "rgba(255,255,255,0.2)",
+                }}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
