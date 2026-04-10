@@ -236,8 +236,6 @@ export default function Header() {
                 onMouseEnter={() => open(setCompanyOpen, companyTimer)}
                 onMouseLeave={() => close(setCompanyOpen, companyTimer)}
               >
-                {/* top border sweep */}
-                <span className="pointer-events-none absolute left-0 top-0 h-[1px] w-full bg-white/[0.13]" />
                 <span className="nav-primary__main-link__line pointer-events-none absolute left-0 top-0 h-[2px] w-0 bg-white/70 transition-[width] duration-500 ease-[cubic-bezier(0.25,0.74,0.22,0.99)] group-hover:w-full" />
 
                 <span>{t("company")}</span>
@@ -288,7 +286,6 @@ export default function Header() {
                 onMouseEnter={() => open(setServicesOpen, servicesTimer)}
                 onMouseLeave={() => close(setServicesOpen, servicesTimer)}
               >
-                <span className="pointer-events-none absolute left-0 top-0 h-[1px] w-full bg-white/[0.13]" />
                 <span className="nav-primary__main-link__line pointer-events-none absolute left-0 top-0 h-[2px] w-0 bg-white/70 transition-[width] duration-500 ease-[cubic-bezier(0.25,0.74,0.22,0.99)] group-hover:w-full" />
 
                 <span>{t("services")}</span>
@@ -342,7 +339,6 @@ export default function Header() {
                   href={item.href}
                   className="nav-primary__main-link relative flex h-full items-center justify-between py-[18px] text-[13px] text-white/60 transition-colors duration-300 group-hover:text-white"
                 >
-                  <span className="pointer-events-none absolute left-0 top-0 h-[1px] w-full bg-white/[0.13]" />
                   <span className="nav-primary__main-link__line pointer-events-none absolute left-0 top-0 h-[2px] w-0 bg-white/70 transition-[width] duration-500 ease-[cubic-bezier(0.25,0.74,0.22,0.99)] group-hover:w-full" />
                   <span>{item.label}</span>
                 </Link>
