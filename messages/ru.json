@@ -1,0 +1,78 @@
+{
+  "nav": {
+    "company": "Компания",
+    "about": "О компании",
+    "sustainable": "Устойчивое развитие",
+    "services": "Услуги",
+    "drilling": "Бурение",
+    "service": "Сервис",
+    "pressCenter": "Пресс-центр",
+    "careers": "Карьера",
+    "procurement": "Закупки",
+    "contacts": "Контакты"
+  },
+  "home": {
+    "heroTitle": "Бурение для ресурсов",
+    "heroSubtitle": "Надёжная реализация вашей нефтегазовой стратегии",
+    "heroCtaDrilling": "Бурение",
+    "heroCtaServices": "Услуги",
+    "locationsTitle": "Наши объекты",
+    "locationsSubtitle": "Работаем в ключевых нефтегазоносных регионах",
+    "managementTitle": "Слово руководства",
+    "statsTitle": "Наши результаты",
+    "statsDrilled": "Пробурено (м)",
+    "statsWells": "Скважин завершено",
+    "statsYears": "Лет опыта",
+    "statsProjects": "Активных проектов",
+    "pressTitle": "Пресс-центр",
+    "pressViewAll": "Все новости",
+    "partnersTitle": "Наши партнёры"
+  },
+  "about": {
+    "title": "О компании",
+    "description": "Мы ведущий поставщик буровых и нефтесервисных услуг с многолетним опытом работы в отрасли.",
+    "heroTitle": "О GazStart",
+    "heroSubtitle": "Надёжный партнёр в разведке и добыче нефти и газа"
+  },
+  "sustainable": {
+    "title": "Устойчивое развитие",
+    "heroTitle": "Устойчивое развитие",
+    "heroSubtitle": "Ответственная разработка ресурсов"
+  },
+  "drilling": {
+    "title": "Буровые услуги",
+    "heroTitle": "Буровые услуги",
+    "heroSubtitle": "Передовые решения для сложных пластов"
+  },
+  "service": {
+    "title": "Нефтесервисные услуги",
+    "heroTitle": "Нефтесервисные услуги",
+    "heroSubtitle": "Комплексная поддержка добычи"
+  },
+  "pressCenter": {
+    "title": "Пресс-центр",
+    "heroTitle": "Пресс-центр",
+    "heroSubtitle": "Последние новости и объявления"
+  },
+  "careers": {
+    "title": "Карьера",
+    "heroTitle": "Присоединяйтесь к нашей команде",
+    "heroSubtitle": "Развивайте карьеру в энергетической отрасли"
+  },
+  "procurement": {
+    "title": "Закупки",
+    "heroTitle": "Закупки",
+    "heroSubtitle": "Информация для партнёров и поставщиков"
+  },
+  "contacts": {
+    "title": "Контакты",
+    "heroTitle": "Свяжитесь с нами",
+    "heroSubtitle": "Свяжитесь с нашей командой"
+  },
+  "common": {
+    "learnMore": "Узнать больше",
+    "readMore": "Читать далее",
+    "contactUs": "Связаться с нами",
+    "backToList": "Вернуться к списку"
+  }
+}
