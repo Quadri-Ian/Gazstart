@@ -1,19 +1,39 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  /* Brand colors */
+  --color-brand-navy: #0a1628;
+  --color-brand-navy-light: #1a2e4a;
+  --color-brand-navy-dark: #050e1a;
+  --color-brand-blue: #1e3a5f;
+  --color-brand-blue-light: #2e5c8a;
+  --color-brand-orange: #f97316;
+  --color-brand-orange-light: #fb923c;
+  --color-brand-orange-dark: #ea580c;
+  --color-brand-gold: #f59e0b;
+
+  /* Font families */
+  --font-sans: Inter, system-ui, sans-serif;
+  --font-display: Montserrat, Inter, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Background image utilities */
+  --background-image-gradient-brand: linear-gradient(135deg, #0a1628 0%, #1e3a5f 50%, #0a1628 100%);
+  --background-image-gradient-orange: linear-gradient(
+    135deg,
+    #ea580c 0%,
+    #f97316 50%,
+    #fb923c 100%
+  );
+}
 
 @layer base {
-  :root {
-    --font-inter: 'Inter', system-ui, sans-serif;
-    --font-montserrat: 'Montserrat', 'Inter', sans-serif;
-  }
-
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    font-family: var(--font-inter);
+    font-family: var(--font-sans);
   }
 }
 

@@ -10,6 +10,8 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: 'images.unsplash.com' },
     ],
   },
+  // Sanity Studio requires these packages to be transpiled
+  transpilePackages: ['sanity', '@sanity/ui', '@sanity/vision', 'next-sanity'],
 }
 
 export default withNextIntl(nextConfig)

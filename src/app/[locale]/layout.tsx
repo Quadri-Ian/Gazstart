@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { Inter, Montserrat } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
@@ -7,9 +6,6 @@ import { locales } from '@/lib/i18n/request'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import '../globals.css'
-
-const inter = Inter({ subsets: ['latin', 'cyrillic'], variable: '--font-inter' })
-const montserrat = Montserrat({ subsets: ['latin', 'cyrillic'], variable: '--font-montserrat' })
 
 export const metadata: Metadata = {
   title: {
@@ -39,7 +35,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   const messages = await getMessages()
 
   return (
-    <html lang={locale} className={`${inter.variable} ${montserrat.variable}`}>
+    <html lang={locale}>
       <body className="bg-white text-gray-900 antialiased">
         <NextIntlClientProvider messages={messages}>
           <Header />
