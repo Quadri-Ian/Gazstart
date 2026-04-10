@@ -238,8 +238,8 @@ export default function Header() {
       {/* Mobile menu */}
       {mobileOpen && (
         <div className="bg-brand-nav px-4 pb-6 lg:hidden">
-          <div className="flex flex-col gap-1">
-            <p className="mt-4 mb-1 text-xs uppercase tracking-widest text-white/40">
+          <div className="flex flex-col">
+            <p className="mt-4 mb-2 text-xs uppercase tracking-widest text-white/40">
               {t("company")}
             </p>
             {companyItems.map((item) => (
@@ -252,7 +252,7 @@ export default function Header() {
                 {item.label}
               </Link>
             ))}
-            <p className="mt-4 mb-1 text-xs uppercase tracking-widest text-white/40">
+            <p className="mt-4 mb-2 text-xs uppercase tracking-widest text-white/40">
               {t("services")}
             </p>
             {serviceItems.map((item) => (

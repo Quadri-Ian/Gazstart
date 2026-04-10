@@ -100,7 +100,7 @@ export default function HeroSection() {
           </div>
           {/* Thumbnail strip (placeholder) */}
           <div className="mb-4 h-1 w-full overflow-hidden rounded-full bg-white/10">
-            <div className="h-full w-3/5 rounded-full bg-brand-red group-hover:bg-white transition-colors" />
+            <div className="h-full w-3/5 rounded-full bg-brand-red transition-all group-hover:bg-white" />
           </div>
           {/* Circular arrow button */}
           <div className="flex items-center justify-between">
@@ -125,7 +125,7 @@ export default function HeroSection() {
             <span className="text-2xl font-bold text-white/20">{t("heroCard2Num")}</span>
           </div>
           <div className="mb-4 h-1 w-full overflow-hidden rounded-full bg-white/10">
-            <div className="h-full w-2/5 rounded-full bg-white/30 group-hover:bg-white transition-colors" />
+            <div className="h-full w-2/5 rounded-full bg-white/30 transition-all group-hover:bg-white" />
           </div>
           <div className="flex items-center justify-between">
             <span className="text-sm font-medium text-white">{t("heroCard2Label")}</span>

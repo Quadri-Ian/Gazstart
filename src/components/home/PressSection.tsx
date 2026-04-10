@@ -39,7 +39,7 @@ const news: NewsItem[] = [
   {
     slug: "technology-innovation-awards",
     date: "10 Jan 2026",
-    title: "Innovation Awards Recognise GazStart Technology Advances",
+    title: "Innovation Awards Recognize GazStart Technology Advances",
     excerpt:
       "The company received three industry awards for its pioneering work in directional drilling technology and real-time data analytics.",
     category: "announcements",
