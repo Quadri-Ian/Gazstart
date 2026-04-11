@@ -1,73 +1,77 @@
 "use client";
 
-import { Component, type ReactNode, useEffect, useState } from "react";
-import dynamic from "next/dynamic";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 
-import longtool from "@/assets/longtool.png";
+import angle01 from "@/assets/Consistent image angles/screenshot-1775918998528_no_bg_yzz2i7po.png";
+import angle02 from "@/assets/Consistent image angles/screenshot-1775919036038_no_bg_x9zwln2p.png";
+import angle03 from "@/assets/Consistent image angles/screenshot-1775919056067_no_bg_sb4ltnnp.png";
+import angle04 from "@/assets/Consistent image angles/screenshot-1775919081855_no_bg_5c6eer49.png";
+import angle05 from "@/assets/Consistent image angles/screenshot-1775919102720_no_bg_62gejg57.png";
+import angle06 from "@/assets/Consistent image angles/screenshot-1775919124400_no_bg_j3cd4eyq.png";
+import angle07 from "@/assets/Consistent image angles/screenshot-1775919145620_no_bg_gg90dw32.png";
+import angle08 from "@/assets/Consistent image angles/screenshot-1775919162104_no_bg_a6a9utmh.png";
+import angle09 from "@/assets/Consistent image angles/screenshot-1775919188172_no_bg_fwwftom4.png";
+import angle10 from "@/assets/Consistent image angles/screenshot-1775919207332_no_bg_ybysdedx.png";
+import angle11 from "@/assets/Consistent image angles/screenshot-1775919222401_no_bg_jvolfnp2.png";
 
-const RigScene = dynamic(() => import("@/components/home/RigScene"), {
-  ssr: false,
-});
-
-class RigSceneBoundary extends Component<
-  { children: ReactNode; fallback: ReactNode },
-  { hasError: boolean }
-> {
-  state = { hasError: false };
-
-  static getDerivedStateFromError() {
-    return { hasError: true };
-  }
-
-  componentDidCatch() {}
-
-  render() {
-    if (this.state.hasError) {
-      return this.props.fallback;
-    }
-
-    return this.props.children;
-  }
-}
-
-function RigFallback() {
-  return (
-    <div className="absolute inset-0 flex items-start justify-center overflow-hidden opacity-[0.34]">
-      <Image
-        src={longtool}
-        alt=""
-        aria-hidden="true"
-        className="mt-[18px] h-auto w-[560px] select-none md:mt-[-18px] md:w-[780px] lg:mt-[-34px] lg:w-[980px]"
-        priority={false}
-      />
-    </div>
-  );
-}
+const rigFrames = [angle01, angle02, angle03, angle04, angle05, angle06, angle07, angle08, angle09, angle10, angle11];
 
 export default function StatsSection() {
   const t = useTranslations("home");
-  const [mouseX, setMouseX] = useState(0);
-  const [canRender3d, setCanRender3d] = useState(false);
+  const [targetProgress, setTargetProgress] = useState(0.5);
+  const [displayProgress, setDisplayProgress] = useState(0.5);
+  const animationFrameRef = useRef<number | null>(null);
 
   useEffect(() => {
-    const canvas = document.createElement("canvas");
-    const hasWebgl =
-      Boolean(window.WebGL2RenderingContext && canvas.getContext("webgl2")) ||
-      Boolean(window.WebGLRenderingContext && canvas.getContext("webgl"));
+    const animate = () => {
+      setDisplayProgress((current) => {
+        const next = current + (targetProgress - current) * 0.14;
 
-    setCanRender3d(hasWebgl);
-  }, []);
+        if (Math.abs(targetProgress - next) < 0.0015) {
+          animationFrameRef.current = null;
+          return targetProgress;
+        }
+
+        animationFrameRef.current = window.requestAnimationFrame(animate);
+        return next;
+      });
+    };
+
+    if (animationFrameRef.current === null) {
+      animationFrameRef.current = window.requestAnimationFrame(animate);
+    }
+
+    return () => {
+      if (animationFrameRef.current !== null) {
+        window.cancelAnimationFrame(animationFrameRef.current);
+      }
+    };
+  }, [targetProgress]);
+
+  const frameState = useMemo(() => {
+    const exactIndex = displayProgress * (rigFrames.length - 1);
+    const baseIndex = Math.floor(exactIndex);
+    const nextIndex = Math.min(baseIndex + 1, rigFrames.length - 1);
+    const blend = exactIndex - baseIndex;
+
+    return {
+      baseFrame: rigFrames[baseIndex],
+      nextFrame: rigFrames[nextIndex],
+      blend,
+      isSingleFrame: baseIndex === nextIndex,
+    };
+  }, [displayProgress]);
 
   const handleMove = (event: React.MouseEvent<HTMLElement>) => {
     const bounds = event.currentTarget.getBoundingClientRect();
     const progress = (event.clientX - bounds.left) / bounds.width;
-    setMouseX(Math.max(-1, Math.min(1, progress * 2 - 1)));
+    setTargetProgress(Math.max(0, Math.min(1, progress)));
   };
 
   const handleLeave = () => {
-    setMouseX(0);
+    setTargetProgress(0.5);
   };
 
   return (
@@ -81,14 +85,32 @@ export default function StatsSection() {
           <h2 className="text-[15px] font-normal tracking-[-0.02em] text-primary-600 md:text-[17px]">{t("statsDrilled")}</h2>
         </div>
 
-        <div className="pointer-events-none absolute inset-0 z-10 opacity-[0.72]">
-          {canRender3d ? (
-            <RigSceneBoundary fallback={<RigFallback />}>
-              <RigScene mouseX={mouseX} />
-            </RigSceneBoundary>
-          ) : (
-            <RigFallback />
-          )}
+        <div className="pointer-events-none absolute inset-x-0 top-[56px] bottom-0 z-10 overflow-hidden opacity-[0.78] md:top-[62px] lg:top-[70px]">
+          <div className="absolute inset-0">
+            <Image
+              src={frameState.baseFrame}
+              alt=""
+              aria-hidden="true"
+              fill
+              className="select-none object-contain object-center scale-[1.2] md:scale-[1.16] lg:scale-[1.12]"
+              priority={false}
+              sizes="100vw"
+              style={{ opacity: frameState.isSingleFrame ? 1 : 1 - frameState.blend }}
+            />
+
+            {!frameState.isSingleFrame ? (
+              <Image
+                src={frameState.nextFrame}
+                alt=""
+                aria-hidden="true"
+                fill
+                className="select-none object-contain object-center scale-[1.2] md:scale-[1.16] lg:scale-[1.12]"
+                priority={false}
+                sizes="100vw"
+                style={{ opacity: frameState.blend }}
+              />
+            ) : null}
+          </div>
         </div>
 
         <div className="relative z-20 min-h-[520px] pb-8 md:min-h-[600px] md:pb-10 lg:min-h-[680px] lg:pb-14">
