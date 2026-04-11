@@ -92,9 +92,9 @@ body {
   background: #ffffff;
   display: block;
   flex-shrink: 0;
-  width: 260px;
-  height: 160px;
-  padding: 30px;
+  width: 280px;
+  height: 170px;
+  padding: 26px 28px;
   cursor: pointer;
   text-decoration: none;
 }
@@ -147,7 +147,7 @@ body {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 4px;
+  gap: 2px;
 }
 .rising-banner__title {
   font-size: 16px;
@@ -157,7 +157,7 @@ body {
   line-height: 1.25;
 }
 .rising-banner__count {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 400;
   letter-spacing: -0.02em;
   color: color-mix(in srgb, var(--dark-900) 40%, transparent);
@@ -165,8 +165,8 @@ body {
 }
 .rising-banner__icon {
   position: absolute;
-  right: 30px;
-  bottom: 26px;
+  right: 28px;
+  bottom: 22px;
   z-index: 4;
 }
 

@@ -75,7 +75,7 @@ export default function HeroSection() {
         <div className="mx-auto flex w-full max-w-[1680px] flex-1 flex-col justify-center px-5 pb-12 pt-[120px] sm:px-[72px] lg:px-[150px] lg:pt-[152px]">
           <h1
             className="text-white font-light leading-[0.95] tracking-[-0.04em]"
-            style={{ fontSize: "clamp(48px, 8vw, 130px)" }}
+            style={{ fontSize: "clamp(46px, 7vw, 112px)" }}
           >
             {t("heroTitleAccent")}
             <br />
@@ -146,15 +146,15 @@ export default function HeroSection() {
       </div>
 
       {/* Scroll down button */}
-      <div className="absolute bottom-8 right-6 z-[5] md:bottom-10 md:right-12 xl:right-[72px]">
+      <div className="absolute bottom-10 right-8 z-[5] md:bottom-14 md:right-[84px] xl:right-[112px]">
         <a
           href="#geography"
           aria-label="Our Locations"
           className="flex items-center justify-center rounded-full bg-white text-dark-900 transition-transform duration-300 hover:scale-[1.03]"
-          style={{ width: 44, height: 44 }}
+          style={{ width: 60, height: 60 }}
         >
-          <svg width="12" height="6" viewBox="0 0 12 6" fill="none">
-            <path d="M1 1l5 4 5-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <svg width="14" height="8" viewBox="0 0 14 8" fill="none">
+            <path d="M1 1.5L7 6.5L13 1.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </a>
       </div>
