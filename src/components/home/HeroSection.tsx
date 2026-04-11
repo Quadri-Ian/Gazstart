@@ -54,7 +54,7 @@ export default function HeroSection() {
 
       {/* NZ geometric logo mark overlay (right side) */}
       <div
-        className="pointer-events-none absolute inset-0 z-[2] overflow-hidden"
+        className="pointer-events-none absolute bottom-0 left-0 right-0 top-[108px] z-[2] overflow-hidden"
         aria-hidden="true"
       >
         <div className="absolute bottom-0 right-0 top-0 flex items-center" style={{ right: "5%" }}>
