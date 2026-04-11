@@ -95,7 +95,133 @@ export default function SustainabilityShowcase({ slides }: SustainabilityShowcas
 
   return (
     <section className="bg-white px-0 py-8 md:py-12 lg:py-16">
-      <div className="overflow-hidden bg-white">
+      <div className="overflow-hidden bg-white md:hidden">
+        <div className="overflow-hidden rounded-t-[22px]">
+          <div className="relative min-h-[392px] overflow-hidden bg-[#667789]">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={`mobile-background-${activeIndex}`}
+                initial={{ opacity: 0.35, scale: 1.03 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0.2, scale: 0.985 }}
+                transition={fadeSlideTransition}
+                className="absolute inset-0"
+              >
+                <Image
+                  src={introBackground as StaticImageData}
+                  alt="Industrial background"
+                  fill
+                  priority
+                  className="object-cover object-[72%_center]"
+                />
+              </motion.div>
+            </AnimatePresence>
+
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(77,92,107,0.12)_0%,rgba(57,72,84,0.04)_100%)]" />
+
+            <div className="absolute left-0 right-0 top-0 z-30 px-5 pt-5">
+              <div className="flex items-center justify-between border-b border-white/25 pb-4 text-[13px] leading-none tracking-[-0.02em] text-white/95">
+                <span>{slide.category}</span>
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={`mobile-counter-${activeIndex}`}
+                    initial={{ opacity: 0, y: -18 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 14 }}
+                    transition={fadeSlideTransition}
+                    className="text-right text-white/90"
+                  >
+                    {activeIndex + 1}/{slides.length}
+                  </motion.span>
+                </AnimatePresence>
+              </div>
+            </div>
+
+            <div className="absolute left-5 top-[72px] z-30 flex items-center gap-3">
+              <button
+                type="button"
+                onClick={goToPrevious}
+                aria-label="Previous slide"
+                className="flex h-[42px] w-[42px] items-center justify-center rounded-full bg-white text-[#b4042f]"
+              >
+                <ArrowIcon direction="prev" />
+              </button>
+              <button
+                type="button"
+                onClick={goToNext}
+                aria-label="Next slide"
+                className="flex h-[42px] w-[42px] items-center justify-center rounded-full bg-white text-[#b4042f]"
+              >
+                <ArrowIcon direction="next" />
+              </button>
+            </div>
+
+            <div className="absolute inset-0 z-10">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={`mobile-worker-${activeIndex}`}
+                  initial={{ opacity: 0, x: 36, scale: 0.96 }}
+                  animate={{ opacity: 1, x: 0, scale: 1 }}
+                  exit={{ opacity: 0, x: 18, scale: 0.98 }}
+                  transition={fadeSlideTransition}
+                  className="absolute inset-0"
+                >
+                  <Image
+                    src={workerImage as StaticImageData}
+                    alt="Field worker"
+                    priority
+                    className="absolute bottom-0 right-[-18%] h-auto w-[92%] max-w-none"
+                  />
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            <div className="absolute bottom-5 left-5 right-5 z-20">
+              <AnimatePresence mode="wait">
+                <motion.h2
+                  key={`mobile-title-${activeIndex}`}
+                  initial={{ opacity: 0, y: 22 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -14 }}
+                  transition={fadeSlideTransition}
+                  className="max-w-[240px] text-[28px] font-medium leading-[0.92] tracking-[-0.06em] text-white"
+                >
+                  {slide.title}
+                </motion.h2>
+              </AnimatePresence>
+            </div>
+          </div>
+
+          <div className="bg-[#b4042f] px-5 pb-8 pt-7 text-white">
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={`mobile-description-${activeIndex}`}
+                initial={{ opacity: 0, y: 22 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -18 }}
+                transition={fadeSlideTransition}
+                className="text-[15px] leading-[1.28] tracking-[-0.03em] text-white"
+              >
+                {slide.description}
+              </motion.p>
+            </AnimatePresence>
+          </div>
+
+          <div className="bg-[#47596b] px-5 py-5 text-white">
+            <button
+              type="button"
+              className="inline-flex w-full items-center justify-between gap-5 text-[15px] font-medium tracking-[-0.02em] text-white"
+            >
+              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white text-[#47596b]">
+                <ArrowIcon direction="next" />
+              </span>
+              <span className="flex-1 text-center">{slide.cta}</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div className="hidden overflow-hidden bg-white md:block">
         <div className="relative grid min-h-[720px] grid-cols-1 lg:grid-cols-[50.4%_49.6%]">
           <div className="absolute left-0 right-0 top-0 z-30 px-[30px] pt-8 md:px-[60px] md:pt-10 lg:px-[150px] lg:pt-[34px]">
             <div className="flex items-center justify-between border-b border-white/25 pb-4 text-[13px] leading-none tracking-[-0.02em] text-white/95 md:text-[14px]">

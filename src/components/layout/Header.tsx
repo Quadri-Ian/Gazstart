@@ -123,7 +123,7 @@ export default function Header() {
           <div className="lg:hidden">
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="flex h-9 w-9 items-center justify-center border border-white/25 text-white"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-[#31404e]/92 text-white"
               aria-label="Open navigation menu"
             >
               {mobileOpen ? (

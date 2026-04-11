@@ -62,6 +62,9 @@ export default function PartnersSection() {
   return (
     <section className="bg-white">
       <div className="grid grid-cols-2 border-y border-black/10 md:grid-cols-5">
+        <div className="flex min-h-[152px] items-start justify-start border-r border-black/10 px-6 py-7 text-[#394854] md:hidden">
+          <h2 className="max-w-[82px] text-[18px] leading-[0.95] tracking-[-0.04em]">Our Partners</h2>
+        </div>
         {partners.map((partner) => (
           <div
             key={partner.id}

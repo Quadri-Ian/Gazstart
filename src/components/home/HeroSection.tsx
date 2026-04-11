@@ -33,7 +33,7 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative flex min-h-screen overflow-hidden bg-dark-900"
+      className="relative flex min-h-[100svh] overflow-hidden bg-dark-900 md:min-h-screen"
       id="top"
       onMouseMove={handleMouseMove}
       onMouseLeave={resetMousePosition}
@@ -45,14 +45,30 @@ export default function HeroSection() {
         fill
         priority
         quality={90}
-        className="object-cover object-center"
+        className="object-cover object-[62%_center] md:object-center"
         style={{ zIndex: 0 }}
       />
 
-      {/* Dark overlay */}
-      <div className="absolute inset-0 z-[1] bg-dark-900/45" />
+      <div className="absolute inset-0 z-[1] bg-[linear-gradient(180deg,rgba(34,44,55,0.58)_0%,rgba(34,44,55,0.4)_44%,rgba(34,44,55,0.56)_100%)] md:bg-dark-900/45" />
 
-      {/* Man figure */}
+      <div className="absolute inset-x-0 bottom-0 z-[2] h-[34vh] md:hidden">
+        <div className="absolute bottom-0 left-[-8%] h-[24vh] w-[76%] bg-[#780522] opacity-95 [clip-path:polygon(0_28%,50%_28%,71%_100%,0_100%)]" />
+        <div className="absolute bottom-0 right-[-10%] h-[19vh] w-[48%] bg-[#981038] opacity-90 [clip-path:polygon(38%_0,100%_0,100%_100%,0_100%)]" />
+      </div>
+
+      <motion.div className="pointer-events-none absolute bottom-0 right-[-14%] z-[3] h-[47vh] select-none md:hidden" style={{ x: manX, y: manY }}>
+        <Image
+          src={manImg}
+          alt=""
+          height={900}
+          width={520}
+          quality={90}
+          priority
+          className="h-full w-auto object-contain object-bottom"
+          draggable={false}
+        />
+      </motion.div>
+
       <motion.div
         className="pointer-events-none absolute bottom-0 right-[4%] z-[3] hidden h-[88vh] select-none md:block"
         style={{ x: manX, y: manY }}
@@ -69,35 +85,28 @@ export default function HeroSection() {
         />
       </motion.div>
 
-      {/* Content */}
-      <div className="relative z-[4] flex min-h-screen w-full flex-col">
-        {/* Main text content */}
-        <div className="mx-auto flex w-full max-w-[1680px] flex-1 flex-col justify-center px-5 pb-12 pt-[120px] sm:px-[72px] lg:px-[150px] lg:pt-[152px]">
+      <div className="relative z-[4] flex min-h-[100svh] w-full flex-col md:min-h-screen">
+        <div className="mx-auto flex w-full max-w-[1680px] flex-1 flex-col justify-start px-5 pb-12 pt-[108px] sm:px-[72px] md:justify-center md:pt-[120px] lg:px-[150px] lg:pt-[152px]">
           <h1
-            className="text-white font-light leading-[0.95] tracking-[-0.04em]"
-            style={{ fontSize: "clamp(46px, 7vw, 112px)" }}
+            className="max-w-[230px] text-[31px] font-semibold leading-[0.94] tracking-[-0.05em] text-white md:max-w-none md:text-[72px] md:font-light md:leading-[0.95] md:tracking-[-0.04em] lg:text-[112px]"
           >
             {t("heroTitleAccent")}
             <br />
             {t("heroTitleMain")}
           </h1>
           <p
-            className="mt-8 text-white font-light"
-            style={{ fontSize: "clamp(16px, 1.6vw, 20px)", letterSpacing: "-0.02em", lineHeight: 1.35, maxWidth: 450 }}
+            className="mt-5 max-w-[190px] text-[13px] font-semibold leading-[1.12] tracking-[-0.03em] text-white md:mt-8 md:max-w-[450px] md:text-[20px] md:font-light md:leading-[1.35] md:tracking-[-0.02em]"
           >
             {t("heroSubtitle")}
           </p>
         </div>
 
-        {/* Rising banner cards — desktop only */}
         <div className="hidden md:block pb-16">
           <div className="mx-auto w-full max-w-[1680px] px-5 sm:px-[72px] lg:px-[150px]">
             <div className="flex gap-10">
-              {/* Drilling card */}
               <Link href={`/${locale}/services/drilling`} className="rising-banner">
                 <div className="rising-banner__effect">
                   <div className="rising-banner__effect__image">
-                    {/* Placeholder dark bg used when no image */}
                     <div className="absolute inset-0 bg-dark-700" />
                   </div>
                 </div>
@@ -105,7 +114,6 @@ export default function HeroSection() {
                   <span className="rising-banner__title">{t("heroCtaDrilling")}</span>
                   <span className="rising-banner__count">01</span>
                 </div>
-                {/* Arrow icon */}
                 <div className="rising-banner__icon">
                   <span
                     className="flex items-center justify-center rounded-full bg-primary-600 text-white"
@@ -118,7 +126,6 @@ export default function HeroSection() {
                 </div>
               </Link>
 
-              {/* Services card */}
               <Link href={`/${locale}/services/service`} className="rising-banner">
                 <div className="rising-banner__effect">
                   <div className="rising-banner__effect__image">
@@ -145,13 +152,12 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Scroll down button */}
-      <div className="absolute bottom-10 right-8 z-[5] md:bottom-14 md:right-[84px] xl:right-[112px]">
+      <div className="absolute bottom-7 right-5 z-[5] md:bottom-14 md:right-[84px] xl:right-[112px]">
         <a
           href="#geography"
           aria-label="Our Locations"
           className="flex items-center justify-center rounded-full bg-white text-dark-900 transition-transform duration-300 hover:scale-[1.03]"
-          style={{ width: 60, height: 60 }}
+          style={{ width: 46, height: 46 }}
         >
           <svg width="14" height="8" viewBox="0 0 14 8" fill="none">
             <path d="M1 1.5L7 6.5L13 1.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />

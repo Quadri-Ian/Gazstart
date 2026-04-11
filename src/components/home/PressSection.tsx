@@ -195,26 +195,26 @@ export default function PressSection() {
   };
 
   return (
-    <section className="bg-white py-20 md:py-24 xl:py-28">
-      <div className="mx-auto w-full max-w-[1680px] px-[30px] md:px-[60px] lg:px-[150px]">
+    <section className="bg-white py-16 md:py-24 xl:py-28">
+      <div className="mx-auto w-full max-w-[1680px] px-5 md:px-[60px] lg:px-[150px]">
         <div className="title-border title-border--grey">
           <h2>Press-center</h2>
         </div>
 
-        <div className="mb-10 flex flex-col gap-6 lg:mb-12 lg:flex-row lg:items-center lg:justify-between">
-          <div className="flex flex-wrap gap-2.5 md:gap-3">
+        <div className="mb-8 flex flex-col gap-5 md:mb-10 lg:mb-12 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex flex-wrap gap-2 md:gap-3">
             {tabs.map((tab) => (
               <button
                 key={tab.key}
                 onClick={() => setActiveTab(tab.key)}
-                className={`press-tab-btn rounded-full px-7 py-3 text-[13px] ${activeTab === tab.key ? "is-active" : ""}`}
+                className={`press-tab-btn rounded-full px-5 py-2.5 text-[12px] md:px-7 md:py-3 md:text-[13px] ${activeTab === tab.key ? "is-active" : ""}`}
               >
                 {tab.label}
               </button>
             ))}
           </div>
 
-          <div className="flex items-center gap-3 self-end lg:self-auto">
+          <div className="hidden items-center gap-3 self-end lg:flex lg:self-auto">
             <button
               type="button"
               aria-label="Previous press items"
@@ -244,14 +244,14 @@ export default function PressSection() {
 
         <div
           ref={scrollRef}
-          className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 [&::-webkit-scrollbar]:hidden"
+          className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 md:gap-5 [&::-webkit-scrollbar]:hidden"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {articles[activeTab].map((item) => (
             <Link
               key={item.slug}
               href={`/${locale}/press-center`}
-              className="group relative block h-[326px] min-w-[262px] snap-start overflow-hidden border border-black/5 bg-[#f8f8f9] md:min-w-[286px]"
+              className="group relative block h-[302px] min-w-[250px] snap-start overflow-hidden border border-black/5 bg-[#f8f8f9] md:h-[326px] md:min-w-[286px]"
             >
               <div className="absolute inset-0 overflow-hidden">
                 {item.imageUrl ? (
@@ -265,13 +265,13 @@ export default function PressSection() {
                 ) : null}
               </div>
 
-              <div className="relative flex h-full flex-col justify-between px-5 py-5 md:px-6 md:py-6">
-                <h3 className={`max-w-[228px] text-[15px] leading-[1.1] tracking-[-0.035em] text-[#394854] transition-colors duration-500 ${item.imageUrl ? "group-hover:text-white" : ""}`}>
+              <div className="relative flex h-full flex-col justify-between px-4 py-4 md:px-6 md:py-6">
+                <h3 className={`max-w-[214px] text-[14px] leading-[1.1] tracking-[-0.035em] text-[#394854] transition-colors duration-500 md:max-w-[228px] md:text-[15px] ${item.imageUrl ? "group-hover:text-white" : ""}`}>
                   {item.title}
                 </h3>
 
-                <div className={`flex items-end justify-between border-t border-black/10 pt-5 transition-colors duration-500 ${item.imageUrl ? "group-hover:border-white/25" : ""}`}>
-                  <time className={`text-[58px] leading-[0.84] tracking-[-0.075em] text-[#b4042f] transition-colors duration-500 ${item.imageUrl ? "group-hover:text-white" : ""}`}>
+                <div className={`flex items-end justify-between border-t border-black/10 pt-4 transition-colors duration-500 md:pt-5 ${item.imageUrl ? "group-hover:border-white/25" : ""}`}>
+                  <time className={`text-[52px] leading-[0.84] tracking-[-0.075em] text-[#b4042f] transition-colors duration-500 md:text-[58px] ${item.imageUrl ? "group-hover:text-white" : ""}`}>
                     {item.day}
                   </time>
                   <div className={`pb-1 text-right text-[11px] leading-[1.02] tracking-[-0.03em] text-[#435465]/72 transition-colors duration-500 ${item.imageUrl ? "group-hover:text-white/78" : ""}`}>

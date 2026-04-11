@@ -18,8 +18,8 @@ export default function Footer() {
 
   return (
     <footer className="bg-white text-[#394854]">
-      <div className="mx-auto w-full max-w-[1680px] px-[30px] pt-16 md:px-[60px] md:pt-20 lg:px-[150px] lg:pt-24">
-        <div className="grid min-h-[300px] grid-cols-1 gap-12 pb-16 md:grid-cols-[240px_1fr_auto] md:gap-8 lg:pb-24">
+      <div className="mx-auto w-full max-w-[1680px] px-5 pt-12 md:px-[60px] md:pt-20 lg:px-[150px] lg:pt-24">
+        <div className="grid min-h-[300px] grid-cols-[1fr_auto] gap-x-6 gap-y-10 pb-14 md:grid-cols-[240px_1fr_auto] md:gap-8 lg:pb-24">
           <div>
             <div className="mb-8 flex items-center gap-2">
               <a
@@ -64,7 +64,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <nav className="justify-self-start">
+          <nav className="col-span-2 justify-self-start md:col-span-1">
             <ul className="space-y-1">
               {navLinks.map((link) => (
                 <li key={link.href}>
@@ -79,7 +79,7 @@ export default function Footer() {
             </ul>
           </nav>
 
-          <div className="flex md:justify-end md:items-start">
+          <div className="flex justify-end md:items-start">
             <a
               href="#top"
               aria-label="Back to top"
