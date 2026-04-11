@@ -101,7 +101,7 @@ export default function Header() {
       {/* ── Row 1: primary bar ── */}
       <div className="header__primary transition-colors duration-500">
         <div
-          className="container-h mx-auto flex max-w-[1680px] items-center px-5 sm:px-[60px] lg:px-[140px]"
+          className="container-h mx-auto flex max-w-[1680px] items-center px-5 sm:px-[60px] lg:px-[150px]"
           id="header"
         >
           {/* Logo */}
@@ -224,7 +224,7 @@ export default function Header() {
 
       {/* ── Row 2: nav bar — desktop only ── */}
       <div className="header__secondary hidden lg:block">
-        <nav className="mx-auto max-w-[1680px] px-[140px]">
+        <nav className="mx-auto max-w-[1680px] px-[150px]">
           {/* flex: items fill full width edge-to-edge */}
           <ul className="nav-primary flex gap-10">
 
@@ -236,8 +236,8 @@ export default function Header() {
                 onMouseEnter={() => open(setCompanyOpen, companyTimer)}
                 onMouseLeave={() => close(setCompanyOpen, companyTimer)}
               >
-                <span className="pointer-events-none absolute left-1/2 top-0 h-px w-[116px] -translate-x-1/2 bg-white/[0.18]" />
-                <span className="nav-primary__main-link__line pointer-events-none absolute left-1/2 top-0 h-[2px] w-[116px] -translate-x-1/2 origin-center scale-x-0 bg-white/70 transition-transform duration-500 ease-[cubic-bezier(0.25,0.74,0.22,0.99)] group-hover:scale-x-100" />
+                <span className="pointer-events-none absolute left-0 top-0 h-px w-[140px] bg-white/[0.26] 2xl:w-[156px]" />
+                <span className="nav-primary__main-link__line pointer-events-none absolute left-0 top-0 h-[2px] w-[140px] origin-left scale-x-0 bg-white transition-transform duration-500 ease-[cubic-bezier(0.25,0.74,0.22,0.99)] group-hover:scale-x-100 2xl:w-[156px]" />
 
                 <span>{t("company")}</span>
                 <svg
@@ -287,8 +287,8 @@ export default function Header() {
                 onMouseEnter={() => open(setServicesOpen, servicesTimer)}
                 onMouseLeave={() => close(setServicesOpen, servicesTimer)}
               >
-                <span className="pointer-events-none absolute left-1/2 top-0 h-px w-[116px] -translate-x-1/2 bg-white/[0.18]" />
-                <span className="nav-primary__main-link__line pointer-events-none absolute left-1/2 top-0 h-[2px] w-[116px] -translate-x-1/2 origin-center scale-x-0 bg-white/70 transition-transform duration-500 ease-[cubic-bezier(0.25,0.74,0.22,0.99)] group-hover:scale-x-100" />
+                <span className="pointer-events-none absolute left-0 top-0 h-px w-[140px] bg-white/[0.26] 2xl:w-[156px]" />
+                <span className="nav-primary__main-link__line pointer-events-none absolute left-0 top-0 h-[2px] w-[140px] origin-left scale-x-0 bg-white transition-transform duration-500 ease-[cubic-bezier(0.25,0.74,0.22,0.99)] group-hover:scale-x-100 2xl:w-[156px]" />
 
                 <span>{t("services")}</span>
                 <svg
@@ -341,8 +341,8 @@ export default function Header() {
                   href={item.href}
                   className="nav-primary__main-link relative flex h-full items-center justify-between py-[18px] text-[13px] text-white/60 transition-colors duration-300 group-hover:text-white"
                 >
-                  <span className="pointer-events-none absolute left-1/2 top-0 h-px w-[116px] -translate-x-1/2 bg-white/[0.18]" />
-                  <span className="nav-primary__main-link__line pointer-events-none absolute left-1/2 top-0 h-[2px] w-[116px] -translate-x-1/2 origin-center scale-x-0 bg-white/70 transition-transform duration-500 ease-[cubic-bezier(0.25,0.74,0.22,0.99)] group-hover:scale-x-100" />
+                  <span className="pointer-events-none absolute left-0 top-0 h-px w-[140px] bg-white/[0.26] 2xl:w-[156px]" />
+                  <span className="nav-primary__main-link__line pointer-events-none absolute left-0 top-0 h-[2px] w-[140px] origin-left scale-x-0 bg-white transition-transform duration-500 ease-[cubic-bezier(0.25,0.74,0.22,0.99)] group-hover:scale-x-100 2xl:w-[156px]" />
                   <span>{item.label}</span>
                 </Link>
               </li>

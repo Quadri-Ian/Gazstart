@@ -72,7 +72,7 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-[4] flex min-h-screen w-full flex-col">
         {/* Main text content */}
-        <div className="container-h flex flex-1 flex-col justify-center pb-12 pt-[120px] lg:pt-[152px]">
+        <div className="mx-auto flex w-full max-w-[1680px] flex-1 flex-col justify-center px-5 pb-12 pt-[120px] sm:px-[72px] lg:px-[150px] lg:pt-[152px]">
           <h1
             className="text-white font-light leading-[0.95] tracking-[-0.04em]"
             style={{ fontSize: "clamp(48px, 8vw, 130px)" }}
@@ -82,8 +82,8 @@ export default function HeroSection() {
             {t("heroTitleMain")}
           </h1>
           <p
-            className="mt-6 text-white/60 font-light"
-            style={{ fontSize: "clamp(16px, 1.6vw, 20px)", letterSpacing: "-0.02em", maxWidth: 400 }}
+            className="mt-8 text-white font-light"
+            style={{ fontSize: "clamp(16px, 1.6vw, 20px)", letterSpacing: "-0.02em", lineHeight: 1.35, maxWidth: 450 }}
           >
             {t("heroSubtitle")}
           </p>
@@ -91,7 +91,7 @@ export default function HeroSection() {
 
         {/* Rising banner cards — desktop only */}
         <div className="hidden md:block pb-16">
-          <div className="container-h">
+          <div className="mx-auto w-full max-w-[1680px] px-5 sm:px-[72px] lg:px-[150px]">
             <div className="flex gap-10">
               {/* Drilling card */}
               <Link href={`/${locale}/services/drilling`} className="rising-banner">
@@ -146,7 +146,7 @@ export default function HeroSection() {
       </div>
 
       {/* Scroll down button */}
-      <div className="absolute bottom-8 right-6 z-[5] md:bottom-10 md:right-10">
+      <div className="absolute bottom-8 right-6 z-[5] md:bottom-10 md:right-12 xl:right-[72px]">
         <a
           href="#geography"
           aria-label="Our Locations"
