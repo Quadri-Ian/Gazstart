@@ -54,7 +54,7 @@ export default function HeroSection() {
 
       {/* NZ geometric logo mark overlay (right side) */}
       <div
-        className="pointer-events-none absolute bottom-0 left-0 right-0 top-[108px] z-[2] overflow-hidden"
+        className="pointer-events-none absolute inset-0 z-[2] overflow-hidden"
         aria-hidden="true"
       >
         <div className="absolute bottom-0 right-0 top-0 flex items-center" style={{ right: "5%" }}>
@@ -63,6 +63,7 @@ export default function HeroSection() {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             className="h-[90vh] w-auto opacity-[0.06]"
+            style={{ clipPath: "inset(2px 0 0 0)" }}
           >
             <clipPath id="nz-clip">
               <rect x="0" y="0" width="2022" height="711" />
