@@ -57,7 +57,7 @@ export default function LocationsSection() {
   const metricLabel = t("locationsMetricLabel").replace(/,\s*/g, ",\n");
 
   return (
-    <section className="ui-dark-background py-36 md:py-48 lg:py-[13rem]" id="geography">
+    <section className="ui-dark-background pb-0 pt-36 md:pb-0 md:pt-48 lg:pb-0 lg:pt-[13rem]" id="geography">
       <div className="container-h mx-auto max-w-[1680px] px-5 sm:px-[60px] lg:px-[150px]">
         <div className="title-border">
           <h2 className="text-[32px] leading-none md:text-[44px] lg:text-[52px]">{t("locationsTitle")}</h2>
@@ -78,7 +78,7 @@ export default function LocationsSection() {
           </ScrollReveal>
         </div>
 
-        <ScrollReveal className="relative min-h-[700px] pt-4 md:min-h-[820px] lg:min-h-[880px]">
+        <ScrollReveal className="relative min-h-[560px] pt-4 md:min-h-[660px] lg:min-h-[700px]">
           <div className="absolute right-0 top-[206px] h-[300px] w-[48%] overflow-hidden bg-white/10 md:top-[208px] md:h-[350px] md:w-[47%] lg:top-[214px] lg:h-[392px] lg:w-[48%]">
             <Image
               src={introBackground}
@@ -119,7 +119,7 @@ export default function LocationsSection() {
 
           <Link
             href={localePath("/services/drilling")}
-            className="absolute bottom-[52px] left-0 z-20 inline-flex items-center gap-4 text-[15px] text-white transition-opacity duration-300 hover:opacity-80 md:bottom-[64px] md:text-[16px] lg:bottom-[76px]"
+            className="absolute left-0 top-[490px] z-20 inline-flex items-center gap-4 text-[14px] text-white transition-opacity duration-300 hover:opacity-80 md:top-[542px] md:text-[15px] lg:top-[590px]"
           >
             <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-dark-900">›</span>
             <span>{t("locationsProjectsCta")}</span>
