@@ -97,12 +97,25 @@ export default function SustainabilityShowcase({ slides }: SustainabilityShowcas
     <section className="bg-white px-0 py-8 md:py-12 lg:py-16">
       <div className="overflow-hidden bg-white">
         <div className="relative grid min-h-[720px] grid-cols-1 lg:grid-cols-[50.4%_49.6%]">
-          <div className="relative z-10 flex flex-col bg-[#b4042f] px-8 py-8 text-white md:px-12 md:py-10 lg:px-[72px] lg:py-[66px]">
-            <div className="max-w-[420px]">
-              <div className="border-b border-white/25 pb-4 text-[13px] leading-none tracking-[-0.02em] text-white/95 md:text-[14px]">
-                {slide.category}
-              </div>
+          <div className="absolute left-0 right-0 top-0 z-30 px-[30px] pt-8 md:px-[60px] md:pt-10 xl:px-[140px] lg:pt-[34px]">
+            <div className="flex items-center justify-between border-b border-white/25 pb-4 text-[13px] leading-none tracking-[-0.02em] text-white/95 md:text-[14px]">
+              <span>{slide.category}</span>
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={`counter-${activeIndex}`}
+                  initial={{ opacity: 0, y: -18 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 14 }}
+                  transition={fadeSlideTransition}
+                  className="text-right text-white/90"
+                >
+                  {activeIndex + 1}/{slides.length}
+                </motion.span>
+              </AnimatePresence>
             </div>
+          </div>
+
+          <div className="relative z-10 flex flex-col bg-[#b4042f] px-8 py-8 text-white md:px-12 md:py-10 lg:px-[72px] lg:py-[66px] lg:pt-[116px] xl:pl-[140px]">
 
             <div className="mt-14 flex items-center gap-3 md:mt-16 lg:mt-[54px]">
               <button
@@ -162,21 +175,6 @@ export default function SustainabilityShowcase({ slides }: SustainabilityShowcas
 
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(77,92,107,0.12)_0%,rgba(57,72,84,0.04)_100%)]" />
             <div className="absolute inset-y-0 left-0 w-[22%] bg-[linear-gradient(90deg,rgba(23,35,47,0.42)_0%,rgba(23,35,47,0.18)_46%,rgba(23,35,47,0)_100%)]" />
-
-            <div className="absolute left-0 right-0 top-0 z-20 flex items-start justify-end px-8 pt-8 md:px-10 md:pt-10 lg:px-12 lg:pt-[30px]">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={`counter-${activeIndex}`}
-                  initial={{ opacity: 0, y: -18 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 14 }}
-                  transition={fadeSlideTransition}
-                  className="w-full border-b border-white/25 pb-4 text-right text-[13px] leading-none tracking-[-0.02em] text-white/90 md:text-[14px]"
-                >
-                  {activeIndex + 1}/{slides.length}
-                </motion.div>
-              </AnimatePresence>
-            </div>
 
             <div className="absolute inset-0 z-10">
               <AnimatePresence mode="wait">
