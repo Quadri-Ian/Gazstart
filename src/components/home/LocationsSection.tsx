@@ -67,8 +67,12 @@ export default function LocationsSection() {
           <div ref={metricRef}>
             <ScrollReveal>
               <div>
-                <span className="geography__count">{formatMetric(count)}+</span>
-                <span className="geography__count-title whitespace-pre-line">{metricLabel}</span>
+                <span className="text-[58px] font-[330] leading-[0.9] tracking-[-0.07em] text-[#b4042f] md:text-[92px] lg:text-[124px]">
+                  {formatMetric(count)}+
+                </span>
+                <span className="mt-5 block whitespace-pre-line text-[14px] leading-[1.35] tracking-[-0.02em] text-white/56 md:mt-6 md:text-[16px] lg:mt-7 lg:text-[17px]">
+                  {metricLabel}
+                </span>
               </div>
             </ScrollReveal>
           </div>

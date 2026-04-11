@@ -20,35 +20,33 @@ const rigFrames = [angle01, angle02, angle03, angle04, angle05, angle06, angle07
 
 export default function StatsSection() {
   const t = useTranslations("home");
-  const [targetProgress, setTargetProgress] = useState(0.5);
   const [displayProgress, setDisplayProgress] = useState(0.5);
   const animationFrameRef = useRef<number | null>(null);
+  const targetProgressRef = useRef(0.5);
 
   useEffect(() => {
     const animate = () => {
       setDisplayProgress((current) => {
-        const next = current + (targetProgress - current) * 0.14;
-
-        if (Math.abs(targetProgress - next) < 0.0015) {
-          animationFrameRef.current = null;
-          return targetProgress;
-        }
+        const next = current + (targetProgressRef.current - current) * 0.14;
 
         animationFrameRef.current = window.requestAnimationFrame(animate);
+
+        if (Math.abs(targetProgressRef.current - next) < 0.0015) {
+          return targetProgressRef.current;
+        }
+
         return next;
       });
     };
 
-    if (animationFrameRef.current === null) {
-      animationFrameRef.current = window.requestAnimationFrame(animate);
-    }
+    animationFrameRef.current = window.requestAnimationFrame(animate);
 
     return () => {
       if (animationFrameRef.current !== null) {
         window.cancelAnimationFrame(animationFrameRef.current);
       }
     };
-  }, [targetProgress]);
+  }, []);
 
   const frameState = useMemo(() => {
     const exactIndex = displayProgress * (rigFrames.length - 1);
@@ -64,25 +62,25 @@ export default function StatsSection() {
     };
   }, [displayProgress]);
 
-  const handleMove = (event: React.MouseEvent<HTMLElement>) => {
+  const handleMove = (event: React.PointerEvent<HTMLElement>) => {
     const bounds = event.currentTarget.getBoundingClientRect();
     const progress = (event.clientX - bounds.left) / bounds.width;
-    setTargetProgress(Math.max(0, Math.min(1, progress)));
+    targetProgressRef.current = Math.max(0, Math.min(1, progress));
   };
 
   const handleLeave = () => {
-    setTargetProgress(0.5);
+    targetProgressRef.current = 0.5;
   };
 
   return (
     <section className="bg-white pb-20 pt-24 md:pb-28 md:pt-28 lg:pt-32" id="performance">
       <div
         className="container-h relative overflow-hidden rounded-t-[28px] bg-white px-5 pt-8 sm:px-[60px] md:min-h-[760px] md:pt-10 lg:min-h-[840px] lg:px-[150px] lg:pt-12"
-        onMouseMove={handleMove}
-        onMouseLeave={handleLeave}
+        onPointerMove={handleMove}
+        onPointerLeave={handleLeave}
       >
         <div className="title-border title-border--grey relative z-20 mb-8 md:mb-10 lg:mb-12">
-          <h2 className="text-[15px] font-normal tracking-[-0.02em] text-primary-600 md:text-[17px]">{t("statsDrilled")}</h2>
+          <h2 className="text-[13px] font-normal tracking-[-0.02em] text-[#b4042f] md:text-[14px]">{t("statsDrilled")}</h2>
         </div>
 
         <div className="pointer-events-none absolute inset-x-0 top-[56px] bottom-0 z-10 overflow-hidden opacity-[0.78] md:top-[62px] lg:top-[70px]">
@@ -115,18 +113,18 @@ export default function StatsSection() {
 
         <div className="relative z-20 min-h-[520px] pb-8 md:min-h-[600px] md:pb-10 lg:min-h-[680px] lg:pb-14">
           <div className="pt-3 md:pt-5 lg:pt-6">
-            <p className="whitespace-nowrap text-[74px] font-[350] leading-[0.88] tracking-[-0.075em] text-primary-600 md:text-[126px] lg:text-[184px]">
+            <p className="whitespace-nowrap text-[62px] font-[350] leading-[0.9] tracking-[-0.075em] text-[#b4042f] md:text-[104px] lg:text-[148px]">
               {t("statsDrilledValue")}
               <span className="align-top text-[0.32em] leading-none">+</span>
             </p>
           </div>
 
-          <div className="mt-10 grid gap-10 md:mt-2 md:grid-cols-[minmax(240px,1fr)_minmax(160px,1fr)_minmax(240px,1fr)] md:gap-10 lg:mt-4">
+          <div className="mt-14 grid gap-10 md:mt-8 md:grid-cols-[minmax(240px,1fr)_minmax(160px,1fr)_minmax(240px,1fr)] md:gap-10 lg:mt-12">
             <div>
-              <p className="border-t border-[#dfe5eb] pb-6 pt-5 text-[16px] font-normal tracking-[-0.02em] text-[#445567] md:text-[18px]">
+              <p className="border-t border-[#dfe5eb] pb-6 pt-5 text-[14px] font-normal tracking-[-0.02em] text-[#445567] md:text-[15px]">
                 {t("statsAnnualDrillingLabel")}
               </p>
-              <p className="whitespace-nowrap text-[52px] font-normal leading-[0.95] tracking-[-0.06em] text-[#394858] md:text-[72px] lg:text-[78px]">
+              <p className="whitespace-nowrap text-[44px] font-normal leading-[0.95] tracking-[-0.06em] text-[#394858] md:text-[60px] lg:text-[66px]">
                 {t("statsAnnualDrillingValue")}
               </p>
             </div>
@@ -134,10 +132,10 @@ export default function StatsSection() {
             <div className="hidden md:block" />
 
             <div>
-              <p className="border-t border-[#dfe5eb] pb-6 pt-5 text-[16px] font-normal tracking-[-0.02em] text-[#445567] md:text-[18px]">
+              <p className="border-t border-[#dfe5eb] pb-6 pt-5 text-[14px] font-normal tracking-[-0.02em] text-[#445567] md:text-[15px]">
                 {t("statsTotalInvestmentsLabel")}
               </p>
-              <p className="whitespace-nowrap text-[52px] font-normal leading-[0.95] tracking-[-0.06em] text-[#394858] md:text-[72px] lg:text-[78px]">
+              <p className="whitespace-nowrap text-[44px] font-normal leading-[0.95] tracking-[-0.06em] text-[#394858] md:text-[60px] lg:text-[66px]">
                 {t("statsTotalInvestmentsValue")}
               </p>
             </div>
