@@ -236,8 +236,8 @@ export default function Header() {
                 onMouseEnter={() => open(setCompanyOpen, companyTimer)}
                 onMouseLeave={() => close(setCompanyOpen, companyTimer)}
               >
-                 <span className="pointer-events-none absolute left-1/2 top-0 h-px w-[116px] -translate-x-1/2 bg-white/[0.18]" />
-                 <span className="nav-primary__main-link__line pointer-events-none absolute left-1/2 top-0 h-[2px] w-[116px] -translate-x-1/2 origin-center scale-x-0 bg-white/70 transition-transform duration-500 ease-[cubic-bezier(0.25,0.74,0.22,0.99)] group-hover:scale-x-100" />
+                <span className="pointer-events-none absolute left-1/2 top-0 h-[3px] w-[116px] -translate-x-1/2 bg-red-500" />
+                <span className="nav-primary__main-link__line pointer-events-none absolute left-1/2 top-0 h-[4px] w-[116px] -translate-x-1/2 origin-center scale-x-0 bg-red-700 transition-transform duration-500 ease-[cubic-bezier(0.25,0.74,0.22,0.99)] group-hover:scale-x-100" />
 
                 <span>{t("company")}</span>
                 <svg
@@ -287,8 +287,8 @@ export default function Header() {
                 onMouseEnter={() => open(setServicesOpen, servicesTimer)}
                 onMouseLeave={() => close(setServicesOpen, servicesTimer)}
               >
-                 <span className="pointer-events-none absolute left-1/2 top-0 h-px w-[116px] -translate-x-1/2 bg-white/[0.18]" />
-                 <span className="nav-primary__main-link__line pointer-events-none absolute left-1/2 top-0 h-[2px] w-[116px] -translate-x-1/2 origin-center scale-x-0 bg-white/70 transition-transform duration-500 ease-[cubic-bezier(0.25,0.74,0.22,0.99)] group-hover:scale-x-100" />
+                <span className="pointer-events-none absolute left-1/2 top-0 h-[3px] w-[116px] -translate-x-1/2 bg-red-500" />
+                <span className="nav-primary__main-link__line pointer-events-none absolute left-1/2 top-0 h-[4px] w-[116px] -translate-x-1/2 origin-center scale-x-0 bg-red-700 transition-transform duration-500 ease-[cubic-bezier(0.25,0.74,0.22,0.99)] group-hover:scale-x-100" />
 
                 <span>{t("services")}</span>
                 <svg
@@ -341,8 +341,8 @@ export default function Header() {
                   href={item.href}
                   className="nav-primary__main-link relative flex h-full items-center justify-between py-[18px] text-[13px] text-white/60 transition-colors duration-300 group-hover:text-white"
                 >
-                    <span className="pointer-events-none absolute left-1/2 top-0 h-px w-[116px] -translate-x-1/2 bg-white/[0.18]" />
-                    <span className="nav-primary__main-link__line pointer-events-none absolute left-1/2 top-0 h-[2px] w-[116px] -translate-x-1/2 origin-center scale-x-0 bg-white/70 transition-transform duration-500 ease-[cubic-bezier(0.25,0.74,0.22,0.99)] group-hover:scale-x-100" />
+                  <span className="pointer-events-none absolute left-1/2 top-0 h-[3px] w-[116px] -translate-x-1/2 bg-red-500" />
+                  <span className="nav-primary__main-link__line pointer-events-none absolute left-1/2 top-0 h-[4px] w-[116px] -translate-x-1/2 origin-center scale-x-0 bg-red-700 transition-transform duration-500 ease-[cubic-bezier(0.25,0.74,0.22,0.99)] group-hover:scale-x-100" />
                   <span>{item.label}</span>
                 </Link>
               </li>
