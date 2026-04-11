@@ -84,7 +84,7 @@ export default function StatsSection() {
         onPointerLeave={handleLeave}
       >
         <div className="title-border title-border--grey relative z-20 mb-8 md:mb-10 lg:mb-12">
-          <h2 className="text-[11px] font-normal tracking-[-0.02em] text-[#b4042f] md:text-[12px] lg:text-[13px]">{t("statsDrilled")}</h2>
+          <h2 className="text-[10px] font-normal tracking-[-0.02em] text-[#b4042f] md:text-[11px] lg:text-[12px]">{t("statsDrilled")}</h2>
         </div>
 
         <div className="pointer-events-none absolute inset-x-0 top-[56px] bottom-0 z-10 overflow-hidden opacity-[0.78] md:top-[62px] lg:top-[70px]">

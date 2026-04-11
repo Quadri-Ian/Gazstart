@@ -67,7 +67,7 @@ export default function LocationsSection() {
           <div ref={metricRef}>
             <ScrollReveal>
               <div>
-                <span className="text-[58px] font-[330] leading-[0.9] tracking-[-0.07em] text-[#b4042f] md:text-[92px] lg:text-[124px]">
+                <span className="text-[58px] font-[330] leading-[0.9] tracking-[-0.07em] text-[#b4042f] md:text-[80px] lg:text-[80px]">
                   {formatMetric(count)}+
                 </span>
                 <span className="mt-5 block whitespace-pre-line text-[14px] leading-[1.35] tracking-[-0.02em] text-white/56 md:mt-6 md:text-[16px] lg:mt-7 lg:text-[17px]">
@@ -123,9 +123,9 @@ export default function LocationsSection() {
 
           <Link
             href={localePath("/services/drilling")}
-            className="absolute left-0 top-[490px] z-20 inline-flex items-center gap-4 text-[14px] text-white transition-opacity duration-300 hover:opacity-80 md:top-[542px] md:text-[15px] lg:top-[590px]"
+            className="absolute left-0 top-[490px] z-20 inline-flex items-center gap-3 text-[12px] text-white transition-opacity duration-300 hover:opacity-80 md:top-[542px] md:text-[13px] lg:top-[590px]"
           >
-            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-dark-900">›</span>
+            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-[14px] text-dark-900">›</span>
             <span>{t("locationsProjectsCta")}</span>
           </Link>
         </ScrollReveal>
