@@ -60,8 +60,8 @@ export default function ManagementSlider() {
           <div className="h-px bg-white/16" />
         </div>
 
-        <div className="grid grid-cols-1 overflow-hidden lg:grid-cols-[minmax(0,0.49fr)_minmax(0,0.51fr)]">
-          <div className="relative min-h-[660px] overflow-hidden bg-[#1e2731] md:min-h-[780px]">
+        <div className="grid grid-cols-1 overflow-visible lg:grid-cols-[minmax(0,0.49fr)_minmax(0,0.51fr)]">
+          <div className="relative min-h-[660px] overflow-visible bg-[#1e2731] md:min-h-[780px]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={person.id}
@@ -69,21 +69,23 @@ export default function ManagementSlider() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 28 }}
                 transition={{ duration: 0.5, ease: [0.25, 0.74, 0.22, 0.99] }}
-                className="absolute inset-0"
+                className="absolute inset-0 overflow-visible"
               >
-                <Image
-                  src={person.image}
-                  alt={`${person.name[0]} ${person.name[1]}`}
-                  fill
-                  className={`object-cover ${person.imagePosition}`}
-                  sizes="(min-width: 1024px) 38vw, 100vw"
-                  priority={active === 0}
-                />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(19,27,35,0.02)_0%,rgba(19,27,35,0.04)_34%,rgba(19,27,35,0.24)_100%)]" />
-                <p className="absolute bottom-16 left-10 text-[11px] uppercase tracking-[0.16em] text-white/52 md:bottom-20 md:left-14 md:text-[12px]">
-                  {person.role}
-                </p>
-                <h3 className="absolute bottom-6 right-0 z-40 max-w-[340px] text-right text-[52px] font-normal leading-[0.92] tracking-[-0.06em] text-white md:bottom-10 md:right-0 md:max-w-[410px] md:text-[78px] lg:right-[-4px] lg:max-w-[440px] lg:text-[88px]">
+                <div className="absolute inset-0 overflow-hidden">
+                  <Image
+                    src={person.image}
+                    alt={`${person.name[0]} ${person.name[1]}`}
+                    fill
+                    className={`object-cover ${person.imagePosition}`}
+                    sizes="(min-width: 1024px) 38vw, 100vw"
+                    priority={active === 0}
+                  />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(19,27,35,0.02)_0%,rgba(19,27,35,0.04)_34%,rgba(19,27,35,0.24)_100%)]" />
+                  <p className="absolute bottom-16 left-10 text-[11px] uppercase tracking-[0.16em] text-white/52 md:bottom-20 md:left-14 md:text-[12px]">
+                    {person.role}
+                  </p>
+                </div>
+                <h3 className="absolute bottom-6 left-full z-[70] max-w-[360px] -translate-x-[45%] text-left text-[52px] font-normal leading-[0.92] tracking-[-0.06em] text-white md:bottom-10 md:max-w-[420px] md:text-[74px] lg:max-w-[470px] lg:text-[86px]">
                   {person.name[0]}
                   <br />
                   {person.name[1]}
@@ -106,7 +108,7 @@ export default function ManagementSlider() {
                   <svg width="30" height="24" viewBox="0 0 46 40" fill="none" aria-hidden="true" className="mb-5 text-white">
                     <path d="M0 40V24C0 9.778 6.222 1.778 18.667 0L21.333 4C15.111 5.778 12.444 9.333 12 14.667h6.667V40H0zm25.333 0V24C25.333 9.778 31.556 1.778 44 0l2 4c-6.222 1.778-8.889 5.333-9.333 10.667h6.667V40H25.333z" fill="currentColor" />
                   </svg>
-                  <p className="text-[15px] leading-[1.34] tracking-[-0.02em] text-white md:text-[17px] lg:text-[18px]">
+                  <p className="text-[14px] leading-[1.34] tracking-[-0.02em] text-white md:text-[16px] lg:text-[17px]">
                     {person.quote}
                   </p>
                   <Link
@@ -125,19 +127,39 @@ export default function ManagementSlider() {
                   className="group relative flex items-start"
                   aria-label={t("managementNextLabel")}
                 >
-                  <span className="absolute -left-16 top-0 z-20 flex h-16 w-16 items-center justify-center rounded-full bg-white text-primary-600 transition-transform duration-300 group-hover:translate-x-1">
+                  <span className="absolute -left-8 -top-8 z-30 flex h-16 w-16 items-center justify-center rounded-full bg-white text-primary-600 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
                     <svg width="10" height="16" viewBox="0 0 10 16" fill="none" aria-hidden="true">
                       <path d="M2 2l6 6-6 6" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </span>
-                  <div className="relative h-[126px] w-[126px] overflow-hidden bg-[#1e2731]">
-                    <Image
-                      src={next.image}
-                      alt={`${next.name[0]} ${next.name[1]}`}
-                      fill
-                      className={`object-cover ${next.imagePosition}`}
-                      sizes="126px"
-                    />
+                  <div className="relative h-[162px] w-[128px] overflow-hidden bg-[#1e2731] md:h-[176px] md:w-[138px]">
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={next.id}
+                        initial={{ opacity: 0.2 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0.2 }}
+                        transition={{ duration: 0.28, ease: "linear" }}
+                        className="absolute inset-0"
+                      >
+                        <Image
+                          src={next.image}
+                          alt={`${next.name[0]} ${next.name[1]}`}
+                          fill
+                          className={`object-cover ${next.imagePosition}`}
+                          sizes="138px"
+                        />
+                      </motion.div>
+                    </AnimatePresence>
+                    <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/20">
+                      <motion.div
+                        key={`${active}-${next.id}`}
+                        initial={{ width: "0%" }}
+                        animate={{ width: "100%" }}
+                        transition={{ duration: AUTO_ADVANCE_MS / 1000, ease: "linear" }}
+                        className="h-full bg-white"
+                      />
+                    </div>
                   </div>
                 </button>
               </div>
