@@ -57,13 +57,13 @@ export default function LocationsSection() {
   const metricLabel = t("locationsMetricLabel").replace(/,\s*/g, ",\n");
 
   return (
-    <section className="ui-dark-background py-32 md:py-44 lg:py-[12rem]" id="geography">
-      <div className="mx-auto w-full max-w-[1680px] px-5 md:px-10 xl:px-[72px]">
+    <section className="ui-dark-background py-36 md:py-48 lg:py-[13rem]" id="geography">
+      <div className="container-h mx-auto max-w-[1680px] px-5 sm:px-[60px] lg:px-[150px]">
         <div className="title-border">
           <h2 className="text-[32px] leading-none md:text-[44px] lg:text-[52px]">{t("locationsTitle")}</h2>
         </div>
 
-        <div className="mb-16 grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(420px,0.94fr)] lg:items-start lg:gap-24">
+        <div className="mb-20 grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(420px,0.94fr)] lg:items-start lg:gap-24">
           <div ref={metricRef}>
             <ScrollReveal>
               <div>
@@ -74,11 +74,11 @@ export default function LocationsSection() {
           </div>
 
           <ScrollReveal delay={0.12} className="pt-3 lg:pt-0">
-            <p className="geography__description max-w-[620px] text-white">{t("locationsDescription")}</p>
+            <p className="geography__description max-w-[540px] text-[15px] leading-[1.5] text-white md:text-[16px] lg:text-[17px]">{t("locationsDescription")}</p>
           </ScrollReveal>
         </div>
 
-        <ScrollReveal className="relative min-h-[660px] pt-2 md:min-h-[790px] lg:min-h-[840px]">
+        <ScrollReveal className="relative min-h-[700px] pt-4 md:min-h-[820px] lg:min-h-[880px]">
           <div className="absolute right-0 top-[206px] h-[300px] w-[48%] overflow-hidden bg-white/10 md:top-[208px] md:h-[350px] md:w-[47%] lg:top-[214px] lg:h-[392px] lg:w-[48%]">
             <Image
               src={introBackground}
@@ -88,9 +88,9 @@ export default function LocationsSection() {
               sizes="(min-width: 1024px) 42vw, 100vw"
             />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(23,31,40,0.08)_0%,rgba(23,31,40,0.22)_100%)]" />
-            <div className="absolute bottom-10 right-6 max-w-[320px] text-right text-white md:right-8 lg:bottom-12 lg:right-10">
-              <p className="text-[17px] font-medium leading-tight md:text-[20px]">{t("locationsAreaTitle")}</p>
-              <div className="mt-3 space-y-1 text-[15px] leading-[1.22] text-white/72 md:text-[17px]">
+            <div className="absolute bottom-10 right-6 max-w-[300px] text-right text-white md:right-8 lg:bottom-12 lg:right-10">
+              <p className="text-[15px] font-medium leading-tight md:text-[16px] lg:text-[17px]">{t("locationsAreaTitle")}</p>
+              <div className="mt-3 space-y-1 text-[13px] leading-[1.22] text-white/72 md:text-[14px] lg:text-[15px]">
                 {t("locationsAreaList").split("|").map((item) => (
                   <p key={item}>{item}</p>
                 ))}
@@ -102,21 +102,19 @@ export default function LocationsSection() {
             <path d="M73.5 262.5L103 221L163 195L202.5 149.5L312.5 145L388.5 94L514.5 86.5L602.5 124.5L718 119L784.5 151.5L869 187L912 238.5L886.5 281.5L916 332L870 373L744 381L638.5 421L494 421L410.5 394L314 400.5L252.5 370L175 377.5L120 333L73.5 262.5Z" fill="rgba(32,45,57,0.92)" stroke="rgba(32,45,57,0.98)" strokeWidth="2" />
           </svg>
 
-          <div className="absolute left-0 right-[70%] top-[284px] z-20 h-px bg-white/18 md:right-[70.5%] md:top-[286px] lg:right-[71%] lg:top-[294px]" />
+          <div className="absolute left-0 top-[283px] z-30 h-px w-[calc(24.8%+26px)] bg-white/22 md:top-[286px] md:w-[calc(25.1%+29px)] lg:top-[296px] lg:w-[calc(26.6%+31px)]" />
           <div className="absolute left-[24.8%] top-[257px] z-20 flex h-[52px] w-[52px] items-center justify-center rounded-full bg-[rgba(194,9,52,0.9)] shadow-[0_0_0_1px_rgba(255,255,255,0.04)] md:left-[25.1%] md:top-[257px] md:h-[58px] md:w-[58px] lg:left-[26.6%] lg:top-[265px] lg:h-[62px] lg:w-[62px]">
-            <div className="absolute inset-x-[8%] top-1/2 h-px -translate-y-1/2 bg-white/45" />
             <div className="relative z-10 h-[8px] w-[8px] rounded-full bg-white" />
           </div>
 
           <div className="absolute left-1/2 top-[62px] z-20 flex h-[150px] w-[150px] -translate-x-1/2 items-center justify-center rounded-full bg-[rgba(194,9,52,0.88)] shadow-[0_0_0_1px_rgba(255,255,255,0.03)] md:top-[66px] md:h-[282px] md:w-[282px] lg:top-[58px] lg:h-[304px] lg:w-[304px]">
-            <div className="absolute inset-x-[8%] top-1/2 h-px -translate-y-1/2 bg-white/28" />
             <div className="relative z-10 h-[10px] w-[10px] rounded-full bg-white" />
           </div>
-          <div className="absolute left-1/2 right-[8%] top-[137px] z-20 h-px bg-white/18 md:right-[7%] md:top-[207px] lg:right-[5%] lg:top-[210px]" />
+          <div className="absolute left-1/2 right-0 top-[137px] z-30 h-px bg-white/18 md:top-[207px] lg:top-[210px]" />
 
           <div className="absolute left-0 top-[292px] z-20 max-w-[220px] text-white md:top-[300px] lg:top-[308px]">
-            <p className="text-[16px] font-semibold leading-[1.06] tracking-[-0.03em] md:text-[18px] lg:text-[20px]">{t("locationsHeadOfficeLabel")}</p>
-            <p className="mt-1 text-[15px] leading-[1.1] tracking-[-0.02em] text-white/74 md:text-[16px] lg:text-[18px]">{t("locationsHeadOfficeCity")}</p>
+            <p className="text-[14px] font-semibold leading-[1.06] tracking-[-0.03em] md:text-[15px] lg:text-[16px]">{t("locationsHeadOfficeLabel")}</p>
+            <p className="mt-1 text-[13px] leading-[1.1] tracking-[-0.02em] text-white/74 md:text-[14px] lg:text-[15px]">{t("locationsHeadOfficeCity")}</p>
           </div>
 
           <Link
