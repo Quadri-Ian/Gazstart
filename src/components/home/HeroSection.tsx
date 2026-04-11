@@ -52,34 +52,6 @@ export default function HeroSection() {
       {/* Dark overlay */}
       <div className="absolute inset-0 z-[1] bg-dark-900/45" />
 
-      {/* NZ geometric logo mark overlay (right side) */}
-      <div
-        className="pointer-events-none absolute inset-0 z-[2] overflow-hidden"
-        aria-hidden="true"
-      >
-        <div className="absolute bottom-0 right-0 top-0 flex items-center" style={{ right: "5%" }}>
-          <svg
-            viewBox="0 0 2022 711"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-[90vh] w-auto opacity-[0.06]"
-            style={{ clipPath: "inset(2px 0 0 0)" }}
-          >
-            <clipPath id="nz-clip">
-              <rect x="0" y="0" width="2022" height="711" />
-            </clipPath>
-            <g clipPath="url(#nz-clip)">
-              <path
-                opacity="1"
-                stroke="white"
-                strokeWidth="1"
-                d="M3185.5 1V0.5H3185L474.005 0.500031H473.505V1.00003V353.844L238.944 0.723377L238.795 0.500031H238.527H1H0.5V1.00003V710V710.5H1H238.527H239.027V710V357.147L475.284 710.278L475.432 710.5H475.699H3185H3185.5V710V1Z"
-              />
-            </g>
-          </svg>
-        </div>
-      </div>
-
       {/* Man figure */}
       <motion.div
         className="pointer-events-none absolute bottom-0 right-[4%] z-[3] hidden h-[88vh] select-none md:block"
