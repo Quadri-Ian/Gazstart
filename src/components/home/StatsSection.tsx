@@ -1,16 +1,64 @@
 "use client";
 
-import { useState } from "react";
+import { Component, type ReactNode, useEffect, useState } from "react";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
+
+import longtool from "@/assets/longtool.png";
 
 const RigScene = dynamic(() => import("@/components/home/RigScene"), {
   ssr: false,
 });
 
+class RigSceneBoundary extends Component<
+  { children: ReactNode; fallback: ReactNode },
+  { hasError: boolean }
+> {
+  state = { hasError: false };
+
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  componentDidCatch() {}
+
+  render() {
+    if (this.state.hasError) {
+      return this.props.fallback;
+    }
+
+    return this.props.children;
+  }
+}
+
+function RigFallback() {
+  return (
+    <div className="absolute inset-0 flex items-start justify-center overflow-hidden opacity-[0.34]">
+      <Image
+        src={longtool}
+        alt=""
+        aria-hidden="true"
+        className="mt-[18px] h-auto w-[560px] select-none md:mt-[-18px] md:w-[780px] lg:mt-[-34px] lg:w-[980px]"
+        priority={false}
+      />
+    </div>
+  );
+}
+
 export default function StatsSection() {
   const t = useTranslations("home");
   const [mouseX, setMouseX] = useState(0);
+  const [canRender3d, setCanRender3d] = useState(false);
+
+  useEffect(() => {
+    const canvas = document.createElement("canvas");
+    const hasWebgl =
+      Boolean(window.WebGL2RenderingContext && canvas.getContext("webgl2")) ||
+      Boolean(window.WebGLRenderingContext && canvas.getContext("webgl"));
+
+    setCanRender3d(hasWebgl);
+  }, []);
 
   const handleMove = (event: React.MouseEvent<HTMLElement>) => {
     const bounds = event.currentTarget.getBoundingClientRect();
@@ -34,7 +82,13 @@ export default function StatsSection() {
         </div>
 
         <div className="pointer-events-none absolute inset-0 z-10 opacity-[0.72]">
-          <RigScene mouseX={mouseX} />
+          {canRender3d ? (
+            <RigSceneBoundary fallback={<RigFallback />}>
+              <RigScene mouseX={mouseX} />
+            </RigSceneBoundary>
+          ) : (
+            <RigFallback />
+          )}
         </div>
 
         <div className="relative z-20 min-h-[520px] pb-8 md:min-h-[600px] md:pb-10 lg:min-h-[680px] lg:pb-14">
