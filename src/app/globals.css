@@ -458,26 +458,26 @@ body {
 ───────────────────────────────────────────────── */
 .geography__count {
   display: block;
-  font-size: clamp(60px, 9vw, 160px);
-  font-weight: 400;
-  letter-spacing: -0.05em;
-  line-height: 0.9;
+  font-size: clamp(78px, 10.5vw, 196px);
+  font-weight: 300;
+  letter-spacing: -0.065em;
+  line-height: 0.86;
   color: var(--red);
 }
 .geography__count-title {
   display: block;
-  font-size: clamp(14px, 1.4vw, 18px);
+  font-size: clamp(16px, 1.5vw, 20px);
   font-weight: 400;
   color: rgba(255, 255, 255, 0.5);
-  margin-top: 14px;
-  line-height: 1.5;
-  letter-spacing: -0.01em;
+  margin-top: 12px;
+  line-height: 1.45;
+  letter-spacing: -0.015em;
 }
 .geography__description {
-  font-size: clamp(14px, 1.4vw, 16px);
-  line-height: 1.75;
-  color: rgba(255, 255, 255, 0.88);
-  letter-spacing: -0.01em;
+  font-size: clamp(17px, 1.55vw, 22px);
+  line-height: 1.68;
+  color: rgba(255, 255, 255, 0.93);
+  letter-spacing: -0.018em;
 }
 
 /* ─────────────────────────────────────────────────
