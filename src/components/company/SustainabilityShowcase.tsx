@@ -1,55 +1,65 @@
 "use client";
 
 import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import Image, { type StaticImageData } from "next/image";
 import introBackground from "@/assets/intro-background-xxxl-min.jpg";
 import workerImage from "@/assets/man-1-xxxl.png";
-
-type Slide = {
-  category: string;
-  title: string;
-  description: string;
-  cta: string;
-};
+import type { SustainabilitySlide } from "@/components/company/sustainabilitySlides";
 
 interface SustainabilityShowcaseProps {
-  slides: Slide[];
+  slides: SustainabilitySlide[];
 }
 
 const visualByIndex: Array<{
   bgPosition: string;
   workerClassName: string;
   titleClassName: string;
+  titleWrapClassName: string;
+  descriptionClassName: string;
 }> = [
   {
     bgPosition: "72% center",
     workerClassName:
-      "right-[-1%] bottom-0 w-[62%] max-w-none md:right-[-2%] md:w-[66%] lg:right-[-1%] lg:w-[63%]",
+      "right-[-2%] bottom-0 w-[57%] max-w-none md:right-[-3%] md:w-[62%] lg:right-[-2%] lg:w-[60%]",
     titleClassName:
-      "left-[11%] top-[14%] max-w-[420px] text-[56px] leading-[0.92] md:text-[72px] lg:text-[78px]",
+      "max-w-[540px] text-[60px] leading-[0.9] md:text-[88px] lg:text-[76px] xl:text-[84px]",
+    titleWrapClassName: "left-[35%] top-[15%] w-[42%]",
+    descriptionClassName: "mt-[88px] md:mt-[108px] lg:mt-[138px]",
   },
   {
     bgPosition: "74% center",
     workerClassName:
-      "right-[1%] bottom-0 w-[58%] max-w-none md:right-[0%] md:w-[63%] lg:right-[1%] lg:w-[60%]",
+      "right-[-2%] bottom-0 w-[54%] max-w-none md:right-[-2%] md:w-[58%] lg:right-[-1%] lg:w-[56%]",
     titleClassName:
-      "left-[11%] top-[15%] max-w-[410px] text-[52px] leading-[0.94] md:text-[68px] lg:text-[74px]",
+      "max-w-[540px] text-[54px] leading-[0.92] md:text-[78px] lg:text-[70px] xl:text-[78px]",
+    titleWrapClassName: "left-[36%] top-[16%] w-[39%]",
+    descriptionClassName: "mt-[88px] md:mt-[108px] lg:mt-[138px]",
   },
   {
     bgPosition: "70% center",
     workerClassName:
-      "right-[0%] bottom-0 w-[60%] max-w-none md:right-[-1%] md:w-[64%] lg:right-[0%] lg:w-[61%]",
+      "right-[3%] bottom-0 w-[34%] max-w-none md:right-[4%] md:w-[37%] lg:right-[5%] lg:w-[35%]",
     titleClassName:
-      "left-[11%] top-[14%] max-w-[380px] text-[50px] leading-[0.94] md:text-[66px] lg:text-[72px]",
+      "max-w-[560px] text-[56px] leading-[0.92] md:text-[80px] lg:text-[72px] xl:text-[80px]",
+    titleWrapClassName: "left-[57%] top-[15%] w-[31%]",
+    descriptionClassName: "mt-[88px] md:mt-[108px] lg:mt-[138px]",
   },
   {
     bgPosition: "73% center",
     workerClassName:
-      "right-[0%] bottom-0 w-[59%] max-w-none md:right-[0%] md:w-[63%] lg:right-[1%] lg:w-[60%]",
+      "right-[1%] bottom-0 w-[39%] max-w-none md:right-[2%] md:w-[42%] lg:right-[2%] lg:w-[40%]",
     titleClassName:
-      "left-[11%] top-[15%] max-w-[420px] text-[50px] leading-[0.94] md:text-[66px] lg:text-[72px]",
+      "max-w-[520px] text-[54px] leading-[0.92] md:text-[78px] lg:text-[70px] xl:text-[76px]",
+    titleWrapClassName: "left-[54%] top-[15%] w-[32%]",
+    descriptionClassName: "mt-[88px] md:mt-[108px] lg:mt-[138px]",
   },
 ];
+
+const fadeSlideTransition = {
+  duration: 0.55,
+  ease: [0.25, 0.74, 0.22, 0.99],
+};
 
 function ArrowIcon({ direction }: { direction: "prev" | "next" }) {
   return (
@@ -84,10 +94,10 @@ export default function SustainabilityShowcase({ slides }: SustainabilityShowcas
   };
 
   return (
-    <section className="bg-white px-4 py-8 md:px-6 md:py-12 lg:px-8 lg:py-16">
-      <div className="mx-auto max-w-[1536px] overflow-hidden rounded-[18px] bg-white shadow-[0_18px_60px_rgba(10,18,28,0.08)] md:rounded-[22px]">
-        <div className="grid min-h-[720px] grid-cols-1 lg:grid-cols-[50.4%_49.6%]">
-          <div className="flex flex-col bg-[#b4042f] px-8 py-8 text-white md:px-12 md:py-10 lg:px-[60px] lg:py-[62px]">
+    <section className="bg-white px-0 py-8 md:py-12 lg:py-16">
+      <div className="overflow-hidden bg-white">
+        <div className="relative grid min-h-[720px] grid-cols-1 lg:grid-cols-[50.4%_49.6%]">
+          <div className="relative z-10 flex flex-col bg-[#b4042f] px-8 py-8 text-white md:px-12 md:py-10 lg:px-[72px] lg:py-[66px]">
             <div className="max-w-[420px]">
               <div className="border-b border-white/25 pb-4 text-[13px] leading-none tracking-[-0.02em] text-white/95 md:text-[14px]">
                 {slide.category}
@@ -113,45 +123,79 @@ export default function SustainabilityShowcase({ slides }: SustainabilityShowcas
               </button>
             </div>
 
-            <div className="mt-auto max-w-[420px] pt-16 md:pt-20 lg:pt-24">
-              <p className="text-[15px] leading-[1.14] tracking-[-0.02em] text-white md:text-[16px] lg:text-[17px]">
-                {slide.description}
-              </p>
+            <div className={`max-w-[420px] ${visual.descriptionClassName}`}>
+              <AnimatePresence mode="wait">
+                <motion.p
+                  key={`description-${activeIndex}`}
+                  initial={{ opacity: 0, y: 28 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -22 }}
+                  transition={fadeSlideTransition}
+                  className="text-[15px] leading-[1.14] tracking-[-0.02em] text-white md:text-[16px] lg:text-[17px]"
+                >
+                  {slide.description}
+                </motion.p>
+              </AnimatePresence>
             </div>
           </div>
 
           <div className="relative min-h-[720px] overflow-hidden bg-[#667789]">
-            <Image
-              src={introBackground as StaticImageData}
-              alt="Industrial background"
-              fill
-              priority
-              className="object-cover"
-              style={{ objectPosition: visual.bgPosition }}
-            />
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={`background-${activeIndex}`}
+                initial={{ opacity: 0.35, scale: 1.035 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0.2, scale: 0.985 }}
+                transition={fadeSlideTransition}
+                className="absolute inset-0"
+              >
+                <Image
+                  src={introBackground as StaticImageData}
+                  alt="Industrial background"
+                  fill
+                  priority
+                  className="object-cover"
+                  style={{ objectPosition: visual.bgPosition }}
+                />
+              </motion.div>
+            </AnimatePresence>
 
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(77,92,107,0.12)_0%,rgba(57,72,84,0.04)_100%)]" />
             <div className="absolute inset-y-0 left-0 w-[22%] bg-[linear-gradient(90deg,rgba(23,35,47,0.42)_0%,rgba(23,35,47,0.18)_46%,rgba(23,35,47,0)_100%)]" />
 
             <div className="absolute left-0 right-0 top-0 z-20 flex items-start justify-end px-8 pt-8 md:px-10 md:pt-10 lg:px-12 lg:pt-[30px]">
-              <div className="w-full border-b border-white/25 pb-4 text-right text-[13px] leading-none tracking-[-0.02em] text-white/90 md:text-[14px]">
-                {activeIndex + 1}/{slides.length}
-              </div>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={`counter-${activeIndex}`}
+                  initial={{ opacity: 0, y: -18 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 14 }}
+                  transition={fadeSlideTransition}
+                  className="w-full border-b border-white/25 pb-4 text-right text-[13px] leading-none tracking-[-0.02em] text-white/90 md:text-[14px]"
+                >
+                  {activeIndex + 1}/{slides.length}
+                </motion.div>
+              </AnimatePresence>
             </div>
 
-            <h2
-              className={`absolute z-20 font-medium tracking-[-0.06em] text-white ${visual.titleClassName}`}
-            >
-              {slide.title}
-            </h2>
-
             <div className="absolute inset-0 z-10">
-              <Image
-                src={workerImage as StaticImageData}
-                alt="Field worker"
-                priority
-                className={`absolute h-auto ${visual.workerClassName}`}
-              />
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={`worker-${activeIndex}`}
+                  initial={{ opacity: 0, x: 44, scale: 0.96 }}
+                  animate={{ opacity: 1, x: 0, scale: 1 }}
+                  exit={{ opacity: 0, x: 24, scale: 0.98 }}
+                  transition={fadeSlideTransition}
+                  className="absolute inset-0"
+                >
+                  <Image
+                    src={workerImage as StaticImageData}
+                    alt="Field worker"
+                    priority
+                    className={`absolute h-auto ${visual.workerClassName}`}
+                  />
+                </motion.div>
+              </AnimatePresence>
             </div>
 
             <div className="absolute bottom-8 right-8 z-20 md:bottom-10 md:right-10 lg:bottom-[66px] lg:right-[58px]">
@@ -165,6 +209,23 @@ export default function SustainabilityShowcase({ slides }: SustainabilityShowcas
                 <span className="flex-1 text-center">{slide.cta}</span>
               </button>
             </div>
+          </div>
+
+          <div className="pointer-events-none absolute inset-0 z-20 hidden lg:block">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={`title-${activeIndex}`}
+                initial={{ opacity: 0, y: 30, scale: 0.985 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -18, scale: 0.99 }}
+                transition={fadeSlideTransition}
+                className={`absolute ${visual.titleWrapClassName}`}
+              >
+                <h2 className={`font-medium tracking-[-0.06em] text-white ${visual.titleClassName}`}>
+                  {slide.title}
+                </h2>
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
       </div>
