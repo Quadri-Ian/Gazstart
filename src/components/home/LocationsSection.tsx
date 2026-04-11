@@ -103,11 +103,11 @@ export default function LocationsSection() {
           </svg>
 
           <div className="absolute left-0 right-[69%] top-[284px] z-20 h-px bg-white/18 md:right-[69.5%] md:top-[286px] lg:right-[70%] lg:top-[294px]" />
-          <div className="absolute left-[24.5%] top-[252px] z-20 flex h-[62px] w-[62px] items-center justify-center rounded-full bg-primary-600/78 md:left-[25%] md:top-[252px] md:h-[68px] md:w-[68px] lg:left-[26.5%] lg:top-[260px] lg:h-[72px] lg:w-[72px]">
+          <div className="absolute left-[24.5%] top-[252px] z-20 flex h-[62px] w-[62px] items-center justify-center rounded-full bg-[rgba(171,5,45,0.72)] md:left-[25%] md:top-[252px] md:h-[68px] md:w-[68px] lg:left-[26.5%] lg:top-[260px] lg:h-[72px] lg:w-[72px]">
             <div className="h-[8px] w-[8px] rounded-full bg-white" />
           </div>
 
-          <div className="absolute left-1/2 top-[52px] z-20 flex h-[170px] w-[170px] -translate-x-1/2 items-center justify-center rounded-full bg-primary-600/78 md:top-[46px] md:h-[320px] md:w-[320px] lg:top-[42px] lg:h-[344px] lg:w-[344px]">
+          <div className="absolute left-1/2 top-[52px] z-20 flex h-[170px] w-[170px] -translate-x-1/2 items-center justify-center rounded-full bg-[rgba(171,5,45,0.72)] md:top-[46px] md:h-[320px] md:w-[320px] lg:top-[42px] lg:h-[344px] lg:w-[344px]">
             <div className="h-[10px] w-[10px] rounded-full bg-white" />
           </div>
           <div className="absolute left-1/2 right-[8%] top-[206px] z-20 h-px bg-white/18 md:right-[7%] md:top-[206px] lg:right-[5%] lg:top-[214px]" />
