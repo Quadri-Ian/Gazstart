@@ -22,21 +22,25 @@ export default function StatsSection() {
   const t = useTranslations("home");
   const [displayProgress, setDisplayProgress] = useState(0.5);
   const animationFrameRef = useRef<number | null>(null);
+  const displayProgressRef = useRef(0.5);
   const targetProgressRef = useRef(0.5);
 
   useEffect(() => {
-    const animate = () => {
-      setDisplayProgress((current) => {
-        const next = current + (targetProgressRef.current - current) * 0.14;
+    let lastTime = window.performance.now();
 
-        animationFrameRef.current = window.requestAnimationFrame(animate);
+    const animate = (currentTime: number) => {
+      const delta = currentTime - lastTime;
+      lastTime = currentTime;
 
-        if (Math.abs(targetProgressRef.current - next) < 0.0015) {
-          return targetProgressRef.current;
-        }
+      const smoothing = 1 - Math.exp(-delta / 180);
+      const next =
+        displayProgressRef.current +
+        (targetProgressRef.current - displayProgressRef.current) * smoothing;
 
-        return next;
-      });
+      displayProgressRef.current = Math.abs(targetProgressRef.current - next) < 0.0004 ? targetProgressRef.current : next;
+      setDisplayProgress(displayProgressRef.current);
+
+      animationFrameRef.current = window.requestAnimationFrame(animate);
     };
 
     animationFrameRef.current = window.requestAnimationFrame(animate);
@@ -80,7 +84,7 @@ export default function StatsSection() {
         onPointerLeave={handleLeave}
       >
         <div className="title-border title-border--grey relative z-20 mb-8 md:mb-10 lg:mb-12">
-          <h2 className="text-[13px] font-normal tracking-[-0.02em] text-[#b4042f] md:text-[14px]">{t("statsDrilled")}</h2>
+          <h2 className="text-[11px] font-normal tracking-[-0.02em] text-[#b4042f] md:text-[12px] lg:text-[13px]">{t("statsDrilled")}</h2>
         </div>
 
         <div className="pointer-events-none absolute inset-x-0 top-[56px] bottom-0 z-10 overflow-hidden opacity-[0.78] md:top-[62px] lg:top-[70px]">
