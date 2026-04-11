@@ -102,13 +102,15 @@ export default function LocationsSection() {
             <path d="M73.5 262.5L103 221L163 195L202.5 149.5L312.5 145L388.5 94L514.5 86.5L602.5 124.5L718 119L784.5 151.5L869 187L912 238.5L886.5 281.5L916 332L870 373L744 381L638.5 421L494 421L410.5 394L314 400.5L252.5 370L175 377.5L120 333L73.5 262.5Z" fill="rgba(32,45,57,0.92)" stroke="rgba(32,45,57,0.98)" strokeWidth="2" />
           </svg>
 
-          <div className="absolute left-0 right-[66%] top-[284px] z-20 h-px bg-white/18 md:right-[67%] md:top-[286px] lg:right-[68%] lg:top-[294px]" />
-          <div className="absolute left-[27.5%] top-[252px] z-20 h-[62px] w-[62px] rounded-full bg-primary-600 md:left-[28%] md:top-[252px] md:h-[68px] md:w-[68px] lg:left-[29.5%] lg:top-[260px] lg:h-[72px] lg:w-[72px]" />
-          <div className="absolute left-[31.2%] top-[283px] z-30 h-[8px] w-[8px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white md:left-[31.25%] md:top-[286px] lg:left-[32.55%] lg:top-[296px]" />
+          <div className="absolute left-0 right-[69%] top-[284px] z-20 h-px bg-white/18 md:right-[69.5%] md:top-[286px] lg:right-[70%] lg:top-[294px]" />
+          <div className="absolute left-[24.5%] top-[252px] z-20 flex h-[62px] w-[62px] items-center justify-center rounded-full bg-primary-600/78 md:left-[25%] md:top-[252px] md:h-[68px] md:w-[68px] lg:left-[26.5%] lg:top-[260px] lg:h-[72px] lg:w-[72px]">
+            <div className="h-[8px] w-[8px] rounded-full bg-white" />
+          </div>
 
-          <div className="absolute left-[45%] top-[52px] z-20 h-[170px] w-[170px] rounded-full bg-primary-600/95 md:left-[45.5%] md:top-[46px] md:h-[320px] md:w-[320px] lg:left-[46%] lg:top-[42px] lg:h-[344px] lg:w-[344px]" />
-          <div className="absolute left-[53.5%] right-[8%] top-[206px] z-20 h-px bg-white/18 md:left-[53.5%] md:right-[7%] md:top-[206px] lg:left-[53.5%] lg:right-[5%] lg:top-[214px]" />
-          <div className="absolute left-[53.5%] top-[206px] z-30 h-[10px] w-[10px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white md:top-[206px] lg:top-[214px]" />
+          <div className="absolute left-1/2 top-[52px] z-20 flex h-[170px] w-[170px] -translate-x-1/2 items-center justify-center rounded-full bg-primary-600/78 md:top-[46px] md:h-[320px] md:w-[320px] lg:top-[42px] lg:h-[344px] lg:w-[344px]">
+            <div className="h-[10px] w-[10px] rounded-full bg-white" />
+          </div>
+          <div className="absolute left-1/2 right-[8%] top-[206px] z-20 h-px bg-white/18 md:right-[7%] md:top-[206px] lg:right-[5%] lg:top-[214px]" />
 
           <div className="absolute left-0 top-[300px] z-20 max-w-[210px] text-white md:top-[308px] lg:top-[316px]">
             <p className="text-[17px] font-semibold leading-tight md:text-[19px]">{t("locationsHeadOfficeLabel")}</p>
