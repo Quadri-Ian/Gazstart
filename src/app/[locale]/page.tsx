@@ -6,6 +6,8 @@ import ManagementSlider from "@/components/home/ManagementSlider";
 import StatsSection from "@/components/home/StatsSection";
 import PressSection from "@/components/home/PressSection";
 import PartnersSection from "@/components/home/PartnersSection";
+import SustainabilityShowcase from "@/components/company/SustainabilityShowcase";
+import { getSustainabilitySlides } from "@/components/company/sustainabilitySlides";
 
 export async function generateMetadata({
   params,
@@ -20,13 +22,20 @@ export async function generateMetadata({
   };
 }
 
-export default function HomePage() {
+export default async function HomePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+
   return (
     <>
       <HeroSection />
       <LocationsSection />
       <ManagementSlider />
       <StatsSection />
+      <SustainabilityShowcase slides={getSustainabilitySlides(locale)} />
       <PressSection />
       <PartnersSection />
     </>
