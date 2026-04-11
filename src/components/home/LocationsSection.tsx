@@ -54,109 +54,71 @@ export default function LocationsSection() {
   const localePath = (path: string) => `/${locale}${path}`;
 
   return (
-    <section className="ui-dark-background py-20 md:py-28" id="geography">
+    <section className="ui-dark-background py-28 md:py-36" id="geography">
       <div className="container-h">
         <div className="title-border">
           <h2>{t("locationsTitle")}</h2>
         </div>
 
-        <div className="mb-14 grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(340px,0.95fr)] lg:items-end lg:gap-20">
+        <div className="mb-16 grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(420px,0.94fr)] lg:items-start lg:gap-24">
           <div ref={metricRef}>
             <ScrollReveal>
-              <div className="flex flex-col gap-5">
-                <div>
-                  <span className="geography__count">{count.toLocaleString("en-US")}+</span>
-                  <span className="geography__count-title">{t("locationsMetricLabel")}</span>
-                </div>
-                <p className="max-w-[520px] text-[13px] uppercase tracking-[0.22em] text-white/35">
-                  {t("locationsSubtitle")}
-                </p>
+              <div>
+                <span className="geography__count">{count.toLocaleString("en-US")}+</span>
+                <span className="geography__count-title">{t("locationsMetricLabel")}</span>
               </div>
             </ScrollReveal>
           </div>
 
-          <ScrollReveal delay={0.12} className="flex flex-col gap-8 lg:pb-3">
-            <p className="geography__description max-w-[560px]">{t("locationsDescription")}</p>
-            <div className="flex flex-wrap items-center gap-5">
-              <Link
-                href={localePath("/services/drilling")}
-                className="inline-flex items-center gap-3 rounded-full border border-white/18 px-5 py-3 text-[13px] uppercase tracking-[0.16em] text-white transition-colors duration-300 hover:border-white/40 hover:bg-white/8"
-              >
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-600 text-[12px] text-white">
-                  →
-                </span>
-                <span>{t("locationsProjectsCta")}</span>
-              </Link>
-              <p className="max-w-[260px] text-[13px] leading-6 text-white/42">{t("locationsMapCaption")}</p>
-            </div>
+          <ScrollReveal delay={0.12} className="pt-3 lg:pt-0">
+            <p className="geography__description max-w-[620px] text-white">{t("locationsDescription")}</p>
           </ScrollReveal>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,1.35fr)_minmax(300px,0.65fr)]">
-          <ScrollReveal className="relative overflow-hidden rounded-[34px] border border-white/8 bg-[#435361] px-6 py-8 shadow-[0_30px_80px_rgba(0,0,0,0.2)] md:px-10 md:py-12">
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.08),transparent_35%),radial-gradient(circle_at_75%_65%,rgba(171,5,45,0.18),transparent_28%)]" />
-            <div className="relative mb-6 flex items-center justify-between gap-4">
-              <p className="text-[12px] uppercase tracking-[0.24em] text-white/38">{t("locationsMapCaption")}</p>
-              <span className="rounded-full border border-white/12 px-4 py-1.5 text-[12px] uppercase tracking-[0.18em] text-white/42">
-                24/7 field support
-              </span>
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(360px,0.95fr)] lg:items-start lg:gap-0">
+          <ScrollReveal className="relative min-h-[520px] overflow-hidden pt-6 md:min-h-[600px]">
+            <div className="absolute left-0 right-[14%] top-[24%] h-px bg-white/14" />
+            <div className="absolute left-[27%] top-[24%] h-[64px] w-[64px] rounded-full bg-primary-600 md:h-[66px] md:w-[66px]" />
+            <div className="absolute left-[51%] top-[8%] h-[160px] w-[160px] rounded-full bg-primary-600/95 md:h-[320px] md:w-[320px]" />
+            <div className="absolute left-[50.5%] right-[0%] top-[8%] h-px bg-white/14" />
+            <div className="absolute left-[50.5%] top-[8%] h-[10px] w-[10px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white" />
+
+            <svg viewBox="0 0 980 440" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute bottom-[92px] left-[18%] h-[330px] w-[78%] opacity-95 md:bottom-[96px] md:h-[390px]" aria-hidden="true">
+              <path d="M73.5 262.5L103 221L163 195L202.5 149.5L312.5 145L388.5 94L514.5 86.5L602.5 124.5L718 119L784.5 151.5L869 187L912 238.5L886.5 281.5L916 332L870 373L744 381L638.5 421L494 421L410.5 394L314 400.5L252.5 370L175 377.5L120 333L73.5 262.5Z" fill="rgba(32,45,57,0.72)" stroke="rgba(32,45,57,0.92)" strokeWidth="2" />
+            </svg>
+
+            <div className="absolute left-0 top-[calc(24%-18px)] max-w-[180px] text-white">
+              <p className="text-[15px] font-medium leading-tight">{t("locationsHeadOfficeLabel")}</p>
+              <p className="mt-1 text-[15px] leading-tight text-white/52">{t("locationsHeadOfficeCity")}</p>
             </div>
 
-            <div className="relative h-[320px] md:h-[420px]">
-              <svg viewBox="0 0 980 480" fill="none" xmlns="http://www.w3.org/2000/svg" className="h-full w-full" aria-hidden="true">
-                <path d="M73.5 262.5L103 221L163 195L202.5 149.5L312.5 145L388.5 94L514.5 86.5L602.5 124.5L718 119L784.5 151.5L869 187L912 238.5L886.5 281.5L916 332L870 373L744 381L638.5 421L494 421L410.5 394L314 400.5L252.5 370L175 377.5L120 333L73.5 262.5Z" fill="rgba(255,255,255,0.055)" stroke="rgba(255,255,255,0.12)" />
-                <path d="M163 195L245.5 237L340.5 220.5L403 242L480.5 221.5L560 242L678.5 230L774.5 257L869 240" stroke="rgba(255,255,255,0.06)" strokeWidth="10" strokeLinecap="round" />
-
-                <g>
-                  <circle cx="343" cy="188" r="60" fill="rgba(171,5,45,0.12)" className="geography__map__ellipse--small" />
-                  <circle cx="343" cy="188" r="28" fill="rgba(171,5,45,0.22)" />
-                  <circle cx="343" cy="188" r="7" fill="#ab052d" />
-                  <path d="M343 181V82" stroke="rgba(255,255,255,0.18)" strokeWidth="1" />
-                  <text x="355" y="78" fill="rgba(255,255,255,0.54)" fontSize="13">{t("locationsRegionYamal")}</text>
-                </g>
-
-                <g>
-                  <circle cx="565" cy="252" r="70" fill="rgba(171,5,45,0.14)" className="geography__map__ellipse--big" />
-                  <circle cx="565" cy="252" r="34" fill="rgba(171,5,45,0.24)" />
-                  <circle cx="565" cy="252" r="8" fill="#ab052d" />
-                  <path d="M565 244V105" stroke="rgba(255,255,255,0.2)" strokeWidth="1" />
-                  <text x="577" y="98" fill="rgba(255,255,255,0.54)" fontSize="13">{t("locationsRegionWest")}</text>
-                </g>
-
-                <g>
-                  <circle cx="470" cy="278" r="42" fill="rgba(171,5,45,0.12)" />
-                  <circle cx="470" cy="278" r="18" fill="rgba(171,5,45,0.18)" />
-                  <circle cx="470" cy="278" r="5" fill="#ab052d" />
-                  <path d="M470 273V356" stroke="rgba(255,255,255,0.18)" strokeWidth="1" />
-                  <text x="354" y="380" fill="rgba(255,255,255,0.54)" fontSize="13">{t("locationsRegionKhanty")}</text>
-                </g>
-              </svg>
-            </div>
+            <Link
+              href={localePath("/services/drilling")}
+              className="absolute bottom-[112px] left-0 inline-flex items-center gap-4 text-[15px] text-white transition-opacity duration-300 hover:opacity-80"
+            >
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-dark-900">›</span>
+              <span>{t("locationsProjectsCta")}</span>
+            </Link>
           </ScrollReveal>
 
-          <ScrollReveal delay={0.16} direction="left" className="relative overflow-hidden rounded-[34px] border border-white/8 bg-white/5 shadow-[0_30px_70px_rgba(0,0,0,0.2)] min-h-[320px]">
-            <Image
-              src={introBackground}
-              alt={t("locationsProjectTitle")}
-              fill
-              className="object-cover"
-              sizes="(min-width: 1024px) 28vw, 100vw"
-            />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(57,72,84,0.05)_0%,rgba(57,72,84,0.78)_58%,rgba(57,72,84,0.94)_100%)]" />
-            <div className="relative flex h-full flex-col justify-end p-6 md:p-8">
-              <span className="mb-4 inline-flex w-fit rounded-full bg-white/12 px-3 py-1 text-[11px] uppercase tracking-[0.22em] text-white/72">
-                {t("locationsProjectLabel")}
-              </span>
-              <h3 className="max-w-[320px] text-[28px] font-normal leading-[1.05] tracking-[-0.04em] text-white">
-                {t("locationsProjectTitle")}
-              </h3>
-              <Link
-                href={localePath("/services/service")}
-                className="mt-8 inline-flex w-fit items-center gap-3 rounded-full bg-white px-4 py-3 text-[12px] font-medium uppercase tracking-[0.16em] text-dark-900 transition-transform duration-300 hover:translate-x-1"
-              >
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary-600 text-white">→</span>
-                <span>{t("locationsProjectsCta")}</span>
-              </Link>
+          <ScrollReveal delay={0.16} direction="left" className="relative min-h-[520px] pt-6 md:min-h-[600px] lg:pl-10">
+            <div className="relative ml-auto h-[300px] w-full max-w-[600px] overflow-hidden bg-white/10 md:h-[356px]">
+              <Image
+                src={introBackground}
+                alt={t("locationsProjectTitle")}
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 42vw, 100vw"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(57,72,84,0.12)_0%,rgba(57,72,84,0.18)_100%)]" />
+              <div className="absolute bottom-8 right-6 max-w-[290px] text-right text-white md:right-10">
+                <p className="text-[18px] leading-tight">{t("locationsAreaTitle")}</p>
+                <div className="mt-2 space-y-1 text-[17px] leading-[1.25] text-white/64">
+                  {t("locationsAreaList").split("|").map((item) => (
+                    <p key={item}>{item}</p>
+                  ))}
+                </div>
+              </div>
             </div>
           </ScrollReveal>
         </div>
