@@ -58,7 +58,7 @@ export default function LocationsSection() {
 
   return (
     <section className="ui-dark-background py-32 md:py-44 lg:py-[12rem]" id="geography">
-      <div className="container-h">
+      <div className="mx-auto w-full max-w-[1680px] px-5 md:px-10 xl:px-[72px]">
         <div className="title-border">
           <h2 className="text-[32px] leading-none md:text-[44px] lg:text-[52px]">{t("locationsTitle")}</h2>
         </div>
@@ -103,20 +103,20 @@ export default function LocationsSection() {
           </svg>
 
           <div className="absolute left-0 right-[70%] top-[284px] z-20 h-px bg-white/18 md:right-[70.5%] md:top-[286px] lg:right-[71%] lg:top-[294px]" />
-          <div className="absolute left-[24.8%] top-[257px] z-20 flex h-[52px] w-[52px] items-center justify-center rounded-full bg-[rgba(194,9,52,0.86)] shadow-[0_0_0_1px_rgba(255,255,255,0.04)] md:left-[25.1%] md:top-[257px] md:h-[58px] md:w-[58px] lg:left-[26.6%] lg:top-[265px] lg:h-[62px] lg:w-[62px]">
-            <div className="absolute inset-x-[14%] top-1/2 h-px -translate-y-1/2 bg-white/22" />
+          <div className="absolute left-[24.8%] top-[257px] z-20 flex h-[52px] w-[52px] items-center justify-center rounded-full bg-[rgba(194,9,52,0.9)] shadow-[0_0_0_1px_rgba(255,255,255,0.04)] md:left-[25.1%] md:top-[257px] md:h-[58px] md:w-[58px] lg:left-[26.6%] lg:top-[265px] lg:h-[62px] lg:w-[62px]">
+            <div className="absolute inset-x-[8%] top-1/2 h-px -translate-y-1/2 bg-white/45" />
             <div className="relative z-10 h-[8px] w-[8px] rounded-full bg-white" />
           </div>
 
-          <div className="absolute left-1/2 top-[62px] z-20 flex h-[150px] w-[150px] -translate-x-1/2 items-center justify-center rounded-full bg-[rgba(194,9,52,0.84)] shadow-[0_0_0_1px_rgba(255,255,255,0.03)] md:top-[66px] md:h-[282px] md:w-[282px] lg:top-[58px] lg:h-[304px] lg:w-[304px]">
-            <div className="absolute inset-x-[10%] top-1/2 h-px -translate-y-1/2 bg-white/14" />
+          <div className="absolute left-1/2 top-[62px] z-20 flex h-[150px] w-[150px] -translate-x-1/2 items-center justify-center rounded-full bg-[rgba(194,9,52,0.88)] shadow-[0_0_0_1px_rgba(255,255,255,0.03)] md:top-[66px] md:h-[282px] md:w-[282px] lg:top-[58px] lg:h-[304px] lg:w-[304px]">
+            <div className="absolute inset-x-[8%] top-1/2 h-px -translate-y-1/2 bg-white/28" />
             <div className="relative z-10 h-[10px] w-[10px] rounded-full bg-white" />
           </div>
           <div className="absolute left-1/2 right-[8%] top-[137px] z-20 h-px bg-white/18 md:right-[7%] md:top-[207px] lg:right-[5%] lg:top-[210px]" />
 
-          <div className="absolute left-0 top-[292px] z-20 max-w-[250px] text-white md:top-[300px] lg:top-[308px]">
-            <p className="text-[20px] font-semibold leading-[1.02] tracking-[-0.03em] md:text-[24px]">{t("locationsHeadOfficeLabel")}</p>
-            <p className="mt-2 text-[18px] leading-[1.08] tracking-[-0.02em] text-white/78 md:text-[21px]">{t("locationsHeadOfficeCity")}</p>
+          <div className="absolute left-0 top-[292px] z-20 max-w-[220px] text-white md:top-[300px] lg:top-[308px]">
+            <p className="text-[16px] font-semibold leading-[1.06] tracking-[-0.03em] md:text-[18px] lg:text-[20px]">{t("locationsHeadOfficeLabel")}</p>
+            <p className="mt-1 text-[15px] leading-[1.1] tracking-[-0.02em] text-white/74 md:text-[16px] lg:text-[18px]">{t("locationsHeadOfficeCity")}</p>
           </div>
 
           <Link
