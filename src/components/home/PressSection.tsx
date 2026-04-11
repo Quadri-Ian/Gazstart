@@ -46,6 +46,20 @@ const articles: Record<Tab, Article[]> = {
       month: "Jul",
       year: "2024",
     },
+    {
+      slug: "regional-awards",
+      title: "Regional Industry Awards Recognized the Best Crew Training Practices",
+      day: "18",
+      month: "Jul",
+      year: "2024",
+    },
+    {
+      slug: "new-base",
+      title: "New Production Base Facilities Expand Readiness for the Season",
+      day: "09",
+      month: "Jul",
+      year: "2024",
+    },
   ],
   events: [
     {
@@ -76,6 +90,20 @@ const articles: Record<Tab, Article[]> = {
       month: "Jul",
       year: "2024",
     },
+    {
+      slug: "crew-marathon",
+      title: "Crew Competence Marathon Announced for Training Grounds in August",
+      day: "17",
+      month: "Jul",
+      year: "2024",
+    },
+    {
+      slug: "open-day",
+      title: "Open Day for Technical Partners Will Cover Service and Safety Programs",
+      day: "11",
+      month: "Jul",
+      year: "2024",
+    },
   ],
   media: [
     {
@@ -103,6 +131,20 @@ const articles: Record<Tab, Article[]> = {
       slug: "training-center-feature",
       title: "Training Center Development and Internal Education Programs Featured by Trade Media",
       day: "15",
+      month: "Jul",
+      year: "2024",
+    },
+    {
+      slug: "production-review",
+      title: "Production Review Notes Stable Performance and Strong Crew Discipline",
+      day: "08",
+      month: "Jul",
+      year: "2024",
+    },
+    {
+      slug: "expert-roundup",
+      title: "Expert Roundup Focuses on Automation, Reliability, and Workforce Development",
+      day: "03",
       month: "Jul",
       year: "2024",
     },
@@ -147,25 +189,25 @@ export default function PressSection() {
     if (!element) return;
 
     element.scrollBy({
-      left: direction === "next" ? 388 : -388,
+      left: direction === "next" ? 320 : -320,
       behavior: "smooth",
     });
   };
 
   return (
     <section className="bg-white py-20 md:py-24 xl:py-28">
-      <div className="container-h">
+      <div className="mx-auto w-full max-w-[1680px] px-[30px] md:px-[60px] lg:px-[150px]">
         <div className="title-border title-border--grey">
           <h2>Press-center</h2>
         </div>
 
-        <div className="mb-12 flex flex-col gap-8 lg:mb-14 lg:flex-row lg:items-center lg:justify-between">
+        <div className="mb-10 flex flex-col gap-6 lg:mb-12 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex flex-wrap gap-2.5 md:gap-3">
             {tabs.map((tab) => (
               <button
                 key={tab.key}
                 onClick={() => setActiveTab(tab.key)}
-                className={`press-tab-btn rounded-full px-8 py-4 text-[14px] tracking-[-0.02em] ${activeTab === tab.key ? "is-active" : ""}`}
+                className={`press-tab-btn rounded-full px-7 py-3 text-[13px] ${activeTab === tab.key ? "is-active" : ""}`}
               >
                 {tab.label}
               </button>
@@ -178,9 +220,9 @@ export default function PressSection() {
               aria-label="Previous press items"
               disabled={!canScrollPrev}
               onClick={() => handleScroll("prev")}
-              className="flex h-[50px] w-[50px] items-center justify-center rounded-full bg-[#f6f6f7] text-[#1e2e40]/35 transition-colors disabled:cursor-default disabled:bg-[#f6f6f7] disabled:text-[#1e2e40]/20"
+              className="flex h-[42px] w-[42px] items-center justify-center rounded-full border border-black/5 bg-[#f6f6f7] text-[#1e2e40]/35 transition-colors duration-300 hover:bg-[#b4042f] hover:text-white disabled:cursor-default disabled:bg-[#f6f6f7] disabled:text-[#1e2e40]/20 disabled:hover:bg-[#f6f6f7] disabled:hover:text-[#1e2e40]/20"
             >
-              <svg viewBox="0 0 24 24" aria-hidden="true" className="h-3.5 w-3.5 rotate-180" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg viewBox="0 0 24 24" aria-hidden="true" className="h-3 w-3 rotate-180" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M5 12h14" />
                 <path d="m13 5 7 7-7 7" />
               </svg>
@@ -190,9 +232,9 @@ export default function PressSection() {
               aria-label="Next press items"
               disabled={!canScrollNext}
               onClick={() => handleScroll("next")}
-              className="flex h-[50px] w-[50px] items-center justify-center rounded-full bg-[#435465] text-white transition-colors hover:bg-[#384755] disabled:cursor-default disabled:bg-[#e9ecef] disabled:text-[#435465]/35"
+              className="flex h-[42px] w-[42px] items-center justify-center rounded-full bg-[#435465] text-white transition-colors duration-300 hover:bg-[#b4042f] disabled:cursor-default disabled:bg-[#e9ecef] disabled:text-[#435465]/35 disabled:hover:bg-[#e9ecef]"
             >
-              <svg viewBox="0 0 24 24" aria-hidden="true" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg viewBox="0 0 24 24" aria-hidden="true" className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M5 12h14" />
                 <path d="m13 5 7 7-7 7" />
               </svg>
@@ -202,35 +244,37 @@ export default function PressSection() {
 
         <div
           ref={scrollRef}
-          className="flex snap-x snap-mandatory gap-8 overflow-x-auto pb-4 [&::-webkit-scrollbar]:hidden"
+          className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 [&::-webkit-scrollbar]:hidden"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {articles[activeTab].map((item) => (
             <Link
               key={item.slug}
               href={`/${locale}/press-center`}
-              className={`relative block h-[388px] min-w-[320px] snap-start overflow-hidden border border-black/5 bg-[#f8f8f9] md:min-w-[356px] ${item.imageUrl ? "text-white" : "text-[#394854]"}`}
+              className="group relative block h-[326px] min-w-[262px] snap-start overflow-hidden border border-black/5 bg-[#f8f8f9] md:min-w-[286px]"
             >
-              {item.imageUrl ? (
-                <>
-                  <div
-                    className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: `url(${item.imageUrl})` }}
-                  />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,30,42,0.18)_0%,rgba(17,30,42,0.42)_100%)]" />
-                </>
-              ) : null}
+              <div className="absolute inset-0 overflow-hidden">
+                {item.imageUrl ? (
+                  <>
+                    <div
+                      className="absolute inset-0 translate-y-full bg-cover bg-center transition-transform duration-700 ease-[cubic-bezier(0.25,0.74,0.22,0.99)] group-hover:translate-y-0"
+                      style={{ backgroundImage: `url(${item.imageUrl})` }}
+                    />
+                    <div className="absolute inset-0 translate-y-full bg-[linear-gradient(180deg,rgba(17,30,42,0.12)_0%,rgba(17,30,42,0.46)_100%)] transition-transform duration-700 ease-[cubic-bezier(0.25,0.74,0.22,0.99)] group-hover:translate-y-0" />
+                  </>
+                ) : null}
+              </div>
 
-              <div className="relative flex h-full flex-col justify-between px-8 py-7 md:px-9 md:py-8">
-                <h3 className={`max-w-[286px] text-[18px] leading-[1.12] tracking-[-0.04em] ${item.imageUrl ? "text-white" : "text-[#394854]"}`}>
+              <div className="relative flex h-full flex-col justify-between px-5 py-5 md:px-6 md:py-6">
+                <h3 className={`max-w-[228px] text-[15px] leading-[1.1] tracking-[-0.035em] text-[#394854] transition-colors duration-500 ${item.imageUrl ? "group-hover:text-white" : ""}`}>
                   {item.title}
                 </h3>
 
-                <div className={`flex items-end justify-between border-t pt-6 ${item.imageUrl ? "border-white/25" : "border-black/10"}`}>
-                  <time className={`text-[76px] leading-[0.85] tracking-[-0.07em] ${item.imageUrl ? "text-white" : "text-[#b4042f]"}`}>
+                <div className={`flex items-end justify-between border-t border-black/10 pt-5 transition-colors duration-500 ${item.imageUrl ? "group-hover:border-white/25" : ""}`}>
+                  <time className={`text-[58px] leading-[0.84] tracking-[-0.075em] text-[#b4042f] transition-colors duration-500 ${item.imageUrl ? "group-hover:text-white" : ""}`}>
                     {item.day}
                   </time>
-                  <div className={`pb-1 text-right text-[14px] leading-[1.05] tracking-[-0.03em] ${item.imageUrl ? "text-white/75" : "text-[#435465]/75"}`}>
+                  <div className={`pb-1 text-right text-[11px] leading-[1.02] tracking-[-0.03em] text-[#435465]/72 transition-colors duration-500 ${item.imageUrl ? "group-hover:text-white/78" : ""}`}>
                     <p>{item.month}</p>
                     <p>{item.year}</p>
                   </div>

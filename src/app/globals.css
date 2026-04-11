@@ -31,6 +31,8 @@ body {
   font-family: "Suisse Intl", Helvetica, Arial, sans-serif;
   background: #ffffff;
   color: var(--dark-900);
+  font-size: 14px;
+  line-height: 1.45;
 }
 
 /* ─────────────────────────────────────────────────
@@ -412,17 +414,21 @@ body {
    PRESS CENTER TABS
 ───────────────────────────────────────────────── */
 .press-tab-btn {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 400;
   border: 1px solid rgba(14, 26, 39, 0.2);
   background: transparent;
   color: rgba(57, 72, 84, 0.65);
-  padding: 8px 20px;
+  padding: 8px 18px;
   cursor: pointer;
-  transition: all 0.2s;
-  letter-spacing: 0.02em;
+  transition: background-color 0.25s var(--ease-custom), border-color 0.25s var(--ease-custom), color 0.25s var(--ease-custom);
+  letter-spacing: -0.01em;
 }
-.press-tab-btn:hover,
+.press-tab-btn:hover {
+  background: var(--red);
+  border-color: var(--red);
+  color: white;
+}
 .press-tab-btn.is-active {
   background: var(--dark-900);
   border-color: var(--dark-900);

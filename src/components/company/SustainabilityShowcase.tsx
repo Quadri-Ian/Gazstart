@@ -97,7 +97,7 @@ export default function SustainabilityShowcase({ slides }: SustainabilityShowcas
     <section className="bg-white px-0 py-8 md:py-12 lg:py-16">
       <div className="overflow-hidden bg-white">
         <div className="relative grid min-h-[720px] grid-cols-1 lg:grid-cols-[50.4%_49.6%]">
-          <div className="absolute left-0 right-0 top-0 z-30 px-[30px] pt-8 md:px-[60px] md:pt-10 xl:px-[140px] lg:pt-[34px]">
+          <div className="absolute left-0 right-0 top-0 z-30 px-[30px] pt-8 md:px-[60px] md:pt-10 lg:px-[150px] lg:pt-[34px]">
             <div className="flex items-center justify-between border-b border-white/25 pb-4 text-[13px] leading-none tracking-[-0.02em] text-white/95 md:text-[14px]">
               <span>{slide.category}</span>
               <AnimatePresence mode="wait">
@@ -115,7 +115,7 @@ export default function SustainabilityShowcase({ slides }: SustainabilityShowcas
             </div>
           </div>
 
-          <div className="relative z-10 flex flex-col bg-[#b4042f] px-8 py-8 text-white md:px-12 md:py-10 lg:px-[72px] lg:py-[66px] lg:pt-[116px] xl:pl-[140px]">
+          <div className="relative z-10 flex flex-col bg-[#b4042f] px-8 py-8 text-white md:px-12 md:py-10 lg:px-[72px] lg:py-[66px] lg:pt-[116px] lg:pl-[150px]">
 
             <div className="mt-14 flex items-center gap-3 md:mt-16 lg:mt-[54px]">
               <button
