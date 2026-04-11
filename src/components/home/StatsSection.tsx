@@ -1,29 +1,25 @@
 "use client";
 
-import Image from "next/image";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { useState } from "react";
+import dynamic from "next/dynamic";
 import { useTranslations } from "next-intl";
 
-import longtool from "@/assets/longtool.png";
+const RigScene = dynamic(() => import("@/components/home/RigScene"), {
+  ssr: false,
+});
 
 export default function StatsSection() {
   const t = useTranslations("home");
-  const mouseX = useMotionValue(0);
-  const smoothX = useSpring(mouseX, { stiffness: 165, damping: 20, mass: 0.45 });
-  const rotateX = useTransform(smoothX, [-0.5, 0.5], [18, -18]);
-  const rotateY = useTransform(smoothX, [-0.5, 0.5], [-22, 22]);
-  const rotateZ = useTransform(smoothX, [-0.5, 0.5], [-2.5, 2.5]);
-  const shiftX = useTransform(smoothX, [-0.5, 0.5], [-42, 42]);
-  const scale = useTransform(smoothX, [-0.5, 0, 0.5], [0.985, 1, 0.985]);
+  const [mouseX, setMouseX] = useState(0);
 
   const handleMove = (event: React.MouseEvent<HTMLElement>) => {
     const bounds = event.currentTarget.getBoundingClientRect();
     const progress = (event.clientX - bounds.left) / bounds.width;
-    mouseX.set(progress - 0.5);
+    setMouseX(Math.max(-1, Math.min(1, progress * 2 - 1)));
   };
 
   const handleLeave = () => {
-    mouseX.set(0);
+    setMouseX(0);
   };
 
   return (
@@ -37,17 +33,9 @@ export default function StatsSection() {
           <h2 className="text-[15px] font-normal tracking-[-0.02em] text-primary-600 md:text-[17px]">{t("statsDrilled")}</h2>
         </div>
 
-        <motion.div
-          style={{ rotateX, rotateY, rotateZ, x: shiftX, scale, transformPerspective: 2200, transformStyle: "preserve-3d" }}
-          className="pointer-events-none absolute inset-x-0 top-[18px] z-10 flex justify-center md:top-[-18px] lg:top-[-34px]"
-        >
-          <Image
-            src={longtool}
-            alt={t("statsRigAlt")}
-            className="h-auto w-[560px] select-none opacity-[0.28] md:w-[780px] lg:w-[980px]"
-            priority={false}
-          />
-        </motion.div>
+        <div className="pointer-events-none absolute inset-0 z-10 opacity-[0.72]">
+          <RigScene mouseX={mouseX} />
+        </div>
 
         <div className="relative z-20 min-h-[520px] pb-8 md:min-h-[600px] md:pb-10 lg:min-h-[680px] lg:pb-14">
           <div className="pt-3 md:pt-5 lg:pt-6">
