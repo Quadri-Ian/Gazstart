@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import HeroSection from "@/components/home/HeroSection";
 import LocationsSection from "@/components/home/LocationsSection";
 import ManagementSlider from "@/components/home/ManagementSlider";
+import StatsSection from "@/components/home/StatsSection";
 import PressSection from "@/components/home/PressSection";
 import PartnersSection from "@/components/home/PartnersSection";
 
@@ -25,6 +26,7 @@ export default function HomePage() {
       <HeroSection />
       <LocationsSection />
       <ManagementSlider />
+      <StatsSection />
       <PressSection />
       <PartnersSection />
     </>

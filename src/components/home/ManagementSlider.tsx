@@ -53,7 +53,7 @@ export default function ManagementSlider() {
   const next = people[(active + 1) % people.length];
 
   return (
-    <section className="ui-dark-background overflow-hidden pt-0" id="ceo">
+    <section className="overflow-hidden bg-[linear-gradient(180deg,#394858_0%,#394858_50%,#ffffff_50%,#ffffff_100%)] pt-0" id="ceo">
       <div className="relative ml-auto w-[calc(100%-max(20px,calc((100vw-1680px)/2+30px)))] sm:w-[calc(100%-max(60px,calc((100vw-1680px)/2+60px)))] lg:w-[calc(100%-max(140px,calc((100vw-1680px)/2+140px)))]">
         <div className="pointer-events-none absolute left-[33%] right-[8%] top-12 z-40 hidden text-white md:block lg:left-[34%] lg:top-14">
           <p className="mb-4 text-[14px] font-normal tracking-[-0.02em] text-white/92 lg:text-[15px]">{t("managementTitle")}</p>
