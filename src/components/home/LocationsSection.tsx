@@ -118,7 +118,7 @@ export default function LocationsSection() {
 
           {/* Nigeria map */}
           <svg viewBox="0 0 980 440" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute left-[4%] top-[94px] z-10 h-[248px] w-[92%] opacity-95 md:left-[9%] md:top-0 md:h-[396px] md:w-[74%] lg:left-[10%] lg:top-[-8px] lg:h-[454px] lg:w-[76%]" aria-hidden="true">
-            <path d="M90,325 L140,320 L162,318 L188,356 L240,378 L288,400 L352,412 L418,410 L452,406 L492,406 L516,398 L572,378 L584,340 L598,302 L618,262 L652,242 L718,224 L784,184 L816,164 L876,126 L890,106 L890,84 L850,58 L784,54 L650,46 L584,46 L480,40 L364,40 L248,36 L172,36 L134,44 L94,54 L56,74 L38,110 L34,170 L34,234 L90,325 Z" fill="rgba(32,45,57,0.92)" stroke="rgba(32,45,57,0.98)" strokeWidth="2" />
+            <path d="M148 350L124 324L110 290L96 262L86 226L84 192L92 152L112 122L138 98L166 78L212 66L262 56L318 54L374 44L436 36L510 34L580 42L640 52L692 74L742 92L786 120L818 150L840 180L868 198L890 224L884 252L860 274L834 296L818 326L792 348L752 364L708 380L660 392L608 402L552 410L500 414L438 410L378 406L322 398L274 386L232 372L194 360L148 350Z" fill="rgba(32,45,57,0.92)" stroke="rgba(32,45,57,0.98)" strokeWidth="2" />
           </svg>
 
           <div className="absolute left-0 top-[296px] z-30 h-px w-[calc(21%+18px)] bg-white/22 md:top-[280px] md:w-[calc(22.5%+29px)] lg:top-[290px] lg:w-[calc(24%+31px)]" />

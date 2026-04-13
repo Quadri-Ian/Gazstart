@@ -88,14 +88,14 @@ export default function HeroSection() {
       <div className="relative z-[4] flex min-h-[100svh] w-full flex-col md:min-h-screen">
         <div className="mx-auto flex w-full max-w-[1680px] flex-1 flex-col justify-start px-5 pb-12 pt-[108px] sm:px-[72px] md:justify-center md:pt-[120px] lg:px-[150px] lg:pt-[152px]">
           <h1
-            className="max-w-[230px] text-[31px] font-semibold leading-[0.94] tracking-[-0.05em] text-white md:max-w-none md:text-[72px] md:font-light md:leading-[0.95] md:tracking-[-0.04em] lg:text-[112px]"
+            className="max-w-[320px] text-[58px] font-semibold leading-[0.9] tracking-[-0.055em] text-white md:max-w-none md:text-[72px] md:font-light md:leading-[0.95] md:tracking-[-0.04em] lg:text-[112px]"
           >
             {t("heroTitleAccent")}
             <br />
             {t("heroTitleMain")}
           </h1>
           <p
-            className="mt-5 max-w-[190px] text-[13px] font-semibold leading-[1.12] tracking-[-0.03em] text-white md:mt-8 md:max-w-[450px] md:text-[20px] md:font-light md:leading-[1.35] md:tracking-[-0.02em]"
+            className="mt-5 max-w-[270px] text-[20px] font-semibold leading-[1.04] tracking-[-0.03em] text-white md:mt-8 md:max-w-[450px] md:text-[20px] md:font-light md:leading-[1.35] md:tracking-[-0.02em]"
           >
             {t("heroSubtitle")}
           </p>

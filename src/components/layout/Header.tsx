@@ -110,11 +110,11 @@ export default function Header() {
             className="header__logo mr-auto flex items-center gap-3 py-[16px] text-white"
             title="Blueflare Energy"
           >
-            <svg width="48" height="20" viewBox="0 0 48 20" fill="none" aria-hidden="true" className="hidden lg:block">
+            <svg width="48" height="20" viewBox="0 0 48 20" fill="none" aria-hidden="true" className="h-[18px] w-[44px] lg:h-[20px] lg:w-[48px]">
               <path d="M0 0H16V5H7L16 20H9L0 5V0Z" fill="currentColor" />
               <path d="M21 0H48V5H30V7.5H44V12.5H30V20H21V0Z" fill="currentColor" />
             </svg>
-            <span className="text-[15px] font-semibold uppercase italic tracking-[0.08em] text-white">
+            <span className="text-[21px] font-semibold uppercase italic leading-none tracking-[0.06em] text-white md:text-[17px] lg:text-[15px]">
               Blueflare
             </span>
           </Link>
