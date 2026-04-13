@@ -49,7 +49,7 @@ export default async function ContactsPage({
                   <span className="mt-1 text-primary-500">✉️</span>
                   <div>
                     <p className="font-medium text-white">Email</p>
-                    <p>info@gazstart.com</p>
+                    <p>info@blueflare.com</p>
                   </div>
                 </div>
               </div>

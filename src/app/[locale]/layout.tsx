@@ -9,17 +9,17 @@ import "../globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "GazStart — Oil & Gas Services",
-    template: "%s | GazStart",
+    default: "Blueflare Energy — Oil & Gas Services",
+    template: "%s | Blueflare Energy",
   },
   description:
-    "GazStart provides world-class drilling and oilfield services for the energy industry.",
+    "Blueflare Energy provides world-class drilling and oilfield services for the energy industry.",
   openGraph: {
     type: "website",
-    siteName: "GazStart",
-    title: "GazStart — Oil & Gas Services",
+    siteName: "Blueflare Energy",
+    title: "Blueflare Energy — Oil & Gas Services",
     description:
-      "GazStart provides world-class drilling and oilfield services for the energy industry.",
+      "Blueflare Energy provides world-class drilling and oilfield services for the energy industry.",
   },
 };
 

@@ -31,7 +31,7 @@ export default async function AboutPage({
             <ScrollReveal>
               <h2 className="mb-4 text-2xl font-bold text-white">Our History</h2>
               <p className="leading-relaxed text-white/70">
-                Founded over two decades ago, GazStart has grown from a regional drilling
+                Founded over two decades ago, Blueflare Energy has grown from a regional drilling
                 contractor into a full-service oilfield services provider. Our journey reflects
                 the evolution of the energy industry itself—from conventional drilling to complex
                 directional wells and advanced formation evaluation.

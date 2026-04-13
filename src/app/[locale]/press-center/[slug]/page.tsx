@@ -7,14 +7,14 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 
 const allNews = [
   {
-    slug: "gazstart-secures-new-contracts",
+    slug: "blueflare-secures-new-contracts",
     date: "2026-03-15",
     category: "Business",
-    title: "GazStart Secures Major Drilling Contracts in Western Siberia",
+    title: "Blueflare Energy Secures Major Drilling Contracts in the Niger Delta",
     excerpt: "The company announces new multi-year agreements with leading energy producers.",
-    content: `GazStart, a leading provider of drilling and oilfield services, today announced the signing of multi-year drilling service contracts with three major energy producers operating in the Western Siberia basin.
+    content: `Blueflare Energy, a leading provider of drilling and oilfield services, today announced the signing of multi-year drilling service contracts with three major energy producers operating in the Niger Delta basin.
 
-The contracts, valued at over $500 million combined, will see GazStart deploy 12 drilling rigs across multiple fields over the next three years. The agreements include provisions for performance bonuses tied to key efficiency metrics.
+The contracts, valued at over $500 million combined, will see Blueflare Energy deploy 12 drilling rigs across multiple fields over the next three years. The agreements include provisions for performance bonuses tied to key efficiency metrics.
 
 "These contracts demonstrate the trust our clients place in our technical capabilities and operational track record," said CEO Alexander Petrov. "We look forward to delivering exceptional results for our partners."
 
@@ -24,9 +24,9 @@ Operations are scheduled to commence in Q3 2026, with full ramp-up by year-end.`
     slug: "safety-milestone-2025",
     date: "2026-02-20",
     category: "Safety",
-    title: "GazStart Achieves Record Safety Milestone in 2025",
+    title: "Blueflare Energy Achieves Record Safety Milestone in 2025",
     excerpt: "Our operations recorded the lowest incident rate in company history.",
-    content: `GazStart is proud to report that its 2025 safety performance reached record levels, with the Total Recordable Incident Rate (TRIR) falling to 0.21 — the lowest in the company's 25-year history and well below the industry average.
+    content: `Blueflare Energy is proud to report that its 2025 safety performance reached record levels, with the Total Recordable Incident Rate (TRIR) falling to 0.21 — the lowest in the company's 25-year history and well below the industry average.
 
 The achievement reflects a sustained commitment to safety culture, worker training, and process improvement across all operating sites.
 
@@ -38,9 +38,9 @@ Key initiatives contributing to the milestone include mandatory behavior-based s
     slug: "technology-innovation-awards",
     date: "2026-01-10",
     category: "Innovation",
-    title: "Innovation Awards Recognize GazStart Technology Advances",
+    title: "Innovation Awards Recognize Blueflare Energy Technology Advances",
     excerpt: "Three industry awards for pioneering work in directional drilling technology.",
-    content: `At the annual Energy Technology Conference, GazStart received three prestigious industry awards recognizing its contributions to drilling technology innovation.
+    content: `At the annual Energy Technology Conference, Blueflare Energy received three prestigious industry awards recognizing its contributions to drilling technology innovation.
 
 The awards cover: (1) Best Directional Drilling Solution for its proprietary rotary steerable system upgrades; (2) Digital Innovation of the Year for its real-time drilling analytics platform; and (3) Environmental Technology Award for its closed-loop drilling fluid management system.
 
@@ -50,9 +50,9 @@ The awards cover: (1) Best Directional Drilling Solution for its proprietary rot
     slug: "arctic-operations-expansion",
     date: "2025-12-05",
     category: "Operations",
-    title: "GazStart Expands Arctic Drilling Capabilities",
-    excerpt: "New equipment and trained crews ready for Yamal Peninsula operations.",
-    content: `GazStart has completed a major investment in arctic-grade drilling equipment and specialized crew training, positioning the company for expanded operations on the Yamal Peninsula.
+    title: "Blueflare Energy Expands Arctic Drilling Capabilities",
+    excerpt: "New rigs and trained crews ready for deepwater Niger Delta operations.",
+    content: `Blueflare Energy has completed a major investment in deepwater drilling equipment and specialized crew training, positioning the company for expanded operations in the Niger Delta.
 
 The $120 million investment includes two new arctic-spec drilling rigs, supporting equipment rated to -60°C, and a comprehensive training program for 350 crew members covering cold-weather operations, emergency response, and environmental protection.
 
@@ -62,9 +62,9 @@ Operations in the region will support development of new natural gas fields targ
     slug: "esg-report-2025",
     date: "2025-11-18",
     category: "Sustainability",
-    title: "GazStart Publishes Annual ESG Report",
+    title: "Blueflare Energy Publishes Annual ESG Report",
     excerpt: "Demonstrating progress against environmental and social goals.",
-    content: `GazStart has released its 2025 Environmental, Social, and Governance (ESG) Report, documenting the company's progress against its sustainability commitments.
+    content: `Blueflare Energy has released its 2025 Environmental, Social, and Governance (ESG) Report, documenting the company's progress against its sustainability commitments.
 
 Highlights include a 15% reduction in Scope 1 and 2 greenhouse gas emissions, a 22% increase in local community investment, and an industry-leading score on governance transparency metrics.
 
@@ -76,9 +76,9 @@ The report is prepared in accordance with GRI Standards and includes independent
     category: "Business",
     title: "Strategic Partnership with Leading Technology Provider",
     excerpt: "Collaboration will accelerate digital transformation in oilfield operations.",
-    content: `GazStart and TechField Solutions have entered into a strategic partnership to accelerate the digital transformation of oilfield operations.
+    content: `Blueflare Energy and TechField Solutions have entered into a strategic partnership to accelerate the digital transformation of oilfield operations.
 
-The partnership will integrate TechField's AI-powered predictive maintenance platform with GazStart's drilling operations, targeting a 20% reduction in unplanned downtime and a 15% improvement in drilling efficiency.
+The partnership will integrate TechField's AI-powered predictive maintenance platform with Blueflare Energy's drilling operations, targeting a 20% reduction in unplanned downtime and a 15% improvement in drilling efficiency.
 
 Pilot deployments will begin at five drilling rigs in Q1 2026, with full rollout planned by mid-year. The technology will be adapted for both onshore and offshore environments.`,
   },

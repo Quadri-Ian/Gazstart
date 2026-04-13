@@ -116,21 +116,22 @@ export default function LocationsSection() {
             </div>
           </div>
 
+          {/* Nigeria map */}
           <svg viewBox="0 0 980 440" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute left-[4%] top-[94px] z-10 h-[248px] w-[92%] opacity-95 md:left-[9%] md:top-0 md:h-[396px] md:w-[74%] lg:left-[10%] lg:top-[-8px] lg:h-[454px] lg:w-[76%]" aria-hidden="true">
-            <path d="M73.5 262.5L103 221L163 195L202.5 149.5L312.5 145L388.5 94L514.5 86.5L602.5 124.5L718 119L784.5 151.5L869 187L912 238.5L886.5 281.5L916 332L870 373L744 381L638.5 421L494 421L410.5 394L314 400.5L252.5 370L175 377.5L120 333L73.5 262.5Z" fill="rgba(32,45,57,0.92)" stroke="rgba(32,45,57,0.98)" strokeWidth="2" />
+            <path d="M90,325 L140,320 L162,318 L188,356 L240,378 L288,400 L352,412 L418,410 L452,406 L492,406 L516,398 L572,378 L584,340 L598,302 L618,262 L652,242 L718,224 L784,184 L816,164 L876,126 L890,106 L890,84 L850,58 L784,54 L650,46 L584,46 L480,40 L364,40 L248,36 L172,36 L134,44 L94,54 L56,74 L38,110 L34,170 L34,234 L90,325 Z" fill="rgba(32,45,57,0.92)" stroke="rgba(32,45,57,0.98)" strokeWidth="2" />
           </svg>
 
-          <div className="absolute left-0 top-[312px] z-30 h-px w-[calc(23%+18px)] bg-white/22 md:top-[286px] md:w-[calc(25.1%+29px)] lg:top-[296px] lg:w-[calc(26.6%+31px)]" />
-          <div className="absolute left-[23%] top-[294px] z-20 flex h-[34px] w-[34px] items-center justify-center rounded-full bg-[rgba(194,9,52,0.9)] shadow-[0_0_0_1px_rgba(255,255,255,0.04)] md:left-[25.1%] md:top-[257px] md:h-[58px] md:w-[58px] lg:left-[26.6%] lg:top-[265px] lg:h-[62px] lg:w-[62px]">
+          <div className="absolute left-0 top-[296px] z-30 h-px w-[calc(21%+18px)] bg-white/22 md:top-[280px] md:w-[calc(22.5%+29px)] lg:top-[290px] lg:w-[calc(24%+31px)]" />
+          <div className="absolute left-[21%] top-[278px] z-20 flex h-[34px] w-[34px] items-center justify-center rounded-full bg-[rgba(194,9,52,0.9)] shadow-[0_0_0_1px_rgba(255,255,255,0.04)] md:left-[22.5%] md:top-[251px] md:h-[58px] md:w-[58px] lg:left-[24%] lg:top-[259px] lg:h-[62px] lg:w-[62px]">
             <div className="relative z-10 h-[8px] w-[8px] rounded-full bg-white" />
           </div>
 
-          <div className="absolute left-[52%] top-[188px] z-20 flex h-[138px] w-[138px] -translate-x-1/2 items-center justify-center rounded-full bg-[rgba(194,9,52,0.88)] shadow-[0_0_0_1px_rgba(255,255,255,0.03)] md:left-1/2 md:top-[66px] md:h-[282px] md:w-[282px] lg:top-[58px] lg:h-[304px] lg:w-[304px]">
+          <div className="absolute left-[44%] top-[196px] z-20 flex h-[138px] w-[138px] -translate-x-1/2 items-center justify-center rounded-full bg-[rgba(194,9,52,0.88)] shadow-[0_0_0_1px_rgba(255,255,255,0.03)] md:left-[46%] md:top-[70px] md:h-[282px] md:w-[282px] lg:top-[62px] lg:h-[304px] lg:w-[304px]">
             <div className="relative z-10 h-[10px] w-[10px] rounded-full bg-white" />
           </div>
-          <div className="absolute left-[52%] right-0 top-[256px] z-30 h-px bg-white/18 md:left-1/2 md:top-[207px] lg:top-[210px]" />
+          <div className="absolute left-[44%] right-0 top-[264px] z-30 h-px bg-white/18 md:left-[46%] md:top-[211px] lg:top-[214px]" />
 
-          <div className="absolute left-[28px] top-[266px] z-20 max-w-[124px] text-white md:left-0 md:top-[300px] md:max-w-[220px] lg:top-[308px]">
+          <div className="absolute left-[28px] top-[248px] z-20 max-w-[124px] text-white md:left-0 md:top-[294px] md:max-w-[220px] lg:top-[302px]">
             <p className="text-[11px] font-semibold leading-[1.04] tracking-[-0.03em] md:text-[15px] lg:text-[16px]">{t("locationsHeadOfficeLabel")}</p>
             <p className="mt-1 text-[11px] leading-[1.08] tracking-[-0.02em] text-white/74 md:text-[14px] lg:text-[15px]">{t("locationsHeadOfficeCity")}</p>
           </div>

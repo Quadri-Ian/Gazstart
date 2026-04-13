@@ -44,7 +44,7 @@ export function getSustainabilitySlides(locale: string): SustainabilitySlide[] {
       category: "Social Responsibility",
       title: "Occupational Safety",
       description:
-        "Safety first. Protection of life and health of GazStart personnel and contractors, integrity of assets, reliability of equipment and environmental protection are critical to our company’s sustainable development. The target of our occupational safety policy is zero injuries and accidents across all levels.",
+        "Safety first. Protection of life and health of Blueflare Energy personnel and contractors, integrity of assets, reliability of equipment and environmental protection are critical to our company’s sustainable development. The target of our occupational safety policy is zero injuries and accidents across all levels.",
       cta: "Learn more",
     },
     {

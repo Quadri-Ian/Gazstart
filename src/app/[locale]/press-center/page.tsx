@@ -16,38 +16,38 @@ export async function generateMetadata({
 
 const allNews = [
   {
-    slug: "gazstart-secures-new-contracts",
+    slug: "blueflare-secures-new-contracts",
     date: "2026-03-15",
     category: "Business",
-    title: "GazStart Secures Major Drilling Contracts in Western Siberia",
+    title: "Blueflare Energy Secures Major Drilling Contracts in the Niger Delta",
     excerpt: "The company announces new multi-year agreements with leading energy producers.",
   },
   {
     slug: "safety-milestone-2025",
     date: "2026-02-20",
     category: "Safety",
-    title: "GazStart Achieves Record Safety Milestone in 2025",
+    title: "Blueflare Energy Achieves Record Safety Milestone in 2025",
     excerpt: "Our operations recorded the lowest incident rate in company history.",
   },
   {
     slug: "technology-innovation-awards",
     date: "2026-01-10",
     category: "Innovation",
-    title: "Innovation Awards Recognize GazStart Technology Advances",
+    title: "Innovation Awards Recognize Blueflare Energy Technology Advances",
     excerpt: "Three industry awards for pioneering work in directional drilling technology.",
   },
   {
     slug: "arctic-operations-expansion",
     date: "2025-12-05",
     category: "Operations",
-    title: "GazStart Expands Arctic Drilling Capabilities",
-    excerpt: "New equipment and trained crews ready for Yamal Peninsula operations.",
+    title: "Blueflare Energy Expands Arctic Drilling Capabilities",
+    excerpt: "New rigs and trained crews ready for deepwater Niger Delta operations.",
   },
   {
     slug: "esg-report-2025",
     date: "2025-11-18",
     category: "Sustainability",
-    title: "GazStart Publishes Annual ESG Report",
+    title: "Blueflare Energy Publishes Annual ESG Report",
     excerpt: "Demonstrating progress against environmental and social goals.",
   },
   {

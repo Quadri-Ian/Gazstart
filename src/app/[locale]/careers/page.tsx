@@ -14,8 +14,8 @@ export async function generateMetadata({
 }
 
 const openings = [
-  { title: "Senior Drilling Engineer", location: "Western Siberia", type: "Full-time" },
-  { title: "MWD/LWD Specialist", location: "Yamal Peninsula", type: "Rotation" },
+  { title: "Senior Drilling Engineer", location: "Niger Delta", type: "Full-time" },
+  { title: "MWD/LWD Specialist", location: "Offshore Lagos", type: "Rotation" },
   { title: "HSE Supervisor", location: "Multiple Locations", type: "Full-time" },
   { title: "Directional Driller", location: "Volga Region", type: "Rotation" },
   { title: "Well Site Geologist", location: "Caspian Region", type: "Rotation" },

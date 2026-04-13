@@ -108,14 +108,14 @@ export default function Header() {
           <Link
             href={localePath("/")}
             className="header__logo mr-auto flex items-center gap-3 py-[16px] text-white"
-            title="GazStart"
+            title="Blueflare Energy"
           >
             <svg width="48" height="20" viewBox="0 0 48 20" fill="none" aria-hidden="true" className="hidden lg:block">
               <path d="M0 0H16V5H7L16 20H9L0 5V0Z" fill="currentColor" />
               <path d="M21 0H48V5H30V7.5H44V12.5H30V20H21V0Z" fill="currentColor" />
             </svg>
             <span className="text-[15px] font-semibold uppercase italic tracking-[0.08em] text-white">
-              Gazstart
+              Blueflare
             </span>
           </Link>
 

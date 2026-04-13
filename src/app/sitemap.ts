@@ -1,9 +1,9 @@
 import { MetadataRoute } from "next";
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://gazstart.vercel.app";
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://blueflare.vercel.app";
 
 const slugs = [
-  "gazstart-secures-new-contracts",
+  "blueflare-secures-new-contracts",
   "safety-milestone-2025",
   "technology-innovation-awards",
   "arctic-operations-expansion",

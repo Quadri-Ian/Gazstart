@@ -38,7 +38,7 @@ export default function Hero({ title, subtitle, backgroundImage, children }: Her
           transition={{ duration: 0.5 }}
           className="mb-2 text-xs uppercase tracking-widest text-primary-500"
         >
-          GazStart
+          Blueflare Energy
         </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 30 }}

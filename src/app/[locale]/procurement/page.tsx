@@ -48,7 +48,7 @@ export default async function ProcurementPage({
               <h3 className="mb-2 font-semibold text-white">Become a Supplier</h3>
               <p className="text-sm text-white/70">
                 To register as a supplier or learn about current tender opportunities, please send
-                your company profile and qualifications to procurement@gazstart.com
+                your company profile and qualifications to procurement@blueflare.com
               </p>
             </div>
           </ScrollReveal>
