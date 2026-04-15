@@ -1,26 +1,11 @@
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
-import HeroSection from "@/components/home/HeroSection";
-import LocationsSection from "@/components/home/LocationsSection";
-import ManagementSlider from "@/components/home/ManagementSlider";
-import StatsSection from "@/components/home/StatsSection";
-import PressSection from "@/components/home/PressSection";
-import PartnersSection from "@/components/home/PartnersSection";
-import SustainabilityShowcase from "@/components/company/SustainabilityShowcase";
-import { getSustainabilitySlides } from "@/components/company/sustainabilitySlides";
+import { redirect } from "next/navigation";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "home" });
-  return {
-    title: t("heroTitle"),
-    description: t("heroSubtitle"),
-  };
-}
+export const metadata: Metadata = {
+  title: "Blueflare – russian oilfield services company",
+  description:
+    "An independent oilfield service company engaged in construction of wells of all types and any complexity.",
+};
 
 export default async function HomePage({
   params,
@@ -28,16 +13,7 @@ export default async function HomePage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const mirroredLocale = locale === "en" ? "en" : "en";
 
-  return (
-    <>
-      <HeroSection />
-      <LocationsSection />
-      <ManagementSlider />
-      <StatsSection />
-      <SustainabilityShowcase slides={getSustainabilitySlides(locale)} />
-      <PressSection />
-      <PartnersSection />
-    </>
-  );
+  redirect(`/legacy/naftagaz.com/${mirroredLocale}/index.html`);
 }

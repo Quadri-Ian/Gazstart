@@ -38,3 +38,14 @@ next-env.d.ts
 
 # pnpm
 pnpm-debug.log*
+
+# backups and local tooling
+Naftagaz/
+blueflare/
+messages_backup/
+public_backup/
+src_backup/
+.build-log.txt
+.venv/
+package-lock.json
+.vscode/

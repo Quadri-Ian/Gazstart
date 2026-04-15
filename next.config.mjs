@@ -12,6 +12,19 @@ const nextConfig = {
 			},
 		],
 	},
+	async rewrites() {
+		const ORIGIN = "https://naftagaz.com";
+		const proxy = (pattern) => ({
+			source: pattern,
+			destination: `${ORIGIN}${pattern}`,
+		});
+		return [
+			proxy("/upload/:path*"),
+			proxy("/local/:path*"),
+			proxy("/assets/:path*"),
+			proxy("/bitrix/:path*"),
+		];
+	},
 };
 
 export default withNextIntl(nextConfig);
