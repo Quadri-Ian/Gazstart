@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";
@@ -107,16 +108,17 @@ export default function Header() {
           {/* Logo */}
           <Link
             href={localePath("/")}
-            className="header__logo mr-auto flex items-center gap-3 py-[16px] text-white"
+            className="header__logo mr-auto flex items-center py-[12px]"
             title="Blueflare Energy"
           >
-            <svg width="48" height="20" viewBox="0 0 48 20" fill="none" aria-hidden="true" className="h-[18px] w-[44px] lg:h-[20px] lg:w-[48px]">
-              <path d="M0 0H16V5H7L16 20H9L0 5V0Z" fill="currentColor" />
-              <path d="M21 0H48V5H30V7.5H44V12.5H30V20H21V0Z" fill="currentColor" />
-            </svg>
-            <span className="text-[21px] font-semibold uppercase italic leading-none tracking-[0.06em] text-white md:text-[17px] lg:text-[15px]">
-              Blueflare
-            </span>
+            <Image
+              src="/brand/blueflare-energy.png"
+              alt="Blueflare Energy"
+              width={1316}
+              height={639}
+              priority
+              className="h-[44px] w-auto max-w-[240px] object-contain sm:h-[48px] sm:max-w-[280px] lg:h-[56px] lg:max-w-[340px]"
+            />
           </Link>
 
           {/* Mobile hamburger */}
