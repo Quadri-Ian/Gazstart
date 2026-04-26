@@ -242,6 +242,13 @@
             padding: 1rem;
         }
     }
+    /* Force header always visible regardless of JS state or Barba.js transitions */
+    .js-header {
+        visibility: visible !important;
+        display: flex !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
 </style>
 
 

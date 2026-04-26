@@ -23,6 +23,35 @@
     .page-transition-overlay.js-preloader {
         display: none !important;
     }
+    /* Force header always visible */
+    .js-header {
+        visibility: visible !important;
+        display: flex !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
+    /* Service card fixes: remove broken lazy-load placeholders, circular images */
+    .card-service__btn { display: none !important; }
+    .card-service__image { display: flex; justify-content: center; align-items: center; padding: 40px 20px 20px; }
+    .card-service__image img {
+        width: 220px !important;
+        height: 220px !important;
+        min-width: 220px !important;
+        border-radius: 50% !important;
+        object-fit: cover !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    .card-service__image picture {
+        display: block !important;
+        width: 220px !important;
+        height: 220px !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    .is-invisible--js { visibility: visible !important; opacity: 1 !important; }
+    .is-hidden--no-js { display: block !important; }
 </style>
 
 
@@ -387,19 +416,9 @@
                                     <div class="carousel-owl-item">
                         <div class="card-service" data-plugin="departure">
                             <div class="card-service__layer js-open">
-                                <span class="btn btn--primary btn--md btn--square card-service__btn">
-                                    <span class="btn__content">
-                                        <svg class="icon icon-zoom-in btn__icon" width="14" height="14" aria-hidden="true" viewBox="0 0 14 14" style="--icon-width: 14; --icon-height: 14;">
-                                            <use href="/local/templates/naftagaz/assets/images/icons.svg#zoom-in" xlink:href="/local/templates/naftagaz/assets/images/icons.svg#zoom-in"></use>
-                                        </svg>
-                                    </span>
-                                </span>
                                 <div class="card-service__image">
-                                                                            <picture class="is-invisible--js is-hidden--no-js" data-plugin="appear " draggable="false"><img data-src="https://images.pexels.com/photos/32845685/pexels-photo-32845685.jpeg" src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22573%22%20height=%22573%22%20preserveAspectRatio=%22xMinYMax%20meet%22%20viewBox=%220%200%20573%20573%22%3E%3C/svg%3E" alt="" width="573" height="573" class="" draggable="false"></picture>
-                                        <noscript>
-                                            <picture class="" draggable="false"><img src="https://images.pexels.com/photos/32845685/pexels-photo-32845685.jpeg" alt="" width="573" height="573" class="" draggable="false"></picture>
-                                        </noscript>
-                                                                    </div>
+                                    <img src="https://images.pexels.com/photos/32845685/pexels-photo-32845685.jpeg" alt="" width="220" height="220">
+                                </div>
                                 <h5 class="card-service__title leading-trim">Construction <br>of Oil and Gas<br>Production<br>Wells</h5>
                             </div>
                             <div class="card-service__hover ui-light">
@@ -420,19 +439,9 @@
                                     <div class="carousel-owl-item">
                         <div class="card-service" data-plugin="departure">
                             <div class="card-service__layer js-open">
-                                <span class="btn btn--primary btn--md btn--square card-service__btn">
-                                    <span class="btn__content">
-                                        <svg class="icon icon-zoom-in btn__icon" width="14" height="14" aria-hidden="true" viewBox="0 0 14 14" style="--icon-width: 14; --icon-height: 14;">
-                                            <use href="/local/templates/naftagaz/assets/images/icons.svg#zoom-in" xlink:href="/local/templates/naftagaz/assets/images/icons.svg#zoom-in"></use>
-                                        </svg>
-                                    </span>
-                                </span>
                                 <div class="card-service__image">
-                                                                            <picture class="is-invisible--js is-hidden--no-js" data-plugin="appear " draggable="false"><img data-src="https://images.pexels.com/photos/35082119/pexels-photo-35082119.jpeg" src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22573%22%20height=%22573%22%20preserveAspectRatio=%22xMinYMax%20meet%22%20viewBox=%220%200%20573%20573%22%3E%3C/svg%3E" alt="" width="573" height="573" class="" draggable="false"></picture>
-                                        <noscript>
-                                            <picture class="" draggable="false"><img src="https://images.pexels.com/photos/35082119/pexels-photo-35082119.jpeg" alt="" width="573" height="573" class="" draggable="false"></picture>
-                                        </noscript>
-                                                                    </div>
+                                    <img src="https://images.pexels.com/photos/35082119/pexels-photo-35082119.jpeg" alt="" width="220" height="220">
+                                </div>
                                 <h5 class="card-service__title leading-trim">Construction<br>of Exploration and<br>Appraisal Wells</h5>
                             </div>
                             <div class="card-service__hover ui-light">
@@ -453,19 +462,9 @@
                                     <div class="carousel-owl-item">
                         <div class="card-service" data-plugin="departure">
                             <div class="card-service__layer js-open">
-                                <span class="btn btn--primary btn--md btn--square card-service__btn">
-                                    <span class="btn__content">
-                                        <svg class="icon icon-zoom-in btn__icon" width="14" height="14" aria-hidden="true" viewBox="0 0 14 14" style="--icon-width: 14; --icon-height: 14;">
-                                            <use href="/local/templates/naftagaz/assets/images/icons.svg#zoom-in" xlink:href="/local/templates/naftagaz/assets/images/icons.svg#zoom-in"></use>
-                                        </svg>
-                                    </span>
-                                </span>
                                 <div class="card-service__image">
-                                                                            <picture class="is-invisible--js is-hidden--no-js" data-plugin="appear " draggable="false"><img data-src="https://images.pexels.com/photos/19895838/pexels-photo-19895838.jpeg" src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22573%22%20height=%22573%22%20preserveAspectRatio=%22xMinYMax%20meet%22%20viewBox=%220%200%20573%20573%22%3E%3C/svg%3E" alt="" width="573" height="573" class="" draggable="false"></picture>
-                                        <noscript>
-                                            <picture class="" draggable="false"><img src="https://images.pexels.com/photos/19895838/pexels-photo-19895838.jpeg" alt="" width="573" height="573" class="" draggable="false"></picture>
-                                        </noscript>
-                                                                    </div>
+                                    <img src="https://images.pexels.com/photos/19895838/pexels-photo-19895838.jpeg" alt="" width="220" height="220">
+                                </div>
                                 <h5 class="card-service__title leading-trim">Core Sampling</h5>
                             </div>
                             <div class="card-service__hover ui-light">
@@ -486,19 +485,9 @@
                                     <div class="carousel-owl-item">
                         <div class="card-service" data-plugin="departure">
                             <div class="card-service__layer js-open">
-                                <span class="btn btn--primary btn--md btn--square card-service__btn">
-                                    <span class="btn__content">
-                                        <svg class="icon icon-zoom-in btn__icon" width="14" height="14" aria-hidden="true" viewBox="0 0 14 14" style="--icon-width: 14; --icon-height: 14;">
-                                            <use href="/local/templates/naftagaz/assets/images/icons.svg#zoom-in" xlink:href="/local/templates/naftagaz/assets/images/icons.svg#zoom-in"></use>
-                                        </svg>
-                                    </span>
-                                </span>
                                 <div class="card-service__image">
-                                                                            <picture class="is-invisible--js is-hidden--no-js" data-plugin="appear " draggable="false"><img data-src="https://images.pexels.com/photos/32845692/pexels-photo-32845692.jpeg" src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%22573%22%20height=%22573%22%20preserveAspectRatio=%22xMinYMax%20meet%22%20viewBox=%220%200%20573%20573%22%3E%3C/svg%3E" alt="" width="573" height="573" class="" draggable="false"></picture>
-                                        <noscript>
-                                            <picture class="" draggable="false"><img src="https://images.pexels.com/photos/32845692/pexels-photo-32845692.jpeg" alt="" width="573" height="573" class="" draggable="false"></picture>
-                                        </noscript>
-                                                                    </div>
+                                    <img src="https://images.pexels.com/photos/32845692/pexels-photo-32845692.jpeg" alt="" width="220" height="220">
+                                </div>
                                 <h5 class="card-service__title leading-trim">Well Testing</h5>
                             </div>
                             <div class="card-service__hover ui-light">
