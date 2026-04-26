@@ -774,6 +774,43 @@
 </script><script src="/nafassets/fix-images.js"></script><script src="/local/templates/naftagaz/assets/javascripts/shared.js"></script>
 <script src="/local/templates/naftagaz/assets/javascripts/blank.js"></script>
 <script src="/local/templates/naftagaz/assets/javascripts/career.js"></script><script src="/bitrix/js/arturgolubev.cookiealert/script.minb84c.js?v=1715524561"></script><script>var agcookie_params = {'cookie_name':'AG_COOKIE_ALERT_','cookie_life':'1','agreement':''};agcookie.init(agcookie_params);</script>
+<!-- Header visibility fix for Barba.js transitions -->
+<script>
+    (function() {
+        function ensureHeaderVisible() {
+            var header = document.querySelector('.js-header');
+            if (header) {
+                header.style.display = '';
+                header.style.visibility = 'visible';
+                header.style.opacity = '';
+                header.classList.remove('is-hidden');
+            }
+        }
+        document.addEventListener('DOMContentLoaded', ensureHeaderVisible);
+        if (typeof window.Barba !== 'undefined') {
+            Barba.Dispatcher.on('before.leave', ensureHeaderVisible);
+            Barba.Dispatcher.on('after.enter', ensureHeaderVisible);
+            Barba.Dispatcher.on('after.replace', ensureHeaderVisible);
+            Barba.Dispatcher.on('error', ensureHeaderVisible);
+        } else {
+            var checkBarba = setInterval(function() {
+                if (typeof window.Barba !== 'undefined') {
+                    clearInterval(checkBarba);
+                    Barba.Dispatcher.on('before.leave', ensureHeaderVisible);
+                    Barba.Dispatcher.on('after.enter', ensureHeaderVisible);
+                    Barba.Dispatcher.on('after.replace', ensureHeaderVisible);
+                    Barba.Dispatcher.on('error', ensureHeaderVisible);
+                }
+            }, 100);
+        }
+        document.addEventListener('click', function(e) {
+            var link = e.target.closest('a');
+            if (link) {
+                setTimeout(ensureHeaderVisible, 100);
+            }
+        });
+    })();
+</script>
 
 </body>
 
