@@ -316,7 +316,6 @@ function rewriteBrandingText(html: string): string {
   return html
     .replace(/Naftagaz/g, "Blueflare")
     .replace(/NAFTAGAZ/g, "BLUEFLARE")
-    .replace(/\/local\/templates\/naftagaz/gi, "/local/templates/blueflare")
     .replace(/naftagaz\.com/gi, "blueflare.com")
     .replace(/Нафтогаз/g, "Blueflare")
     .replace(/НафтаГаз/g, "Blueflare");
