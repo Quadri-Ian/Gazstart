@@ -43,14 +43,12 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
-      <body className="bg-dark-900 text-white antialiased font-sans">
-        <NextIntlClientProvider messages={messages}>
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <NextIntlClientProvider messages={messages}>
+      <div className="bg-dark-900 text-white antialiased font-sans min-h-screen">
+        <Header />
+        <main>{children}</main>
+        <Footer />
+      </div>
+    </NextIntlClientProvider>
   );
 }
