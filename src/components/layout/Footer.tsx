@@ -34,7 +34,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://vk.com/naftagazcom"
+                href="https://vk.com/blueflare"
                 aria-label="VK"
                 className="flex h-6 w-6 items-center justify-center rounded-[3px] bg-[#435465] text-white transition-colors hover:bg-[#354555]"
                 target="_blank"
@@ -94,7 +94,7 @@ export default function Footer() {
 
         <div className="h-px w-full bg-black/10" />
         <div className="flex flex-col gap-4 py-7 text-[12px] leading-none tracking-[-0.01em] text-[#435465]/55 md:flex-row md:items-center md:justify-between">
-          <span>© 2026 NaftaGaz, JSC</span>
+          <span>© 2026 Blueflare Energy</span>
           <a href="#" className="transition-colors hover:text-[#394854]">
             Privacy Policy
           </a>

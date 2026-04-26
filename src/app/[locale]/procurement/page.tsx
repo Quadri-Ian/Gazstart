@@ -6,5 +6,5 @@ export const metadata: Metadata = {
 };
 
 export default function ProcurementPage() {
-  redirect("https://etp.naftagaz.com/");
+  redirect("/contacts");
 }
