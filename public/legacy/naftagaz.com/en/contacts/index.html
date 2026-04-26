@@ -899,6 +899,52 @@
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0t_DcnDG9wWP_LfNSRjW0BHZ93hI8gM0&amp;language=en" async defer></script>
 <script src="/local/templates/naftagaz/assets/javascripts/contacts.js"></script><script src="/bitrix/js/arturgolubev.cookiealert/script.minb84c.js?v=1715524561"></script><script>var agcookie_params = {'cookie_name':'AG_COOKIE_ALERT_','cookie_life':'1','agreement':''};agcookie.init(agcookie_params);</script>
+<!-- Header visibility fix for Barba.js transitions -->
+<script>
+    (function() {
+        function ensureHeaderVisible() {
+            var header = document.querySelector('.js-header');
+            if (header) {
+                header.style.display = '';
+                header.style.visibility = 'visible';
+                header.style.opacity = '';
+                // Remove any hide classes
+                header.classList.remove('is-hidden');
+            }
+        }
+        
+        // Ensure header is visible on initial page load
+        document.addEventListener('DOMContentLoaded', ensureHeaderVisible);
+        
+        // Check if Barba.js is loaded
+        if (typeof window.Barba !== 'undefined') {
+            // Ensure header is visible after every page transition
+            Barba.Dispatcher.on('before.leave', ensureHeaderVisible);
+            Barba.Dispatcher.on('after.enter', ensureHeaderVisible);
+            Barba.Dispatcher.on('after.replace', ensureHeaderVisible);
+            Barba.Dispatcher.on('error', ensureHeaderVisible);
+        } else {
+            // Fallback: check periodically if Barba is loaded
+            var checkBarba = setInterval(function() {
+                if (typeof window.Barba !== 'undefined') {
+                    clearInterval(checkBarba);
+                    Barba.Dispatcher.on('before.leave', ensureHeaderVisible);
+                    Barba.Dispatcher.on('after.enter', ensureHeaderVisible);
+                    Barba.Dispatcher.on('after.replace', ensureHeaderVisible);
+                    Barba.Dispatcher.on('error', ensureHeaderVisible);
+                }
+            }, 100);
+        }
+        
+        // Also ensure header is visible when clicking nav links
+        document.addEventListener('click', function(e) {
+            var link = e.target.closest('a');
+            if (link) {
+                setTimeout(ensureHeaderVisible, 100);
+            }
+        });
+    })();
+</script>
 
 </body>
 
