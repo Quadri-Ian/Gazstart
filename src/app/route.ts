@@ -10,7 +10,7 @@ export async function GET() {
       status: 200,
       headers: { "Content-Type": "text/html; charset=utf-8" },
     });
-  } catch (error) {
+  } catch (_error) {
     return new NextResponse("404 Not Found", { status: 404 });
   }
 }

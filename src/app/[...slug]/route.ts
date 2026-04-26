@@ -32,7 +32,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
         status: 200,
         headers: { "Content-Type": "text/html; charset=utf-8" },
       });
-    } catch (error) {
+    } catch (_error) {
       return new NextResponse("404 Not Found", { status: 404 });
     }
   }
@@ -53,7 +53,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
       status: 200,
       headers: { "Content-Type": "text/html; charset=utf-8" },
     });
-  } catch (error) {
+  } catch (_error) {
     return new NextResponse("404 Not Found", { status: 404 });
   }
 }
