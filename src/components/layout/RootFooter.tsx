@@ -1,21 +1,16 @@
 import Link from "next/link";
-import { useTranslations, useLocale } from "next-intl";
+import GoToTopButton from "./GoToTopButton";
 
-export default function Footer() {
-  const t = useTranslations("nav");
-  const locale = useLocale();
-  const lp = (path: string) => `/${locale}${path}`;
-  const navLinks = [
-    { href: lp("/company/about"), label: t("about") },
-    { href: lp("/company/sustainable-development"), label: t("sustainable") },
-    { href: lp("/services/drilling"), label: t("drilling") },
-    { href: lp("/services/service"), label: t("service") },
-    { href: lp("/press-center"), label: t("pressCenter") },
-    { href: lp("/careers"), label: t("careers") },
-    { href: lp("/procurement"), label: t("procurement") },
-    { href: lp("/contacts"), label: t("contacts") },
-  ];
+const links = [
+  { href: "/our-story", label: "Our Story" },
+  { href: "/our-people", label: "Our People" },
+  { href: "/services", label: "Service" },
+  { href: "/careers", label: "Careers" },
+  { href: "/sustainability", label: "Sustainability" },
+  { href: "/contacts", label: "Contact Us" },
+];
 
+export default function RootFooter() {
   return (
     <footer className="bg-white text-[#394854]">
       <div className="mx-auto w-full max-w-[1680px] px-5 pt-12 md:px-[60px] md:pt-20 lg:px-[150px] lg:pt-24">
@@ -41,7 +36,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
               >
                 <svg width="11" height="11" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                  <path d="M10.9 14.438s.36-.04.544-.241c.169-.184.163-.528.163-.528s-.023-1.613.724-1.849c.737-.231 1.683 1.558 2.686 2.246.758.52 1.333.406 1.333.406l2.677-.038s1.4-.086.736-1.188c-.054-.09-.386-.814-1.984-2.302-1.672-1.558-1.45-1.306.566-4.002 1.227-1.637 1.718-2.636 1.564-3.063-.147-.408-1.044-.3-1.044-.3l-3.013.019s-.223-.03-.389.068c-.162.097-.268.321-.268.321s-.476 1.27-1.11 2.35c-1.337 2.271-1.872 2.391-2.09 2.25-.509-.33-.382-1.323-.382-2.03 0-2.205.334-3.124-.65-3.362-.326-.079-.566-.131-1.4-.14-1.07-.01-1.975.004-2.487.254-.341.166-.604.536-.444.557.198.026.646.121.884.444.308.42.297 1.362.297 1.362s.176 2.595-.412 2.918c-.404.218-.958-.227-2.146-2.267-.61-1.055-1.07-2.222-1.07-2.222s-.089-.218-.249-.334a1.226 1.226 0 0 0-.479-.177L1.16 5.895s-.44.012-.6.204c-.143.172-.011.529-.011.529s2.208 5.167 4.707 7.772c2.292 2.39 4.893 2.233 4.893 2.233l1.25-.032-.5.163z"/>
+                  <path d="M10.9 14.438s.36-.04.544-.241c.169-.184.163-.528.163-.528s-.023-1.613.724-1.849c.737-.231 1.683 1.558 2.686 2.246.758.52 1.333.406 1.333.406l2.677-.038s1.4-.086.736-1.188c-.054-.09-.386-.814-1.984-2.302-1.672-1.558-1.45-1.306.566-4.002 1.227-1.637 1.718-2.636 1.564-3.063-.147-.408-1.044-.3-1.044-.3l-3.013.019s-.223-.03-.389.068c-.162.097-.268.321-.268.321s-.476 1.27-1.11 2.35c-1.337 2.271-1.872 2.391-2.09 2.25-.509-.33-.382-1.323-.382-2.03 0-2.205.334-3.124-.65-3.362-.326-.079-.566-.131-1.4-.14-1.07-.01-1.975.004-2.487.254-.341.166-.604.536-.444.557.198.026.646.121.884.444.308.42.297 1.362.297 1.362s.176 2.595-.412 2.918c-.404.218-.958-.227-2.146-2.267-.61-1.055-1.07-2.222-1.07-2.222s-.089-.218-.249-.334a1.226 1.226 0 0 0-.479-.177L1.16 5.895s-.44.012-.6.204c-.143.172-.011.529-.011.529s2.208 5.167 4.707 7.772c2.292 2.39 4.893 2.233 4.893 2.233l1.25-.032-.5.163z" />
                 </svg>
               </a>
               <a
@@ -58,21 +53,21 @@ export default function Footer() {
             </div>
 
             <div className="text-[15px] tracking-[-0.03em] text-[#435465] md:text-[16px]">
-              <a href="tel:+74955891200" className="transition-colors hover:text-[#b4042f]">
-                {t("phone")}
+              <a href="tel:+234546589335" className="transition-colors hover:text-[#014ab1]">
+                +234 546 589 335
               </a>
             </div>
           </div>
 
           <nav className="col-span-2 justify-self-start md:col-span-1">
             <ul className="space-y-1">
-              {navLinks.map((link) => (
-                <li key={link.href}>
+              {links.map((item) => (
+                <li key={item.href}>
                   <Link
-                    href={link.href}
-                    className="text-[13px] leading-[1.55] tracking-[-0.02em] text-[#394854] transition-colors hover:text-[#b4042f]"
+                    href={item.href}
+                    className="text-[13px] leading-[1.55] tracking-[-0.02em] text-[#394854] transition-colors hover:text-[#014ab1]"
                   >
-                    <span>{link.label}</span>
+                    {item.label}
                   </Link>
                 </li>
               ))}
@@ -80,32 +75,16 @@ export default function Footer() {
           </nav>
 
           <div className="flex justify-end md:items-start">
-            <a
-              href="#top"
-              aria-label="Back to top"
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-[#f6f6f7] text-[#394854]/45 transition-colors hover:text-[#394854]"
-            >
-              <svg width="9" height="5" viewBox="0 0 10 6" fill="none" aria-hidden="true">
-                <path d="M1 5l4-4 4 4" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </a>
+            <GoToTopButton />
           </div>
         </div>
 
         <div className="h-px w-full bg-black/10" />
         <div className="flex flex-col gap-4 py-7 text-[12px] leading-none tracking-[-0.01em] text-[#435465]/55 md:flex-row md:items-center md:justify-between">
           <span>© 2026 Blueflare Energy</span>
-          <a href="#" className="transition-colors hover:text-[#394854]">
+          <Link href="/privacy" className="transition-colors hover:text-[#394854]">
             Privacy Policy
-          </a>
-          <a
-            href="https://videinfra.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition-colors hover:text-[#394854]"
-          >
-            SITE BY VIDE INFRA
-          </a>
+          </Link>
         </div>
       </div>
     </footer>

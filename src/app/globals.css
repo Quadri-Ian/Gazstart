@@ -24,12 +24,58 @@ body {
   overflow-x: hidden;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 body {
   font-family: "Suisse Intl", Helvetica, Arial, sans-serif;
+  font-size: clamp(0.95rem, 0.95vw + 0.65rem, 1.2rem) !important;
+  line-height: 1.25em;
+  letter-spacing: -0.02em;
   background: #ffffff;
-  color: var(--dark-900);
-  font-size: 14px;
-  line-height: 1.45;
+}
+
+/* Home intro parity adjustments: keep legacy look on desktop where no legacy JS runs */
+@media (min-width: 980px) {
+  .intro--home .intro__background {
+    z-index: 0;
+  }
+
+  .intro--home .intro__content,
+  .intro--home .intro__banners,
+  .intro--home .intro__next {
+    z-index: 2;
+  }
+}
+
+/* Partners logo strip: always single row */
+.partners__row {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.partners__row::-webkit-scrollbar {
+  display: none;
+}
+.partners__item--head {
+  display: none !important;
+}
+.partners__item {
+  flex: 1 1 0 !important;
+  width: auto !important;
+  min-width: 0 !important;
+  height: clamp(80px, 12vw, 140px) !important;
+  border-right: 1px solid var(--t-line) !important;
+}
+.partners__item:last-child {
+  border-right: none !important;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
 }
 
 /* ...existing code... */
