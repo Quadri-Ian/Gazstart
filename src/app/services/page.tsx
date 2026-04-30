@@ -72,7 +72,7 @@ function ServicesHero() {
           technical sign-off, we deliver full-cycle<br />
           services across the energy value chain.
         </p>
-        <a href="#what-we-do" className="svc-hero__scroll" aria-label="Scroll to services">
+        <a href="#what-we-do" className="svc-hero__scroll" aria-label="Scroll to services section">
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
             <path d="M9 3v12M3 9l6 6 6-6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
@@ -154,34 +154,61 @@ function WhatWeDoSection() {
 /* ── Section 3: Production Processes ────────────────────────────── */
 function ProductionProcessesSection() {
   const steps = [
-    { num: "01", desc: "We assess project requirements and define the scope with clear objectives." },
-    { num: "02", desc: "Resources, equipment, and expertise are mobilized to site efficiently." },
-    { num: "03", desc: "Work is executed to the highest standards with continuous monitoring." },
-    { num: "04", desc: "Testing, quality checks, and handover ensure reliable, long-term performance." },
+    {
+      num: "01",
+      title: "Assess & Define",
+      desc: "We assess project requirements and define the scope with clear objectives.",
+    },
+    {
+      num: "02",
+      title: "Mobilize Resources",
+      desc: "Resources, equipment, and expertise are mobilized to site efficiently.",
+    },
+    {
+      num: "03",
+      title: "Execute & Monitor",
+      desc: "Work is executed to the highest standards with continuous monitoring.",
+    },
+    {
+      num: "04",
+      title: "Test & Handover",
+      desc: "Testing, quality checks, and handover ensure reliable, long-term performance.",
+    },
   ];
 
   return (
-    <section className="svc-production">
-      <div className="svc-production__left">
-        <h2 className="svc-production__title">
-          Production<br />Processes
-        </h2>
-        <p className="svc-production__body">
-          Our proven process ensures quality, transparency, and efficiency at every step.
-        </p>
-        <Link href="/contacts" className="svc-production__cta" aria-label="Partner with us">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-            <path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </Link>
-      </div>
-      <div className="svc-production__right">
-        {steps.map((s, i) => (
-          <div key={s.num} className={`svc-production__step${i === 0 ? " svc-production__step--first" : ""}`}>
-            <span className="svc-production__step-num">{s.num}</span>
-            <p className="svc-production__step-desc">{s.desc}</p>
+    <section className="services-strip svc-production-pillars">
+      <div className="container-h container-v-averaged">
+        <div className="services-strip__header">
+          <h2 className="services-strip__headline">Production Processes</h2>
+          <p className="services-strip__subheading">
+            Our proven process ensures quality, transparency, and efficiency at every step.
+          </p>
+        </div>
+        <div className="services-strip__viewport">
+          <div className="services-strip__track">
+            {steps.map((s) => (
+              <div key={s.num} className="service-card-frame">
+                <article className="service-card">
+                  <div className="service-card__top">
+                    <span className="service-card__num">{s.num}</span>
+                    <span className="service-card__icon" aria-hidden="true">
+                      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M4 12h10" />
+                        <path d="m11 5 7 7-7 7" />
+                      </svg>
+                    </span>
+                  </div>
+                  <h3 className="service-card__title">{s.title}</h3>
+                  <p className="service-card__body">{s.desc}</p>
+                  <Link href="/contacts" className="service-card__link">
+                    Partner with us
+                  </Link>
+                </article>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </section>
   );

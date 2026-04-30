@@ -177,6 +177,12 @@ function PrioritiesSection() {
 
 /* ── Section 4: Our Approach ─────────────────────────────────────── */
 function ApproachSection() {
+  const approachImages = [
+    "/nafassets/9lq7jij2dmddqtcf9e8mimkfn6amt7zh.jpg",
+    "/nafassets/pexels-quang-nguyen-vinh-222549-35105445.jpg",
+    "/nafassets/vilkasss-ai-generated-8675589.jpg",
+  ];
+
   const pillars = [
     {
       label: "Cleaner Operations",
@@ -223,12 +229,17 @@ function ApproachSection() {
   return (
     <section className="sust-approach">
       <div className="sust-approach__image-col">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/nafassets/9lq7jij2dmddqtcf9e8mimkfn6amt7zh.jpg"
-          alt="Engineer at industrial facility"
-          className="sust-approach__img"
-        />
+        <div className="sust-approach__img-stack" aria-hidden="true">
+          {approachImages.map((src, idx) => (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              key={src}
+              src={src}
+              alt=""
+              className={`sust-approach__img sust-approach__img--${idx + 1}`}
+            />
+          ))}
+        </div>
       </div>
       <div className="sust-approach__content-col">
         <p className="sust-eyebrow">OUR APPROACH</p>
