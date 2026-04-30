@@ -65,12 +65,11 @@ function ServicesHero() {
       </video>
       <div className="svc-hero__video-overlay" />
       <div className="svc-hero__content">
+        <p className="sust-eyebrow sust-eyebrow--light">SERVICES</p>
         <h1 className="svc-hero__title">Services</h1>
         <p className="svc-hero__body">
-          Integrated solutions. Reliable execution.<br />
-          From the first procurement order to the last<br />
-          technical sign-off, we deliver full-cycle<br />
-          services across the energy value chain.
+          Integrated solutions. Reliable execution. From the first procurement order to the last
+          technical sign-off, we deliver full-cycle services across the energy value chain.
         </p>
         <a href="#what-we-do" className="svc-hero__scroll" aria-label="Scroll to services section">
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none">

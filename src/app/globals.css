@@ -2246,7 +2246,7 @@ html {
 .svc-hero {
   background: #0b1a2e;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   width: 100vw;
   height: 100vh;
   min-height: 100vh;
@@ -2268,28 +2268,29 @@ html {
   pointer-events: none;
 }
 .svc-hero__content {
-  width: min(56vw, 92rem);
+  width: min(57.5vw, 90rem);
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: clamp(7rem, 10vw, 14rem) clamp(2.4rem, 5vw, 7rem) clamp(4rem, 6vw, 8rem) clamp(2.4rem, 6vw, 10rem);
+  justify-content: center;
+  padding: clamp(7rem, 9vw, 12rem) clamp(2.4rem, 5vw, 7rem) clamp(7rem, 9vw, 12rem) clamp(2.4rem, 6vw, 10rem);
+  margin-top: 80px;
   position: relative;
   z-index: 1;
 }
 .svc-hero__title {
   font-size: clamp(4rem, 5.2vw, 8.2rem);
-  line-height: 1.0;
+  line-height: 1.04;
   font-weight: 300;
   letter-spacing: -0.012em;
   color: #ffffff;
-  margin: 0 0 2rem;
+  margin: 0 0 2.4rem;
   font-family: "Outfit", sans-serif !important;
 }
 .svc-hero__body {
-  font-size: clamp(1.3rem, 1.3vw, 1.6rem);
-  line-height: 1.65;
-  color: rgba(255,255,255,0.88);
-  max-width: 38ch;
+  font-size: clamp(1.4rem, 1.3vw, 1.7rem);
+  line-height: 1.6;
+  color: rgba(255,255,255,0.72);
+  max-width: 48.3ch;
   margin-bottom: 3rem;
 }
 .svc-hero__scroll {
