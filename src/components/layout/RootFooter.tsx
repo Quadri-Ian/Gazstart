@@ -1,72 +1,87 @@
-import Link from "next/link";
-import GoToTopButton from "./GoToTopButton";
+"use client";
 
-const links = [
+import Link from "next/link";
+import { useState } from "react";
+
+const quickLinks = [
+  { href: "/", label: "Home" },
   { href: "/our-story", label: "Our Story" },
-  { href: "/our-people", label: "Our People" },
-  { href: "/services", label: "Service" },
-  { href: "/careers", label: "Careers" },
+  { href: "/services", label: "Services" },
   { href: "/sustainability", label: "Sustainability" },
-  { href: "/contacts", label: "Contact Us" },
+  { href: "/careers", label: "Careers" },
 ];
 
-export default function RootFooter() {
-  return (
-    <footer className="bg-white text-[#394854]">
-      <div className="mx-auto w-full max-w-[1680px] px-5 pt-12 md:px-[60px] md:pt-20 lg:px-[150px] lg:pt-24">
-        <div className="grid min-h-[300px] grid-cols-[1fr_auto] gap-x-6 gap-y-10 pb-14 md:grid-cols-[240px_1fr_auto] md:gap-8 lg:pb-24">
-          <div>
-            <div className="mb-8 flex items-center gap-2">
-              <a
-                href=""
-                aria-label="LinkedIn"
-                className="flex h-6 w-6 items-center justify-center rounded-[3px] bg-[#435465] text-white transition-colors hover:bg-[#354555]"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <svg width="11" height="11" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                  <path d="M4.477 20H.327V6.647h4.15V20zM2.4 4.825A2.413 2.413 0 1 1 2.4 0a2.413 2.413 0 0 1 0 4.825zM19.996 20h-4.142v-6.5c0-1.55-.031-3.538-2.157-3.538-2.157 0-2.487 1.685-2.487 3.426V20H7.07V6.647h3.98v1.847h.058c.553-1.049 1.905-2.157 3.923-2.157 4.198 0 4.969 2.764 4.969 6.355V20h-.004z" />
-                </svg>
-              </a>
-              <a
-                href=""
-                aria-label="VK"
-                className="flex h-6 w-6 items-center justify-center rounded-[3px] bg-[#435465] text-white transition-colors hover:bg-[#354555]"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <svg width="11" height="11" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                  <path d="M10.9 14.438s.36-.04.544-.241c.169-.184.163-.528.163-.528s-.023-1.613.724-1.849c.737-.231 1.683 1.558 2.686 2.246.758.52 1.333.406 1.333.406l2.677-.038s1.4-.086.736-1.188c-.054-.09-.386-.814-1.984-2.302-1.672-1.558-1.45-1.306.566-4.002 1.227-1.637 1.718-2.636 1.564-3.063-.147-.408-1.044-.3-1.044-.3l-3.013.019s-.223-.03-.389.068c-.162.097-.268.321-.268.321s-.476 1.27-1.11 2.35c-1.337 2.271-1.872 2.391-2.09 2.25-.509-.33-.382-1.323-.382-2.03 0-2.205.334-3.124-.65-3.362-.326-.079-.566-.131-1.4-.14-1.07-.01-1.975.004-2.487.254-.341.166-.604.536-.444.557.198.026.646.121.884.444.308.42.297 1.362.297 1.362s.176 2.595-.412 2.918c-.404.218-.958-.227-2.146-2.267-.61-1.055-1.07-2.222-1.07-2.222s-.089-.218-.249-.334a1.226 1.226 0 0 0-.479-.177L1.16 5.895s-.44.012-.6.204c-.143.172-.011.529-.011.529s2.208 5.167 4.707 7.772c2.292 2.39 4.893 2.233 4.893 2.233l1.25-.032-.5.163z" />
-                </svg>
-              </a>
-              <a
-                href=""
-                aria-label="YouTube"
-                className="flex h-6 w-6 items-center justify-center rounded-[3px] bg-[#435465] text-white transition-colors hover:bg-[#354555]"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <svg width="11" height="11" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                  <path d="M19.58 5.25a2.507 2.507 0 0 0-1.766-1.773C16.328 3 10 3 10 3S3.672 3 2.186 3.477A2.507 2.507 0 0 0 .42 5.25 26.13 26.13 0 0 0 0 10a26.13 26.13 0 0 0 .42 4.75 2.507 2.507 0 0 0 1.766 1.773C3.672 17 10 17 10 17s6.328 0 7.814-.477a2.507 2.507 0 0 0 1.766-1.773A26.13 26.13 0 0 0 20 10a26.13 26.13 0 0 0-.42-4.75zM8 13V7l5.197 3L8 13z" />
-                </svg>
-              </a>
-            </div>
+const informationLinks = [
+  { href: "/terms", label: "Terms of Service" },
+  { href: "/privacy", label: "Privacy Policy" },
+  { href: "/cookies", label: "Cookies Settings" },
+];
 
-            <div className="text-[15px] tracking-[-0.03em] text-[#435465] md:text-[16px]">
-              <a href="tel:+234546589335" className="transition-colors hover:text-[#014ab1]">
-                +234 546 589 335
-              </a>
-            </div>
+const CONTACT_EMAIL = "hello@blueflareenergy.com";
+
+export default function RootFooter() {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(CONTACT_EMAIL);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1800);
+    } catch {
+      /* noop */
+    }
+  };
+
+  return (
+    <footer className="footer-yellow">
+      <div className="footer-yellow__inner">
+        <div className="footer-yellow__grid">
+          {/* Left column — headline + CTA + email */}
+          <div className="footer-yellow__lead">
+            <p className="footer-yellow__eyebrow">CONTACT US</p>
+            <h2 className="footer-yellow__headline">
+              Let&rsquo;s Discuss Your<br />
+              Vision With Us
+            </h2>
+            <Link href="/contacts" className="footer-yellow__cta">
+              Schedule a call now
+              <span className="footer-yellow__cta-arrow" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
+            </Link>
+
+            <p className="footer-yellow__eyebrow footer-yellow__eyebrow--spacer">OR EMAIL US AT</p>
+            <button
+              type="button"
+              onClick={handleCopyEmail}
+              className="footer-yellow__email"
+              aria-label={`Copy email address ${CONTACT_EMAIL}`}
+            >
+              <span>{CONTACT_EMAIL}</span>
+              <span className="footer-yellow__email-icon" aria-hidden="true">
+                {copied ? (
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M2 7L6 11L12 3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                ) : (
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <rect x="3.5" y="3.5" width="7.5" height="9" rx="1.2" stroke="currentColor" strokeWidth="1.3" />
+                    <path d="M5.5 3.5V2.2C5.5 1.7 5.9 1.2 6.5 1.2H10.6C11.1 1.2 11.6 1.7 11.6 2.2V9C11.6 9.6 11.1 10 10.6 10H10" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+                  </svg>
+                )}
+              </span>
+            </button>
           </div>
 
-          <nav className="col-span-2 justify-self-start md:col-span-1">
-            <ul className="space-y-1">
-              {links.map((item) => (
+          {/* Quick Links column */}
+          <nav className="footer-yellow__col">
+            <p className="footer-yellow__eyebrow">QUICK LINKS</p>
+            <ul className="footer-yellow__list">
+              {quickLinks.map((item) => (
                 <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="text-[13px] leading-[1.55] tracking-[-0.02em] text-[#394854] transition-colors hover:text-[#014ab1]"
-                  >
+                  <Link href={item.href} className="footer-yellow__link">
                     {item.label}
                   </Link>
                 </li>
@@ -74,17 +89,51 @@ export default function RootFooter() {
             </ul>
           </nav>
 
-          <div className="flex justify-end md:items-start">
-            <GoToTopButton />
-          </div>
+          {/* Information column */}
+          <nav className="footer-yellow__col">
+            <p className="footer-yellow__eyebrow">INFORMATION</p>
+            <ul className="footer-yellow__list">
+              {informationLinks.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} className="footer-yellow__link">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
 
-        <div className="h-px w-full bg-black/10" />
-        <div className="flex flex-col gap-4 py-7 text-[12px] leading-none tracking-[-0.01em] text-[#435465]/55 md:flex-row md:items-center md:justify-between">
-          <span>© 2026 Blueflare Energy</span>
-          <Link href="/privacy" className="transition-colors hover:text-[#394854]">
-            Privacy Policy
-          </Link>
+        <div className="footer-yellow__divider" />
+
+        <div className="footer-yellow__bottom">
+          <span className="footer-yellow__copyright">
+            &copy; BLUEFLARE ENERGY 2026.&nbsp; ALL RIGHTS RESERVED.
+          </span>
+          <div className="footer-yellow__socials">
+            <a href="#" aria-label="Facebook" className="footer-yellow__social">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor">
+                <path d="M10.5 18v-7h2.4l.4-2.8h-2.8V6.4c0-.8.2-1.4 1.5-1.4h1.5V2.5C13.2 2.4 12.3 2.3 11.4 2.3c-2.4 0-4.1 1.5-4.1 4.2v2.7H4.8v2.8h2.5V18h3.2z" />
+              </svg>
+            </a>
+            <a href="#" aria-label="Twitter" className="footer-yellow__social">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor">
+                <path d="M14.4 6.6c0 .1 0 .2 0 .3 0 3.4-2.6 7.4-7.4 7.4-1.5 0-2.8-.4-4-1.2.2 0 .4 0 .6 0 1.2 0 2.4-.4 3.3-1.1-1.2 0-2.1-.8-2.5-1.9.2 0 .3.1.5.1.2 0 .5 0 .7-.1-1.2-.3-2.1-1.4-2.1-2.7 0 0 0 0 0 0 .4.2.8.3 1.2.3-.7-.5-1.2-1.4-1.2-2.4 0-.5.1-1 .4-1.4 1.3 1.6 3.3 2.7 5.5 2.8 0-.2-.1-.4-.1-.6 0-1.5 1.2-2.7 2.7-2.7.8 0 1.5.3 2 .9.6-.1 1.2-.4 1.7-.7-.2.6-.6 1.2-1.2 1.5.5-.1 1.1-.2 1.6-.4-.4.6-.9 1.1-1.4 1.5z" />
+              </svg>
+            </a>
+            <a href="#" aria-label="Instagram" className="footer-yellow__social">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <rect x="2" y="2" width="14" height="14" rx="3.5" />
+                <circle cx="9" cy="9" r="3.2" />
+                <circle cx="13.2" cy="4.8" r="0.7" fill="currentColor" />
+              </svg>
+            </a>
+            <a href="#" aria-label="LinkedIn" className="footer-yellow__social">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor">
+                <path d="M3.6 16h-2.6V6.4h2.6V16zM2.3 5.4C1.4 5.4.7 4.7.7 3.8s.7-1.6 1.6-1.6 1.6.7 1.6 1.6-.7 1.6-1.6 1.6zM17 16h-2.6v-4.6c0-1.1-.4-1.9-1.4-1.9-1.1 0-1.7.7-1.7 1.9V16H8.7V6.4h2.6V7.6c.4-.7 1.2-1.4 2.4-1.4 2 0 3.3 1.3 3.3 4.1V16z" />
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
     </footer>

@@ -87,8 +87,8 @@ export default function RootHeader() {
 
           {/* Phone + Security Hotline */}
           <div className="group group--nowrap group--middle group--spacing is-hidden--sm-down">
-            <a className="header__phone" href="tel:+74955891200">+7 495 589 12 00</a>
-            <div>
+            <a className="header__phone" href="tel:+2345678910112">+234 567 8910 1112</a>
+            <div className="header__hotline-anchor" style={{ position: "relative" }}>
               <div className="group group--nowrap group--md">
                 <button
                   className="btn btn--outline header__hotline"
@@ -106,45 +106,52 @@ export default function RootHeader() {
                   </span>
                 </button>
               </div>
+
+              {hotlineOpen && (
+                <div
+                  className="popover popover--triangle popover--triangle-equal popover--size-auto is-hidden--sm-down header__hotline-popover"
+                  onMouseEnter={() => openMenu(setHotlineOpen, hotlineTimer)}
+                  onMouseLeave={() => closeMenu(setHotlineOpen, hotlineTimer)}
+                  style={{
+                    position: "absolute",
+                    top: "calc(100% + 12px)",
+                    right: 0,
+                    left: "auto",
+                    zIndex: 50,
+                    minWidth: "38rem",
+                  }}
+                >
+                  <div className="popover__content">
+                    <div className="security-hotline ui-light ui-light-background">
+                      <a href="tel:88004447109" className="security-hotline__phone">8 800 444 71 09</a>
+                      <div className="security-hotline__line"></div>
+                      <div className="security-hotline__breadcrumb group">
+                        <span className="security-hotline__breadcrumb__title">Security Hotline</span>
+                        <span className="security-hotline__breadcrumb__delimiter is-hidden--sm-down"></span>
+                        <span>Toll-free in Russia</span>
+                      </div>
+                      <div className="security-hotline__bottom">
+                        <p>To inform on imminent crimes, actual or reasonably suspected economic, financial or goodwill damage to the interests and assets of the Group of Companies.</p>
+                        <Link className="btn btn--secondary--rising btn--rect" href="/hotline" role="button" onClick={() => setHotlineOpen(false)}>
+                          <span className="btn__content row row--between-xs">
+                            <span className="btn btn--dark btn--square btn--smallest">
+                              <svg className="icon icon-arrow-right-small btn__icon" width="5" height="8" aria-hidden="true" viewBox="0 0 5 8">
+                                <use href="/local/templates/naftagaz/assets/images/icons.svg#arrow-right-small" />
+                              </svg>
+                            </span>
+                            <span>Learn more</span>
+                          </span>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
         <div className="header__line is-hidden--md-up"></div>
       </div>
-
-      {/* Security Hotline popover */}
-      {hotlineOpen && (
-        <div
-          className="popover popover--triangle popover--triangle-equal popover--size-auto is-hidden--sm-down"
-          onMouseEnter={() => openMenu(setHotlineOpen, hotlineTimer)}
-          onMouseLeave={() => closeMenu(setHotlineOpen, hotlineTimer)}
-        >
-          <div className="popover__content">
-            <div className="security-hotline ui-light ui-light-background">
-              <a href="tel:88004447109" className="security-hotline__phone">8 800 444 71 09</a>
-              <div className="security-hotline__line"></div>
-              <div className="security-hotline__breadcrumb group">
-                <span className="security-hotline__breadcrumb__title">Security Hotline</span>
-                <span className="security-hotline__breadcrumb__delimiter is-hidden--sm-down"></span>
-                <span>Toll-free in Russia</span>
-              </div>
-              <div className="security-hotline__bottom">
-                <p>To inform on imminent crimes, actual or reasonably suspected economic, financial or goodwill damage to the interests and assets of the Group of Companies.</p>
-                <Link className="btn btn--secondary--rising btn--rect" href="/hotline" role="button" onClick={() => setHotlineOpen(false)}>
-                  <span className="btn__content row row--between-xs">
-                    <span className="btn btn--dark btn--square btn--smallest">
-                      <svg className="icon icon-arrow-right-small btn__icon" width="5" height="8" aria-hidden="true" viewBox="0 0 5 8">
-                        <use href="/local/templates/naftagaz/assets/images/icons.svg#arrow-right-small" />
-                      </svg>
-                    </span>
-                    <span>Learn more</span>
-                  </span>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Secondary row: main nav */}
       <div className="container-h header__secondary is-hidden--sm-down">
