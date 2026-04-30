@@ -58,10 +58,10 @@ function SustainabilityHero() {
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="auto"
         aria-hidden="true"
       >
-        <source src="/nafassets/19660023-uhd_3840_2160_60fps%20%281%29%20%281%29.mp4" type="video/mp4" />
+        <source src="/nafassets/sustainability-hero.mp4" type="video/mp4" />
       </video>
       <div className="sust-hero__video-overlay" />
       <div className="sust-hero__content-col">
