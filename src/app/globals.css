@@ -2,6 +2,178 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Clemente PDA — primary brand typeface. 9 weights × 2 styles (regular/italic).
+   Fonts served from /public/fonts/clemente/. font-display: swap so text renders
+   immediately with the fallback then upgrades when the font loads. */
+@font-face {
+  font-family: "Clemente PDA";
+  src: url("/fonts/clemente/clementepdaa-hairline.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Clemente PDA";
+  src: url("/fonts/clemente/clementepdab-hairlineitalic.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Clemente PDA";
+  src: url("/fonts/clemente/clementepdac-extralight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Clemente PDA";
+  src: url("/fonts/clemente/clementepdad-extralightital.ttf") format("truetype");
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Clemente PDA";
+  src: url("/fonts/clemente/clementepdae-light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Clemente PDA";
+  src: url("/fonts/clemente/clementepdaf-lightitalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Clemente PDA";
+  src: url("/fonts/clemente/clementepdag-book.ttf") format("truetype");
+  font-weight: 350;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Clemente PDA";
+  src: url("/fonts/clemente/clementepdah-bookitalic.ttf") format("truetype");
+  font-weight: 350;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Clemente PDA";
+  src: url("/fonts/clemente/clementepdai-regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Clemente PDA";
+  src: url("/fonts/clemente/clementepdaj-regularitalic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Clemente PDA";
+  src: url("/fonts/clemente/clementepdak-semibold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Clemente PDA";
+  src: url("/fonts/clemente/clementepdal-semibolditalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Clemente PDA";
+  src: url("/fonts/clemente/clementepdam-bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Clemente PDA";
+  src: url("/fonts/clemente/clementepdan-bolditalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Clemente PDA";
+  src: url("/fonts/clemente/clementepdao-heavy.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Clemente PDA";
+  src: url("/fonts/clemente/clementepdap-heavyitalic.ttf") format("truetype");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Clemente PDA";
+  src: url("/fonts/clemente/clementepdaq-ultrabold.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Clemente PDA";
+  src: url("/fonts/clemente/clementepdar-ultrabolditali.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Surgena — display typeface used for headings. Only the SemiBold weight
+   was provided. NOTE: this is a TRIAL/personal-use license — purchase
+   commercial license from befonts.com/surgena-font.html before launch.
+   Currently NOT used in the heading stack (Outfit takes priority). */
+@font-face {
+  font-family: "Surgena";
+  src: url("/fonts/surgena/surgena-semibold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Outfit — modern geometric sans-serif used for headings. Variable font
+   (single ~108KB file covering weights 100→900), licensed under SIL OFL
+   so it's fully commercial-friendly. The `font-weight: 100 900` tells the
+   browser this single face provides the full weight range. */
+@font-face {
+  font-family: "Outfit";
+  src: url("/fonts/outfit/Outfit-Variable.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Urbanist — humanist sans-serif used for body copy (paragraphs, labels,
+   form controls, navigation, etc.). Variable font with separate regular
+   and italic axes, ~80 KB each. Also SIL OFL licensed. */
+@font-face {
+  font-family: "Urbanist";
+  src: url("/fonts/urbanist/Urbanist-Variable.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Urbanist";
+  src: url("/fonts/urbanist/Urbanist-Italic-Variable.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
 :root {
   --red: #014ab1;
   --dark-900: #394854;
@@ -21,15 +193,46 @@
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
+  /* `clip` prevents horizontal scrollbar without creating a scrolling container,
+     so descendant `position: sticky` still pins to the viewport (unlike
+     `overflow-x: hidden` which would break sticky). */
+  overflow-x: clip;
 }
 
 html {
   font-size: 62.5%;
 }
 
+/* Body copy + form controls use Urbanist — a humanist variable sans-serif
+   that pairs well with Outfit's geometric headings (Urbanist's slightly
+   warmer character softens long-form reading). Clemente PDA stays in the
+   fallback chain so legacy weights/italics still resolve gracefully if
+   Urbanist hits a load error. */
+body,
+button,
+input,
+textarea {
+  font-family: "Urbanist", "Clemente PDA", "Suisse Intl", Helvetica, Arial, sans-serif !important;
+}
+/* Headings use Outfit — a modern geometric sans-serif. Variable font means
+   a single file covers every weight from 100 (Thin) to 900 (Black), so any
+   `font-weight: N` declaration in the cascade just works. Surgena is kept
+   as a secondary fallback if Outfit ever fails to load (and as a quick
+   testing alternative). Clemente PDA is the final brand-typography fallback. */
+.h1, .h2, .h3, .h4, .h5,
+h1, h2, h3, h4, h5,
+.intro__content__title,
+.title-border h2,
+.section-title,
+.testimonials-section__headline,
+.vm-card__title,
+.culture-section__headline,
+.services-strip__headline,
+.service-card__title,
+.footer-yellow__headline {
+  font-family: "Outfit", "Surgena", "Clemente PDA", "Suisse Intl", Helvetica, Arial, sans-serif !important;
+}
 body {
-  font-family: "Suisse Intl", Helvetica, Arial, sans-serif;
   font-size: clamp(0.95rem, 0.95vw + 0.65rem, 1.2rem) !important;
   line-height: 1.25em;
   letter-spacing: -0.02em;
@@ -71,6 +274,1509 @@ body {
 }
 .partners__item:last-child {
   border-right: none !important;
+}
+
+/* Home hero subtitle: wider container and larger type than the legacy default */
+.intro--home .intro__content__description {
+  width: 100% !important;
+  max-width: 82rem !important;
+  font-size: 2rem !important;
+  line-height: 1.45 !important;
+}
+
+/* Home hero headline: use the light weight of Clemente PDA. */
+.intro--home .intro__content__title {
+  font-weight: 300 !important;
+}
+
+/* Scale down only the hero engineer figure (intro__man) to 50%, leaving the
+   background photo and logo pictures untouched. Right-align the picture
+   within the container so it sits flush to the right edge of the hero. */
+.intro__man picture {
+  width: 54% !important;
+  height: 50% !important;
+  margin-left: auto !important;
+  margin-right: 13vw !important;
+  display: block !important;
+}
+.intro__man picture img {
+  width: 100% !important;
+  height: 100% !important;
+  max-height: none !important;
+}
+
+/* ────────────────────────────────────────────────────────────────────
+   Staged scroll/load reveal for the hero (.intro) section.
+
+   Trigger: `.is-revealed` is added to `.intro` by an IntersectionObserver
+   in RootHero.tsx as soon as the section is in viewport. Since the hero
+   is at the top of the page, this fires on initial mount.
+
+   Sequence (all elements except background slide in from the RIGHT):
+     0.00s — background image fades in (the scene establishes itself)
+     0.40s — "Powering the Future..." headline slides in
+     0.50s — Subtitle slides in
+     0.50s — Engineer figure slides in (concurrent with subtitle)
+     0.80s — Bottom banners ("Partner With Us" / "Services") slide in
+     1.00s — Down-arrow scroll cue fades in last
+
+   IMPORTANT: the home hero has a parallax JS that writes inline
+   `transform: translate3d(...)` to `.intro__background` and `.intro__man`
+   on mousemove. Inline styles override CSS rules — so we apply our
+   entrance transforms to the INNER `<picture>` elements, leaving the
+   parent divs free for the parallax handler. Title/subtitle/banners/
+   down-arrow have no parallax conflict, so they get the transforms
+   directly.
+   ──────────────────────────────────────────────────────────────────── */
+.intro__background picture,
+.intro__content__title,
+.intro__content__description,
+.intro__banners,
+.intro__man picture,
+.intro__next {
+  transition:
+    opacity 0.85s cubic-bezier(0.25, 0.74, 0.22, 0.99),
+    transform 0.85s cubic-bezier(0.25, 0.74, 0.22, 0.99);
+}
+/* Hidden state — background fades only, everything else fades + slides
+   from off-canvas right (translateX 90px). */
+.intro:not(.is-revealed) .intro__background picture {
+  opacity: 0;
+}
+.intro:not(.is-revealed) .intro__content__title,
+.intro:not(.is-revealed) .intro__content__description,
+.intro:not(.is-revealed) .intro__banners,
+.intro:not(.is-revealed) .intro__man picture,
+.intro:not(.is-revealed) .intro__next {
+  opacity: 0;
+  transform: translateX(90px);
+}
+/* Stagger — background first, then text & image together, then bottom UI. */
+.intro.is-revealed .intro__background picture     { transition-delay: 0.00s; }
+.intro.is-revealed .intro__content__title         { transition-delay: 0.40s; }
+.intro.is-revealed .intro__content__description   { transition-delay: 0.50s; }
+.intro.is-revealed .intro__man picture            { transition-delay: 0.50s; }
+.intro.is-revealed .intro__banners                { transition-delay: 0.80s; }
+.intro.is-revealed .intro__next                   { transition-delay: 1.00s; }
+
+/* Geography map: hover-reveal detailed state outlines.
+   Strategy: use the original transparent-bg SVG (black lines) and CSS-invert it
+   so the lines render as WHITE ON TRANSPARENT — this lets the underlying
+   silhouette show through, slightly dimmed, with the city markers (Lagos/Abuja
+   circles + labels) staying fully visible. The ::after is absolutely positioned
+   at the EXACT pixel bbox of the existing silhouette, with background-size and
+   background-position tuned so Nigeria within the source image lands precisely
+   on the silhouette's bbox. The math (relative to .geography__map dimensions):
+     - silhouette bbox: left 27.84%, top 0%, width 44.32%, height 87.24%
+     - source: 800×800; Nigeria within at (38,94)-(779,689) = 741×595
+     - aspect parity: 1.245 (image) vs 1.240 (silhouette) — matches within 0.4%
+     - bg-size 108% means image rendered at 1.08 × bbox-width ≈ 493px
+     - bg-pos 64.3% / 46.6% offsets so Nigeria's (38,94) lines up with bbox origin */
+.geography__map {
+  position: relative;
+}
+.geography__map::after {
+  content: "";
+  position: absolute;
+  left: 27.65%;
+  top: 0.54%;
+  width: 44.32%;
+  height: 87.24%;
+  background-image: url("/nafassets/map-icon.svg");
+  background-repeat: no-repeat;
+  background-size: 108% auto;
+  background-position: 64.3% 46.6%;
+  filter: invert(1) brightness(1.3) contrast(1.15);
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(1);
+  clip-path: inset(0 100% 0 0);
+  transition:
+    opacity 0.5s cubic-bezier(0.25, 0.74, 0.22, 0.99),
+    transform 0.9s cubic-bezier(0.25, 0.74, 0.22, 0.99),
+    clip-path 0.95s cubic-bezier(0.25, 0.74, 0.22, 0.99);
+  /* Wait for the silhouette + heading fade to settle (~0.4s) before the
+     outline starts wiping in. Creates a clear staged reveal: section
+     enters → headings/silhouette appear → outlined map draws. */
+  transition-delay: 0.4s;
+  z-index: 2;
+}
+/* Scroll-triggered reveal: when the geography section enters the viewport,
+   the IntersectionObserver in LegacyScriptExecutor adds `.is-revealed` to
+   the section, which cascades to its children via descendant selectors. */
+.geography.is-revealed .geography__map::after {
+  opacity: 0.1;
+  transform: scale(1.015);
+  clip-path: inset(0 0 0 0);
+}
+/* Silhouette paths dim slightly during the reveal so the outline sits on
+   top with clearer hierarchy. */
+.geography__map .geography__animate path {
+  transition: opacity 0.55s cubic-bezier(0.25, 0.74, 0.22, 0.99);
+}
+.geography.is-revealed .geography__map .geography__animate path {
+  opacity: 0.55;
+}
+/* Hide the ORIGINAL markers in .geography__animate at all times; the cloned
+   overlay (.geography__markers-overlay, injected by LegacyScriptExecutor at
+   z-index 3) is the sole source of marker visuals (circles, lines, labels).
+   Without this, both rest and hover states show duplicated Lagos/Abuja markers
+   because the clone is always present at z-index 3. */
+.geography__map .geography__animate > circle,
+.geography__map .geography__animate > line,
+.geography__map .geography__animate > text {
+  opacity: 0 !important;
+}
+
+/* ────────────────────────────────────────────────────────────────────
+   Staged scroll reveal for the geography section.
+
+   Trigger: `.is-revealed` is added to `.geography` by an IntersectionObserver
+   when the section enters the viewport.
+
+   Sequence (timed via `transition-delay`):
+     0.00s — heading + subheading + descriptive paragraph fade up
+     0.15s — silhouette map's container fades up
+     0.40s — outlined map starts wiping in (left→right clip-path, ~0.95s)
+     1.40s — markers pop in one by one (stagger every 0.12s)
+
+   Each item starts with the `is-not-yet` look (opacity 0, translateY 12px),
+   transitions to the `revealed` look (opacity 1, translateY 0). The `:not(.is-revealed)`
+   selector reverses cleanly when the section leaves the viewport so scrolling
+   back up replays the reveal.
+   ──────────────────────────────────────────────────────────────────── */
+.geography .title-border,
+.geography .geography__description,
+.geography .geography__count-title,
+.geography__map > *:not(.geography__markers-overlay),
+.geography .col--xs-12,
+.geography .geography__main-office,
+.geography .geography__region,
+.geography .ui-accent {
+  transition:
+    opacity 0.7s cubic-bezier(0.25, 0.74, 0.22, 0.99),
+    transform 0.7s cubic-bezier(0.25, 0.74, 0.22, 0.99);
+}
+.geography:not(.is-revealed) .title-border,
+.geography:not(.is-revealed) .geography__description,
+.geography:not(.is-revealed) .geography__count-title,
+.geography:not(.is-revealed) .geography__map > *:not(.geography__markers-overlay),
+.geography:not(.is-revealed) .col--xs-12,
+.geography:not(.is-revealed) .geography__main-office,
+.geography:not(.is-revealed) .geography__region,
+.geography:not(.is-revealed) .ui-accent {
+  opacity: 0;
+  transform: translateY(12px);
+}
+/* Stagger top→bottom: heading first, then the "6 800 000+" stat block
+   (number + caption together), then the descriptive paragraph, then the
+   silhouette map, finally the location info on left/right of the map.
+   Silhouette → outline → markers chain still kicks in via the .geography__map::after
+   transition-delay (0.4s) defined above. */
+.geography.is-revealed .title-border             { transition-delay: 0.00s; }
+.geography.is-revealed .col--xs-12               { transition-delay: 0.10s; }
+.geography.is-revealed .geography__count-title   { transition-delay: 0.12s; }
+.geography.is-revealed .geography__description   { transition-delay: 0.15s; }
+.geography.is-revealed .geography__map > *:not(.geography__markers-overlay) {
+  transition-delay: 0.20s;
+}
+.geography.is-revealed .geography__main-office   { transition-delay: 0.30s; }
+.geography.is-revealed .geography__region        { transition-delay: 0.35s; }
+.geography.is-revealed .ui-accent                { transition-delay: 0.40s; }
+
+/* ──── Map markers (leaf icons in the cloned SVG overlay) ─────────────
+   Markers fade and pop into place AFTER the outline finishes wiping in.
+   The outline animation: starts at 0.4s (transition-delay) + 0.95s
+   (clip-path duration) ≈ ends 1.35s. Markers begin at 1.4s, then each
+   subsequent marker delays an extra 0.12s for a quick popcorn cascade. */
+.geography__markers-overlay .geography__map__leaf-marker {
+  opacity: 0;
+  transform: translateY(-6px) scale(0.6);
+  transform-box: fill-box;       /* SVG: anchor transform-origin to the marker's own bbox */
+  transform-origin: center;
+  transition:
+    opacity 0.45s ease,
+    transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);  /* slight overshoot for "drop & settle" */
+}
+.geography.is-revealed .geography__markers-overlay .geography__map__leaf-marker {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.geography.is-revealed .geography__markers-overlay .geography__map__leaf-marker:nth-of-type(1) { transition-delay: 1.40s; }
+.geography.is-revealed .geography__markers-overlay .geography__map__leaf-marker:nth-of-type(2) { transition-delay: 1.52s; }
+.geography.is-revealed .geography__markers-overlay .geography__map__leaf-marker:nth-of-type(3) { transition-delay: 1.64s; }
+.geography.is-revealed .geography__markers-overlay .geography__map__leaf-marker:nth-of-type(4) { transition-delay: 1.76s; }
+
+/* Hero banner cards: when image rises on hover, flip the dark text to white for legibility */
+.rising-banner:hover .rising-banner__title,
+.rising-banner:hover .rising-banner__count,
+.rising-banner:focus-within .rising-banner__title,
+.rising-banner:focus-within .rising-banner__count {
+  color: #fff !important;
+  transition: color 0.4s cubic-bezier(0.25, 0.74, 0.22, 0.99);
+}
+
+/* Editorial-style testimonials section
+   Layout: serif headline at top, then 2-column body. Left column = featured
+   grayscale portrait + 2 thumbnails + name caption. Right column = uppercase
+   editorial quote title + body paragraph. White section bg, sets a strong
+   visual contrast with the dark surrounding sections. */
+.testimonials-section {
+  background: #e7f1ff;
+  color: #2f4c75;
+  position: relative;
+  isolation: isolate;
+}
+/* Oil-rig backdrop anchored to the bottom-right corner — blended into the
+   section background via `mix-blend-mode: multiply`. The image's color is
+   filtered to match the brand-blue palette so it tonally integrates rather
+   than fighting the section's light-blue ground. */
+.testimonials-section::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: clamp(40rem, 55%, 80rem);
+  height: clamp(40rem, 75%, 75rem);
+  background-image: url("/nafassets/oil-rig.jpg");
+  background-size: contain;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  filter: grayscale(0.85) sepia(0.4) hue-rotate(180deg) saturate(1.2) brightness(0.95);
+  mix-blend-mode: multiply;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 0;
+  /* Soft fade-out at the top and left edges so the image dissolves into the
+     section background instead of having a hard rectangular boundary. */
+  -webkit-mask-image: linear-gradient(to top left, #000 30%, transparent 100%);
+  mask-image: linear-gradient(to top left, #000 30%, transparent 100%);
+}
+.testimonials-section > * {
+  position: relative;
+  z-index: 1;
+}
+/* Use the legacy `.container-h` width (matches every other section on the
+   page) rather than imposing a custom max-width here. */
+.testimonials-section__header {
+  margin-bottom: clamp(5rem, 8vw, 9rem);
+}
+.testimonials-section__eyebrow {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #2f4c75;
+  margin-bottom: 2.5rem;
+}
+.testimonials-section__headline {
+  font-size: 6rem;
+  line-height: 1.05;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  color: #2f4c75;
+  margin: 0 0 2rem;
+}
+.testimonials-section__subheading {
+  font-size: clamp(1.5rem, 1.4vw, 1.9rem);
+  line-height: 1.55;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: rgba(47, 76, 117, 0.7);
+  margin: 0;
+  max-width: 64ch;
+}
+.testimonials-section__headline em {
+  font-style: italic;
+  font-family: inherit;
+}
+.testimonials-section__body {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1fr);
+  column-gap: clamp(34rem, 6vw, 9rem);
+  align-items: start;
+}
+.testimonials-section__left {
+  position: relative;
+}
+.testimonials-section__featured {
+  position: relative;
+  /* 70% of the column width = 30% smaller than the original full-width
+     portrait. aspect-ratio stays at 3/4, so the height shrinks
+     proportionally — overall image area reduces by ~51% (0.7 × 0.7). */
+  width: 70%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+.testimonials-section__featured picture,
+.testimonials-section__featured img {
+  display: block;
+  width: 100%;
+  /* Fills the full aspect-ratio container so the credit element below
+     can sit directly underneath the image edge with a 10px gap (rather
+     than after a 10% empty band at the bottom of the container). */
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.05);
+}
+/* Thumbs overlap the top-right corner of the featured portrait.
+   `.featured` was reduced to width: 70%, so we offset by the remaining
+   30% (the empty band to the right of `.featured`) plus the original
+   1.5rem inset. Result: thumbs sit 1.5rem in from `.featured`'s
+   right edge, regardless of how wide the column is. */
+.testimonials-section__thumbs {
+  position: absolute;
+  top: 1.5rem;
+  right: calc(30% + 1.5rem);
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  width: clamp(9rem, 14vw, 14rem);
+}
+.testimonials-section__thumbs picture,
+.testimonials-section__thumbs img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.05);
+}
+.testimonials-section__credit {
+  /* Sits directly under the image with 10px breathing room. */
+  margin-top: 10px;
+}
+.testimonials-section__credit-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #2f4c75;
+  margin: 0 0 0.4rem;
+}
+.testimonials-section__credit-title {
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: rgba(47, 76, 117, 0.65);
+  line-height: 1.45;
+  margin: 0;
+}
+.testimonials-section__right {
+  padding-top: 1rem;
+}
+.testimonials-section__quote-mark {
+  display: block;
+  font-size: clamp(7rem, 9vw, 13rem);
+  font-weight: 500;
+  color: #2f4c75;
+  margin: 0 0 1.5rem;
+  letter-spacing: -0.04em;
+}
+.testimonials-section__quote-body {
+  margin: 0;
+  max-width: 60ch;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+.testimonials-section__quote-body p {
+  font-size: 1.6rem;
+  line-height: 1.55;
+  letter-spacing: 0;
+  color: rgba(47, 76, 117, 0.85);
+  margin: 0;
+}
+.testimonials-section__quote-attrib {
+  margin-top: 2.5rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #2f4c75;
+  max-width: 60ch;
+}
+
+@media (max-width: 767px) {
+  .testimonials-section__body {
+    grid-template-columns: 1fr;
+    row-gap: 4rem;
+  }
+}
+
+/* Image marquee — full-width auto-scrolling image strip above the core values
+   section. The track contains each image twice; the keyframe animates the
+   whole track from 0 to -50% translation so the second copy seamlessly
+   continues where the first leaves off. Pauses on hover. */
+.image-marquee {
+  background: #ffffff;
+  overflow: hidden;
+  padding: clamp(3rem, 5vw, 6rem) 0;
+}
+.image-marquee__track {
+  display: flex;
+  gap: 1.6rem;
+  width: max-content;
+  animation: image-marquee-scroll 60s linear infinite;
+}
+.image-marquee:hover .image-marquee__track {
+  animation-play-state: paused;
+}
+.image-marquee__item {
+  width: clamp(28rem, 30vw, 42rem);
+  aspect-ratio: 4 / 3;
+  flex-shrink: 0;
+  border-radius: 1.6rem;
+  overflow: hidden;
+}
+.image-marquee__item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(1.05);
+}
+@keyframes image-marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-50% - 0.8rem)); }
+}
+
+/* "Top-Notch Services" — horizontal-scroll strip with 5 service cards.
+   Header has a small pill + 2-line headline; cards use scroll-snap so they
+   align cleanly when the user drags or hits prev/next arrows. */
+.services-strip {
+  /* Daytime aerial of a working refinery — sprawling pipes, storage tanks,
+     and steam plumes against misty mountains. Pairs with the Vision/Mission
+     section's twilight refinery for a "operational by day, contemplative by
+     dusk" duality. The slightly heavier navy overlay (0.40 top → 0.60 bottom)
+     darkens the busy industrial detail enough for the deck-stacked white
+     cards to retain crisp contrast across the whole scroll range. */
+  background:
+    linear-gradient(rgba(20, 38, 66, 0.40), rgba(20, 38, 66, 0.60)),
+    url("https://images.pexels.com/photos/6767962/pexels-photo-6767962.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1920") center / cover no-repeat,
+    #284569;
+}
+.services-strip__header {
+  margin-bottom: clamp(3rem, 4vw, 5rem);
+}
+.services-strip__pill {
+  display: inline-block;
+  background: #ffffff;
+  color: #14181f;
+  font-size: 1.25rem;
+  font-weight: 500;
+  padding: 0.7rem 1.6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(20, 24, 31, 0.08);
+  letter-spacing: 0;
+  margin-bottom: 2rem;
+}
+.services-strip__headline {
+  font-size: 6rem;
+  line-height: 1.05;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  margin: 0 0 2rem;
+}
+.services-strip__headline--soft {
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 300;
+}
+.services-strip__subheading {
+  font-size: clamp(1.5rem, 1.4vw, 1.9rem);
+  line-height: 1.55;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: #ededed;
+  margin: 0;
+  max-width: 64ch;
+}
+.services-strip__viewport {
+  position: relative;
+}
+/* SCROLL-STACKED CARDS — each card is full-section-width and uses
+   `position: sticky` to pin at a progressively-lower top offset. As the user
+   scrolls, card 2 slides over card 1 (whose top edge still peeks out from
+   1.4rem above), creating a deck-of-cards layered reveal. Reverses naturally
+   on scroll-up because `position: sticky` is symmetric. No JS needed. */
+.services-strip__track {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+  padding: 0;
+}
+/* Sentinel spacer: pseudo-element sits at the END of the track inside the
+   flex flow, extending the content box. The LAST sticky frame uses this
+   extra space as its "stay pinned" scroll runway — without this, frame N
+   pins for zero pixels because its natural bottom = the track's content-
+   box bottom. Padding doesn't work here (sticky honors content box, not
+   padding box), but a real flex item does. */
+.services-strip__track::after {
+  content: "";
+  display: block;
+  flex: 0 0 auto;
+  /* Smallest height that still gives the LAST card a visible pin moment
+     (~30vh ≈ 240px of scroll where all three are stacked). Anything more
+     just adds empty section tail without UX value. */
+  height: 30vh;
+  width: 100%;
+}
+/* Wrapper at the card's natural layout position. IntersectionObserver
+   observes this (not the card itself) so the card's transform doesn't
+   throw off intersection calculations.
+
+   The frame is `position: sticky`. Each frame is TALL (≈70vh) but only
+   its top portion holds the card — the empty bottom half is the scroll
+   spacer that gives the next frame distance before it reaches its own
+   sticky pin point. Without this height, the previous frame's natural
+   bottom = the next frame's natural top, so frames take turns pinning
+   instantly with no "deck of cards" range.
+
+   Cards stack visually because each frame has a slightly higher `top`
+   value than the previous, so when frame N+1 pins, it sits 1.5rem below
+   frame N — leaving frame N's top edge as a small visible peek above
+   the new card. */
+.service-card-frame {
+  width: 100%;
+  position: sticky;
+  /* Frame height controls the scroll distance between consecutive pin
+     events: frame_N's bottom in flow = frame_{N+1}'s top in flow, so
+     the user must scroll `frameHeight − (topN+1 − topN)` to advance the
+     deck by one card. 50vh keeps it brisk without feeling rushed. */
+  min-height: 50vh;
+  margin-bottom: 0;
+}
+/* Each subsequent card pins 4rem (40px) lower than the previous, comfortably
+   clearing the cards' 2rem border-radius so the previous card's top edge
+   reads as a clean visible peek behind the new one. */
+.service-card-frame:nth-child(1) { top: 10rem; }
+.service-card-frame:nth-child(2) { top: 14rem; }
+.service-card-frame:nth-child(3) { top: 18rem; }
+.service-card-frame:nth-child(4) { top: 22rem; }
+.service-card-frame:nth-child(5) { top: 26rem; }
+.service-card {
+  background: #ffffff;
+  border-radius: 2rem;
+  padding: clamp(3rem, 5vw, 6rem);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: none;
+  min-height: clamp(28rem, 40vh, 42rem);
+  border: 1px solid rgba(20, 24, 31, 0.06);
+  box-shadow: 0 12px 40px -16px rgba(20, 24, 31, 0.22);
+  /* Slide-in animation: odd cards from left, even from right.
+     Cards START at translateX(0) — visible by default — but the IO toggles
+     `.is-not-revealed` to push them off-screen until they enter viewport.
+     This avoids the transformed-bbox vs IntersectionObserver bug entirely. */
+  opacity: 1;
+  transform: translateX(0);
+  transition:
+    transform 0.85s cubic-bezier(0.25, 0.74, 0.22, 0.99),
+    opacity 0.6s ease;
+}
+.service-card.is-not-revealed {
+  opacity: 0;
+}
+/* Alternation lives on the FRAME (real sibling in the track), not the card
+   (lone child of its frame, so `:nth-child` always reports 1). Odd frames
+   slide their card in from the left, even frames from the right. */
+.service-card-frame:nth-child(odd) > .service-card.is-not-revealed {
+  transform: translateX(-110%);
+}
+.service-card-frame:nth-child(even) > .service-card.is-not-revealed {
+  transform: translateX(110%);
+}
+
+/* Hide the old carousel nav buttons — no longer needed. */
+.services-strip__nav {
+  display: none;
+}
+.service-card__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 4rem;
+}
+.service-card__num {
+  font-size: 4rem;
+  font-weight: 300;
+  color: #14181f;
+  letter-spacing: -0.02em;
+}
+.service-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(20, 24, 31, 0.6);
+  transform: scale(1.6);
+  transform-origin: top right;
+  /* Orbit anchor: the ::before ring and ::after dot are absolutely
+     positioned inside this container, so we need a positioning context. */
+  position: relative;
+}
+/* Orbit ring — subtle solid circle behind the icon. Stays static. */
+.service-card__icon::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5.5rem;
+  height: 5.5rem;
+  margin: -2.75rem 0 0 -2.75rem;
+  border-radius: 50%;
+  border: 1px solid rgba(20, 24, 31, 0.18);
+  pointer-events: none;
+}
+/* Orbiting accent dot — revolves around the ring. Brand navy so it pops
+   against the white card. The double-rotate trick keeps the dot's body
+   un-rotated as it travels (defensive for any future non-circular motif). */
+.service-card__icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.6rem;
+  height: 0.6rem;
+  margin: -0.3rem 0 0 -0.3rem;
+  border-radius: 50%;
+  background: #284569;
+  pointer-events: none;
+  transform-origin: center;
+  animation: service-icon-orbit 7s linear infinite;
+}
+@keyframes service-icon-orbit {
+  from { transform: rotate(0deg)   translateX(2.75rem) rotate(0deg);   }
+  to   { transform: rotate(360deg) translateX(2.75rem) rotate(-360deg); }
+}
+/* Respect motion-sensitive users: freeze the dot at the top of the ring. */
+@media (prefers-reduced-motion: reduce) {
+  .service-card__icon::after {
+    animation: none;
+    transform: translateY(-2.75rem);
+  }
+}
+.service-card__title {
+  font-size: clamp(3rem, 4vw, 5rem);
+  font-weight: 300;
+  letter-spacing: -0.005em;
+  color: #14181f;
+  margin: 0 0 2rem;
+  line-height: 1.1;
+  max-width: 28ch;
+}
+.service-card__body {
+  font-size: 1.7rem;
+  line-height: 1.55;
+  letter-spacing: 0.5px;
+  color: rgba(20, 24, 31, 0.62);
+  margin: 0 0 3rem;
+  max-width: 60ch;
+  flex: 1;
+}
+.service-card__link {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #14181f;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  transition: gap 0.2s ease;
+}
+.service-card__link:hover {
+  gap: 0.9rem;
+}
+.services-strip__nav {
+  position: absolute;
+  top: 50%;
+  width: 4.6rem;
+  height: 4.6rem;
+  border-radius: 999px;
+  background: #14181f;
+  color: #ffffff;
+  border: 0;
+  cursor: pointer;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: background 0.2s ease, opacity 0.2s ease;
+  box-shadow: 0 8px 20px -10px rgba(20, 24, 31, 0.4);
+}
+.services-strip__nav:hover {
+  background: #2a2e36;
+}
+.services-strip__nav:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+.services-strip__nav--prev {
+  left: -2rem;
+}
+.services-strip__nav--next {
+  right: -2rem;
+}
+
+@media (max-width: 767px) {
+  .services-strip__nav {
+    display: none;
+  }
+}
+
+/* Vision/Mission split section — two side-by-side cards. Vision card uses
+   a layered radial+conic gradient for the swirl effect, Mission card is
+   solid near-black. Both cards have title (top-left) + body + footer row
+   (tag bottom-left, arrow circle bottom-right). */
+.vm-section {
+  /* Twilight refinery photo — deep navy sky on top half maps cleanly to
+     the brand palette, warm amber facility lights below add drama
+     behind the centered Vision/Mission cards. The dark gradient
+     overlay (top→bottom 0.30 → 0.45) keeps the cards' shadows readable
+     while letting the sky and facility detail show through.
+
+     Background lives on the ::before pseudo-element so it can fade in
+     via opacity transition (CSS background-image can't animate). */
+  position: relative;
+  background: #14181f; /* fallback / initial paint before image loads */
+  overflow: hidden;
+}
+.vm-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(20, 24, 31, 0.30), rgba(20, 24, 31, 0.45)),
+    url("https://images.pexels.com/photos/32399139/pexels-photo-32399139.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1920") center / cover no-repeat;
+  opacity: 0;
+  transition: opacity 0.7s cubic-bezier(0.25, 0.74, 0.22, 0.99);
+  z-index: 0;
+  pointer-events: none;
+}
+.vm-section.is-revealed::before {
+  opacity: 1;
+}
+/* Section content above the ::before background. */
+.vm-section > .container-h {
+  position: relative;
+  z-index: 1;
+}
+.vm-section__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.6rem, 2vw, 2.4rem);
+}
+.vm-card {
+  position: relative;
+  border-radius: 2.4rem;
+  overflow: hidden;
+  min-height: 28rem;
+  isolation: isolate;
+  /* Cards stretch to the height of the tallest sibling via grid alignment, so
+     content of any length stays inside the card. */
+}
+.vm-card__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 15% 60%, #f5b59f 0%, transparent 38%),
+    radial-gradient(circle at 38% 50%, #e87b6c 0%, transparent 32%),
+    radial-gradient(circle at 50% 55%, #d04a5d 0%, transparent 30%),
+    radial-gradient(circle at 62% 50%, #5b3aa0 0%, transparent 32%),
+    radial-gradient(circle at 78% 55%, #2d3f8f 0%, transparent 35%),
+    radial-gradient(circle at 92% 60%, #4a8eb5 0%, transparent 38%),
+    linear-gradient(120deg, #b7c4d8 0%, #94a4ba 50%, #6e7b95 100%);
+  filter: contrast(1.05) saturate(1.2);
+}
+.vm-card--vision {
+  color: #ffffff;
+  /* Dark base hidden under the gradient .vm-card__bg by default. On
+     hover the gradient fades out and this dark base is revealed —
+     producing the Mission card's appearance. */
+  background: #14181f;
+}
+.vm-card--mission {
+  background: #14181f;
+  color: #ffffff;
+}
+/* ──── Hover-swap: each card morphs into the OTHER's appearance ───── */
+/* Vision → Mission: the gradient overlay fades, revealing dark base. */
+.vm-card--vision .vm-card__bg {
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.vm-card--vision:hover .vm-card__bg {
+  opacity: 0;
+}
+/* Mission → Vision: a pseudo-element holding the same multicolor
+   radial-gradient stack fades in. The Mission card has no `.vm-card__bg`
+   element in its DOM (only the Vision card does), so we synthesize one
+   with `::before` here. */
+.vm-card--mission {
+  position: relative;
+}
+.vm-card--mission::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 15% 60%, #f5b59f 0%, transparent 38%),
+    radial-gradient(circle at 38% 50%, #e87b6c 0%, transparent 32%),
+    radial-gradient(circle at 50% 55%, #d04a5d 0%, transparent 30%),
+    radial-gradient(circle at 62% 50%, #5b3aa0 0%, transparent 32%),
+    radial-gradient(circle at 78% 55%, #2d3f8f 0%, transparent 35%),
+    radial-gradient(circle at 92% 60%, #4a8eb5 0%, transparent 38%),
+    linear-gradient(120deg, #b7c4d8 0%, #94a4ba 50%, #6e7b95 100%);
+  filter: contrast(1.05) saturate(1.2);
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+.vm-card--mission:hover::before {
+  opacity: 1;
+}
+.vm-card__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: clamp(2.6rem, 3.6vw, 4rem);
+}
+.vm-card__title {
+  font-size: clamp(2.6rem, 3.4vw, 4rem);
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  margin: 0 0 1.4rem;
+  color: inherit;
+}
+.vm-card__body {
+  font-size: 1.8rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  letter-spacing: 1px;
+}
+.vm-card__footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.6rem;
+  padding-top: 2rem;
+}
+.vm-card__tag {
+  font-size: 1.2rem;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.7);
+}
+.vm-card__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  backdrop-filter: blur(4px);
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+.vm-card:hover .vm-card__arrow {
+  background: rgba(255, 255, 255, 0.32);
+  transform: translateX(2px);
+}
+
+/* ────────────────────────────────────────────────────────────────────
+   Staged scroll reveal for the Vision/Mission section.
+
+   Trigger: `.is-revealed` is added to `.vm-section` by an
+   IntersectionObserver when the panel enters the viewport.
+
+   Sequence:
+     0.00s — background image fades in (::before opacity 0→1)
+     0.40s — Vision card slides in from left
+     0.50s — Mission card slides in from left
+     1.00s — "Vision" title fades up
+     1.10s — "Mission" title fades up
+     1.40s — body text typewriter begins (per-character stagger of 0.015s)
+                ↳ each `<span>` inside `.vm-card__body` has its
+                   `transition-delay` baked in by the JS at setup time
+   ──────────────────────────────────────────────────────────────────── */
+
+/* Cards slide in from the LEFT. Note: the cards already have transitions
+   on `.vm-card__bg` (for hover swap) — those keep working. We add a SEPARATE
+   transition for the card-as-a-whole's transform/opacity entrance. */
+.vm-card {
+  transition:
+    opacity 0.7s cubic-bezier(0.25, 0.74, 0.22, 0.99),
+    transform 0.7s cubic-bezier(0.25, 0.74, 0.22, 0.99);
+}
+.vm-section:not(.is-revealed) .vm-card {
+  opacity: 0;
+  transform: translateX(-80px);
+}
+.vm-section.is-revealed .vm-card--vision  { transition-delay: 0.40s; }
+.vm-section.is-revealed .vm-card--mission { transition-delay: 0.50s; }
+
+/* Title text fades up after the cards finish sliding. */
+.vm-card__title {
+  transition:
+    opacity 0.45s cubic-bezier(0.25, 0.74, 0.22, 0.99),
+    transform 0.45s cubic-bezier(0.25, 0.74, 0.22, 0.99);
+}
+.vm-section:not(.is-revealed) .vm-card__title {
+  opacity: 0;
+  transform: translateY(10px);
+}
+.vm-section.is-revealed .vm-card--vision  .vm-card__title { transition-delay: 1.00s; }
+.vm-section.is-revealed .vm-card--mission .vm-card__title { transition-delay: 1.10s; }
+
+/* Typewriter body text — JS splits each `.vm-card__body` paragraph into
+   one `<span>` per character. Each span has its own `transition-delay`
+   set inline (e.g. `style="transition-delay: 1.4s + char_index * 0.015s"`),
+   so flipping `is-revealed` on the section reveals characters in sequence.
+   The opacity transition itself is fast (0.06s) so each character "snaps"
+   into existence — that's what gives the typewriter snap. */
+.vm-card__body span {
+  opacity: 0;
+  transition: opacity 0.06s linear;
+}
+.vm-section.is-revealed .vm-card__body span {
+  opacity: 1;
+}
+
+/* Footer (tag + arrow): fade in last, after the typewriter winds down. */
+.vm-card__footer {
+  transition: opacity 0.5s ease;
+}
+.vm-section:not(.is-revealed) .vm-card__footer {
+  opacity: 0;
+}
+.vm-section.is-revealed .vm-card--vision  .vm-card__footer { transition-delay: 3.40s; }
+.vm-section.is-revealed .vm-card--mission .vm-card__footer { transition-delay: 4.40s; }
+
+@media (max-width: 767px) {
+  .vm-section__grid {
+    grid-template-columns: 1fr;
+  }
+  .vm-card {
+    aspect-ratio: auto;
+    min-height: 22rem;
+  }
+}
+
+/* Strip the top/bottom padding on the "Drilled (m)" stats section so it sits
+   flush against the surrounding sections. The legacy `.section` and `.numbers`
+   rules apply generous vertical padding by default — we override here. */
+.section.numbers {
+  padding-top: 30px !important;
+  padding-bottom: 60px !important;
+}
+.section.numbers .container-h.container-v,
+.section.numbers .container-v {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+/* Reduce the giant drilling-volume number by ~2rem, recolor it to brand
+   navy, and center it in the section. The legacy CSS uses
+   `calc(var(--scale-rem) * 19.8)` at desktop — subtracting 2 from the
+   multiplier yields a -2rem reduction while staying responsive. */
+.section.numbers .numbers__drilling {
+  font-size: calc(var(--scale-rem) * 17.8) !important;
+  color: #284569 !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+/* Ensure the lower stats row and drilling-rig illustration aren't clipped
+   by the section's overflow:hidden — section has `--no-overflow` originally,
+   but we want descendants visible. */
+.section.numbers,
+.section.numbers .container-h,
+.section.numbers .numbers__value {
+  overflow: visible !important;
+}
+
+/* Culture / values section — six-card grid (3×2 desktop, 2×3 tablet, 1×6 mobile)
+   sitting just above the footer. Each card has icon → title → body. Subtle card
+   borders and hover lift. White background ties into the main page palette. */
+.culture-section {
+  background: #ffffff;
+  color: #2f4c75;
+  padding-bottom: 0 !important;
+}
+.culture-section .container-h.container-v-averaged,
+.culture-section .container-v-averaged {
+  /* Halved from legacy `calc(var(--scale-px) * 160)` to reduce top padding 50%.
+     scale-px scales with viewport, so this stays responsive. */
+  padding-top: calc(var(--scale-px) * 80) !important;
+  padding-bottom: 0 !important;
+}
+.culture-section__header {
+  text-align: center;
+  max-width: 64rem;
+  margin: 0 auto clamp(4rem, 6vw, 7rem);
+}
+.culture-section__headline {
+  font-size: 6rem;
+  line-height: 1.05;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  color: #2f4c75;
+  margin: 0 0 2rem;
+}
+.culture-section__subtitle {
+  font-size: 1.55rem;
+  line-height: 1.55;
+  color: rgba(47, 76, 117, 0.7);
+  margin: 0;
+  letter-spacing: 0;
+}
+.culture-section__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 1px solid rgba(47, 76, 117, 0.14);
+  border-radius: 1.6rem;
+  overflow: hidden;
+}
+.culture-card {
+  padding: clamp(2.6rem, 3.5vw, 4rem);
+  border-right: 1px solid rgba(47, 76, 117, 0.14);
+  border-bottom: 1px solid rgba(47, 76, 117, 0.14);
+  background: #ffffff;
+  transition: background 0.25s ease;
+}
+/* Strip the right border on every 3rd card and bottom border on the last row. */
+.culture-card:nth-child(3n) {
+  border-right: 0;
+}
+.culture-card:nth-last-child(-n+3) {
+  border-bottom: 0;
+}
+.culture-card:hover {
+  background: #f7faff;
+}
+.culture-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  color: #2f4c75;
+  margin-bottom: 2rem;
+}
+.culture-card__title {
+  font-size: 1.9rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: #2f4c75;
+  margin: 0 0 1rem;
+  line-height: 1.3;
+}
+.culture-card__body {
+  font-size: 1.6rem;
+  line-height: 1.55;
+  color: rgba(47, 76, 117, 0.7);
+  margin: 0;
+  letter-spacing: 0px;
+}
+
+@media (max-width: 900px) {
+  .culture-section__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .culture-card:nth-child(3n) {
+    border-right: 1px solid rgba(47, 76, 117, 0.14);
+  }
+  .culture-card:nth-child(2n) {
+    border-right: 0;
+  }
+  .culture-card:nth-last-child(-n+3) {
+    border-bottom: 1px solid rgba(47, 76, 117, 0.14);
+  }
+  .culture-card:nth-last-child(-n+2) {
+    border-bottom: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .culture-section__grid {
+    grid-template-columns: 1fr;
+  }
+  .culture-card,
+  .culture-card:nth-child(3n),
+  .culture-card:nth-child(2n) {
+    border-right: 0;
+    border-bottom: 1px solid rgba(47, 76, 117, 0.14);
+  }
+  .culture-card:last-child {
+    border-bottom: 0;
+  }
+}
+
+/* Yellow footer — three-column layout (lead column + two link columns) over a
+   bottom row with copyright + social icons. Background is the brand-bright
+   yellow #E7F200, text is dark for legibility against the high-saturation bg. */
+.footer-yellow {
+  background: #e7f1ff;
+  color: #14181f;
+  position: relative;
+  isolation: isolate;
+}
+/* Blueprint backdrop anchored bottom-right; blended into the light-blue
+   footer bg via mix-blend-mode + tonal filter so it reads as a watermark. */
+.footer-yellow::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: clamp(32rem, 45%, 70rem);
+  height: clamp(28rem, 65%, 60rem);
+  background-image: url("/nafassets/oil-rig-2.jpg");
+  background-size: contain;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  filter: grayscale(1) brightness(1.05) contrast(1.1);
+  mix-blend-mode: multiply;
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 0;
+  /* Compose two linear gradients on the mask so BOTH the left edge AND the
+     bottom edge of the image fade out smoothly into the section bg, instead
+     of leaving a hard rectangular cutoff. */
+  -webkit-mask-image:
+    linear-gradient(to left, #000 30%, transparent 100%),
+    linear-gradient(to top, #000 30%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to left, #000 30%, transparent 100%),
+    linear-gradient(to top, #000 30%, transparent 100%);
+  mask-composite: intersect;
+}
+.footer-yellow > * {
+  position: relative;
+  z-index: 1;
+}
+.footer-yellow__inner {
+  max-width: 168rem;
+  margin: 0 auto;
+  padding: clamp(6rem, 8vw, 11rem) clamp(2.4rem, 5vw, 9rem) clamp(2.4rem, 3vw, 4rem);
+}
+.footer-yellow__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.9fr) minmax(0, 0.9fr);
+  gap: clamp(3rem, 5vw, 8rem);
+  margin-bottom: clamp(4rem, 6vw, 7rem);
+}
+.footer-yellow__eyebrow {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #14181f;
+  margin: 0 0 1.6rem;
+}
+.footer-yellow__eyebrow--spacer {
+  margin-top: 4rem;
+}
+.footer-yellow__headline {
+  font-size: clamp(3.4rem, 4.4vw, 5.6rem);
+  line-height: 1.1;
+  font-weight: 300;
+  letter-spacing: -0.015em;
+  color: #14181f;
+  margin: 0 0 3rem;
+}
+.footer-yellow__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  background: #2f4c75;
+  color: #ffffff;
+  padding: 1.4rem 2.4rem;
+  border-radius: 999px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: transform 0.25s ease, background 0.25s ease;
+  text-decoration: none;
+}
+.footer-yellow__cta:hover {
+  transform: translateX(2px);
+  background: #233a5c;
+}
+.footer-yellow__cta-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer-yellow__email {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.6rem;
+  background: #14181f;
+  color: #f5f7fa;
+  padding: 1.3rem 2rem;
+  border-radius: 999px;
+  font-size: 1.3rem;
+  font-weight: 500;
+  border: 0;
+  cursor: pointer;
+  min-width: 22rem;
+  transition: background 0.25s ease;
+}
+.footer-yellow__email:hover {
+  background: #1f2530;
+}
+.footer-yellow__email-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.85;
+}
+.footer-yellow__col {
+  padding-top: 0.4rem;
+}
+.footer-yellow__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.footer-yellow__link {
+  font-size: 1.55rem;
+  color: #14181f;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  letter-spacing: 0;
+}
+.footer-yellow__link:hover {
+  opacity: 0.6;
+}
+.footer-yellow__divider {
+  height: 1px;
+  width: 100%;
+  background: rgba(20, 24, 31, 0.18);
+  margin-bottom: 2.4rem;
+}
+.footer-yellow__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.footer-yellow__copyright {
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #14181f;
+}
+.footer-yellow__socials {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+}
+.footer-yellow__social {
+  color: #14181f;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer-yellow__social:hover {
+  opacity: 0.65;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 767px) {
+  .footer-yellow__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Horizontal scroll-jacking wrapper. Used to convert vertical scroll
+   into horizontal motion across three pinned panels (Culture →
+   Vision/Mission → Message from Management) before vertical scroll
+   resumes at the Services section.
+
+   Pattern: tall outer (`.hscroll`, height = N × 100vh) + sticky inner
+   (`.hscroll__pinned`, exactly 100vh) + flex-row track that JS
+   `translate3d`s leftward proportional to scroll progress through the
+   outer container. See `setupHorizontalScroll` in
+   LegacyScriptExecutor.tsx for the math.
+   ───────────────────────────────────────────────────────────────── */
+.hscroll {
+  position: relative;
+  /* 3 panels × 100vh of vertical scroll. Empirically, allowing 1 viewport
+     of scroll per panel transition produces a comfortable pacing — not
+     too fast that the user can't read each panel, not so slow that they
+     feel trapped. Tune by adjusting this multiplier. */
+  height: 300vh;
+}
+.hscroll__pinned {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+.hscroll__track {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: max-content;
+  /* JS sets `transform: translate3d(<x>px, 0, 0)` on this element each
+     frame. `will-change` hints the compositor to give it its own layer. */
+  will-change: transform;
+}
+.hscroll__track > section {
+  flex: 0 0 100vw;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  min-height: 0;
+  /* Each panel is laid out as a flex column: content starts just below
+     the fixed-position site navbar (top padding ≈ navbar height) and
+     flows down. `align-items: flex-start` ensures the headline is
+     always visible — if the panel's content is taller than 100vh, the
+     overflow happens at the BOTTOM (clipped by `overflow: hidden`)
+     instead of distributing equally above and below, which would push
+     the headline behind the navbar. */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  padding-top: 14rem;
+  box-sizing: border-box;
+}
+/* Inner container for each panel — takes the full height and lets its
+   content lay out naturally (header + grid for Culture, side-by-side
+   cards for VM, headline + photo+quote for Testimonials). */
+.hscroll__track > section > * {
+  width: 100%;
+}
+/* Compact mode for Culture's stats grid — its 6-card layout is taller
+   than 100vh by default. Halve the vertical padding and tighten the
+   header gap so it fits. */
+.hscroll__track > .culture-section {
+  padding: 0;
+}
+
+/* ────────────────────────────────────────────────────────────────────
+   Staged scroll reveal for the Culture / Core Values section.
+
+   Trigger: `.is-revealed` is added to `.culture-section` by an
+   IntersectionObserver when the panel enters the viewport.
+
+   Sequence:
+     0.00s — headline "Our Core Values" fades up (same primitive as the
+             geography section's heading)
+     0.10s — subtitle fades up
+     0.40s — first card slides in from the left
+     0.48s/0.56s/... — remaining cards stagger in (6 cards × 0.08s)
+
+   Removing the class on viewport-exit lets the user replay the reveal
+   by scrolling back into the section.
+   ──────────────────────────────────────────────────────────────────── */
+.culture-section .culture-section__headline,
+.culture-section .culture-section__subtitle,
+.culture-section .culture-card {
+  transition:
+    opacity 0.7s cubic-bezier(0.25, 0.74, 0.22, 0.99),
+    transform 0.7s cubic-bezier(0.25, 0.74, 0.22, 0.99);
+}
+/* Hidden state: title items shifted DOWN, cards shifted LEFT off-canvas. */
+.culture-section:not(.is-revealed) .culture-section__headline,
+.culture-section:not(.is-revealed) .culture-section__subtitle {
+  opacity: 0;
+  transform: translateY(12px);
+}
+.culture-section:not(.is-revealed) .culture-card {
+  opacity: 0;
+  transform: translateX(-60px);
+}
+/* Title cascade — same primitive as the geography section. */
+.culture-section.is-revealed .culture-section__headline { transition-delay: 0.00s; }
+.culture-section.is-revealed .culture-section__subtitle { transition-delay: 0.10s; }
+/* Card slide-in cascade — left-to-right entrance order matching the
+   reading direction of the 3-column grid. */
+.culture-section.is-revealed .culture-card:nth-child(1) { transition-delay: 0.40s; }
+.culture-section.is-revealed .culture-card:nth-child(2) { transition-delay: 0.48s; }
+.culture-section.is-revealed .culture-card:nth-child(3) { transition-delay: 0.56s; }
+.culture-section.is-revealed .culture-card:nth-child(4) { transition-delay: 0.64s; }
+.culture-section.is-revealed .culture-card:nth-child(5) { transition-delay: 0.72s; }
+.culture-section.is-revealed .culture-card:nth-child(6) { transition-delay: 0.80s; }
+.hscroll__track > .culture-section .culture-section__header {
+  margin-bottom: clamp(2rem, 3vh, 4rem);
+}
+.hscroll__track > .culture-section .culture-section__grid {
+  gap: clamp(1.5rem, 2vh, 3rem);
+}
+/* Vision/Mission: only two cards — short content. Override the panel's
+   default flex-start to vertically center the cards in the panel
+   (padding-top still respected so they sit below the navbar). */
+.hscroll__track > .vm-section {
+  padding: 0;
+  padding-top: 14rem;
+  justify-content: center;
+}
+/* Testimonials / Message from Management: tall content (headline +
+   subheading + photo + caption + multi-paragraph quote). Drop the
+   navbar offset so the section's own internal top padding determines
+   the start position, freeing more vertical room for the portrait
+   and the credit line at the bottom of the panel. */
+.hscroll__track > .testimonials-section {
+  padding-top: 0;
+}
+/* Inner container padding for the testimonials section: small top + bigger
+   bottom on mobile (compact stack), bigger top + smaller bottom on
+   desktop (more breathing room above the headline). The legacy template's
+   `--scale-px` provides responsive scaling — values copied from the
+   original CSS map to ~16/100 on mobile and ~57/75 on desktop. */
+.testimonials-section .container-v-averaged {
+  padding-top: calc(var(--scale-px) * 16);
+  padding-bottom: calc(var(--scale-px) * 100);
+}
+@media (min-width: 980px) {
+  .testimonials-section .container-v-averaged {
+    padding-top: calc(var(--scale-px) * 57);
+    padding-bottom: calc(var(--scale-px) * 75);
+  }
+}
+
+/* Mobile / reduced-motion fallback. Touch devices fight scroll-jacking
+   (the user's swipe gesture wants to scroll vertically, not horizontally),
+   and motion-sensitive users explicitly opt out. Both cases fall back to
+   the natural vertical stack of the three sections. */
+@media (max-width: 980px), (prefers-reduced-motion: reduce) {
+  .hscroll {
+    height: auto;
+  }
+  .hscroll__pinned {
+    position: static;
+    height: auto;
+    overflow: visible;
+  }
+  .hscroll__track {
+    flex-direction: column;
+    width: 100%;
+    transform: none !important;
+    will-change: auto;
+  }
+  .hscroll__track > section {
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
 }
 
 /* Smooth scroll */

@@ -86,6 +86,30 @@ function IntroHero({ title, subtitle, showBanners }: { title: string; subtitle: 
   const backgroundRef = useRef<HTMLDivElement | null>(null);
   const manRef = useRef<HTMLDivElement | null>(null);
 
+  // Staged scroll/load reveal: background fades in first, then text + buttons
+  // + engineer image slide in from the right. Implementation lives entirely in
+  // CSS keyed off `.intro.is-revealed` — this hook just toggles the class.
+  // Because the hero starts in the viewport, IO fires on initial mount,
+  // playing the reveal as a "page load" animation. Toggling on viewport-exit
+  // lets the user replay it by scrolling away and back.
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          section.classList.toggle("is-revealed", entry.isIntersecting);
+        });
+      },
+      { threshold: 0.1 },
+    );
+    observer.observe(section);
+    return () => {
+      observer.disconnect();
+      section.classList.remove("is-revealed");
+    };
+  }, []);
+
   useEffect(() => {
     if (!showBanners) {
       return;
@@ -160,7 +184,6 @@ function IntroHero({ title, subtitle, showBanners }: { title: string; subtitle: 
             style={
               showBanners
                 ? {
-                    maxWidth: "62rem",
                     marginTop: "calc(clamp(5rem, 6vh, 8rem) + 50px)",
                     position: "relative",
                     zIndex: 2,
@@ -221,18 +244,18 @@ function IntroHero({ title, subtitle, showBanners }: { title: string; subtitle: 
             showBanners
               ? {
                   zIndex: 3,
-                  right: "10.5vw",
-                  width: "36vw",
+                  right: "4vw",
+                  width: "52vw",
                 }
               : undefined
           }
         >
           <picture draggable="false">
-            <source srcSet="/nafassets/nobgnan.png" media="(min-width: 1920px)" />
-            <source srcSet="/nafassets/nobgnan.png" media="(min-width: 1440px)" />
-            <source srcSet="/nafassets/nobgnan.png" media="(min-width: 980px)" />
+            <source srcSet="/nafassets/hero-image.webp" media="(min-width: 1920px)" />
+            <source srcSet="/nafassets/hero-image.webp" media="(min-width: 1440px)" />
+            <source srcSet="/nafassets/hero-image.webp" media="(min-width: 980px)" />
             <img
-              src="/nafassets/nobgnan.png"
+              src="/nafassets/hero-image.webp"
               alt="Engineer in protective gear"
               width="800"
               height="1200"
@@ -240,9 +263,9 @@ function IntroHero({ title, subtitle, showBanners }: { title: string; subtitle: 
                 showBanners
                   ? {
                       display: "block",
-                      width: "auto",
+                      width: "100%",
                       height: "auto",
-                      maxHeight: "calc(100vh - 40px)",
+                      maxHeight: "100vh",
                     }
                   : undefined
               }

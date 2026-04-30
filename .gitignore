@@ -49,3 +49,6 @@ src_backup/
 .venv/
 package-lock.json
 .vscode/
+
+# Claude Code per-machine session metadata
+.claude/
