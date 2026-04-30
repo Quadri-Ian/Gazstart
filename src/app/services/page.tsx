@@ -1,5 +1,6 @@
 import RootHeader from "@/components/layout/RootHeader";
 import RootFooter from "@/components/layout/RootFooter";
+import Link from "next/link";
 
 export const metadata = {
   title: "Services | Blueflare Energy",
@@ -168,11 +169,11 @@ function ProductionProcessesSection() {
         <p className="svc-production__body">
           Our proven process ensures quality, transparency, and efficiency at every step.
         </p>
-        <a href="/contacts" className="svc-production__cta" aria-label="Partner with us">
+        <Link href="/contacts" className="svc-production__cta" aria-label="Partner with us">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
             <path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-        </a>
+        </Link>
       </div>
       <div className="svc-production__right">
         {steps.map((s, i) => (
