@@ -3,7 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
-export default function RootHeader() {
+type RootHeaderProps = {
+  forceBackground?: boolean;
+};
+
+export default function RootHeader({ forceBackground = false }: RootHeaderProps) {
   const [aboutOpen, setAboutOpen] = useState(false);
   const [hotlineOpen, setHotlineOpen] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
@@ -25,7 +29,7 @@ export default function RootHeader() {
   useEffect(() => {
     const onScroll = () => {
       const current = window.scrollY;
-      setCollapsed(current > 8);
+      setCollapsed(forceBackground || current > 8);
 
       if (current <= 8) {
         setHeaderVisible(true);
@@ -41,7 +45,7 @@ export default function RootHeader() {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [forceBackground]);
 
   useEffect(() => {
     if (aboutOpen || hotlineOpen) {
@@ -54,7 +58,7 @@ export default function RootHeader() {
       data-plugin="stickyHeader"
       data-sticky-header-collapsed-class-name="header--collapsed ui-dark"
       className={`header header--sticky header--sticky--enabled ui-dark is-hidden--print js-header ${
-        collapsed ? "header--collapsed" : ""
+        collapsed || forceBackground ? "header--collapsed" : ""
       }`}
       style={{
         transform: headerVisible ? "translateY(0)" : "translateY(-100%)",
@@ -118,10 +122,10 @@ export default function RootHeader() {
                     right: 0,
                     left: "auto",
                     zIndex: 50,
-                    minWidth: "38rem",
+                    width: "min(30rem, 92vw)",
                   }}
                 >
-                  <div className="popover__content">
+                  <div className="popover__content" style={{ maxHeight: "24rem", overflowY: "auto" }}>
                     <div className="security-hotline ui-light ui-light-background">
                       <a href="tel:88004447109" className="security-hotline__phone">8 800 444 71 09</a>
                       <div className="security-hotline__line"></div>

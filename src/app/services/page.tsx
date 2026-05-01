@@ -1,52 +1,13 @@
 import RootHeader from "@/components/layout/RootHeader";
 import RootFooter from "@/components/layout/RootFooter";
 import Link from "next/link";
+import ScrollToSectionButton from "@/components/services/ScrollToSectionButton";
 
 export const metadata = {
   title: "Services | Blueflare Energy",
   description:
     "Integrated solutions. Reliable execution. From the first procurement order to the last technical sign-off, we deliver full-cycle services across the energy value chain.",
 };
-
-/* ── Service card icons ──────────────────────────────────────────── */
-function DrillingIcon() {
-  return (
-    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-      <circle cx="18" cy="18" r="17.5" stroke="#c8d8f0" />
-      <path d="M18 8v12M14 20h8l-2 6h-4l-2-6z" stroke="#394854" strokeWidth="1.5" strokeLinejoin="round" />
-      <path d="M11 14h14" stroke="#394854" strokeWidth="1.4" strokeLinecap="round" />
-    </svg>
-  );
-}
-function ProcurementIcon() {
-  return (
-    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-      <circle cx="18" cy="18" r="17.5" stroke="#c8d8f0" />
-      <rect x="11" y="13" width="14" height="11" rx="1.5" stroke="#394854" strokeWidth="1.4" />
-      <path d="M15 13v-2a3 3 0 016 0v2" stroke="#394854" strokeWidth="1.4" strokeLinecap="round" />
-      <path d="M15 18h6" stroke="#394854" strokeWidth="1.3" strokeLinecap="round" />
-    </svg>
-  );
-}
-function TechnicalIcon() {
-  return (
-    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-      <circle cx="18" cy="18" r="17.5" stroke="#c8d8f0" />
-      <path d="M13 13l10 10M23 13L13 23" stroke="#394854" strokeWidth="1.5" strokeLinecap="round" />
-      <circle cx="18" cy="18" r="3.5" stroke="#394854" strokeWidth="1.3" />
-    </svg>
-  );
-}
-function TestingIcon() {
-  return (
-    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-      <circle cx="18" cy="18" r="17.5" stroke="#c8d8f0" />
-      <path d="M14 9h8l2 10H12L14 9z" stroke="#394854" strokeWidth="1.4" strokeLinejoin="round" fill="none" />
-      <path d="M12 19l-1 4c0 1 .8 2 2 2h10c1.2 0 2-.9 2-2l-1-4" stroke="#394854" strokeWidth="1.3" strokeLinejoin="round" />
-      <path d="M15 15h6" stroke="#394854" strokeWidth="1.2" strokeLinecap="round" />
-    </svg>
-  );
-}
 
 /* ── Section 1: Hero ─────────────────────────────────────────────── */
 function ServicesHero() {
@@ -65,17 +26,21 @@ function ServicesHero() {
       </video>
       <div className="svc-hero__video-overlay" />
       <div className="svc-hero__content">
-        <p className="sust-eyebrow sust-eyebrow--light">SERVICES</p>
+        {/* <p className="sust-eyebrow sust-eyebrow--light">SERVICES</p> */}
         <h1 className="svc-hero__title">Services</h1>
         <p className="svc-hero__body">
           Integrated solutions. Reliable execution. From the first procurement order to the last
           technical sign-off, we deliver full-cycle services across the energy value chain.
         </p>
-        <a href="#what-we-do" className="svc-hero__scroll" aria-label="Scroll to services section">
+        <ScrollToSectionButton
+          targetId="what-we-do"
+          className="svc-hero__scroll"
+          ariaLabel="Scroll to services section"
+        >
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
             <path d="M9 3v12M3 9l6 6 6-6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-        </a>
+        </ScrollToSectionButton>
       </div>
     </section>
   );
@@ -83,76 +48,7 @@ function ServicesHero() {
 
 /* ── Section 2: What We Do ───────────────────────────────────────── */
 function WhatWeDoSection() {
-  const services = [
-    {
-      num: "01",
-      icon: <DrillingIcon />,
-      title: "Drilling and Field Services",
-      body: "Integrated drilling solutions delivered with precision, safety, and efficiency.",
-      bullets: ["Drilling Operations", "Well Support Services", "Rig Management", "Field Logistics"],
-    },
-    {
-      num: "02",
-      icon: <ProcurementIcon />,
-      title: "Procurement and Supply",
-      body: "Global sourcing. Local expertise. Quality you can trust.",
-      bullets: ["Equipment Procurement", "OEM Partnerships", "Inventory Management", "Logistics & Delivery"],
-    },
-    {
-      num: "03",
-      icon: <TechnicalIcon />,
-      title: "Technical Support and Maintenance",
-      body: "Keeping your assets performing at their peak.",
-      bullets: ["Preventive Maintenance", "Shutdown & Turnaround", "Repairs & Overhauls", "24/7 Technical Support"],
-    },
-    {
-      num: "04",
-      icon: <TestingIcon />,
-      title: "Testing and Inspection",
-      body: "Accurate testing. Assured compliance. Total confidence.",
-      bullets: ["Material Testing", "NDT & Inspection", "QA / QC Services", "Certification Support"],
-    },
-  ];
-
-  return (
-    <section className="svc-whatwedo" id="what-we-do">
-      <div className="svc-whatwedo__header">
-        <div className="svc-whatwedo__header-left">
-          <p className="sust-eyebrow">WHAT WE DO</p>
-          <h2 className="svc-whatwedo__title">
-            End-to-end capability.<br />Engineered for impact.
-          </h2>
-        </div>
-        <div className="svc-whatwedo__header-right">
-          <p className="svc-whatwedo__desc">
-            Blueflare provides integrated drilling and field services,
-            procurement, and technical support tailored to the unique
-            demands of oil and gas operations in West Africa.
-          </p>
-        </div>
-      </div>
-      <div className="svc-cards">
-        {services.map((s) => (
-          <div key={s.num} className="svc-card">
-            <span className="svc-card__num">{s.num}</span>
-            <div className="svc-card__icon">{s.icon}</div>
-            <h3 className="svc-card__title">{s.title}</h3>
-            <p className="svc-card__body">{s.body}</p>
-            <ul className="svc-card__bullets">
-              {s.bullets.map((b) => (
-                <li key={b}>{b}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-/* ── Section 3: Production Processes ────────────────────────────── */
-function ProductionProcessesSection() {
-  const steps = [
+  const cards = [
     {
       num: "01",
       title: "Assess & Define",
@@ -176,21 +72,29 @@ function ProductionProcessesSection() {
   ];
 
   return (
-    <section className="services-strip svc-production-pillars">
-      <div className="container-h container-v-averaged">
-        <div className="services-strip__header">
-          <h2 className="services-strip__headline">Production Processes</h2>
-          <p className="services-strip__subheading">
-            Our proven process ensures quality, transparency, and efficiency at every step.
+    <section className="svc-whatwedo" id="what-we-do">
+      <div className="svc-whatwedo__header">
+        <div className="svc-whatwedo__header-left">
+          <p className="sust-eyebrow">WHAT WE DO</p>
+          <h2 className="svc-whatwedo__title">
+            End-to-end capability.<br />Engineered for impact.
+          </h2>
+        </div>
+        <div className="svc-whatwedo__header-right">
+          <p className="svc-whatwedo__desc">
+            Our process-driven delivery model ensures every engagement moves from scoping to
+            handover with precision, transparency, and measurable performance.
           </p>
         </div>
+      </div>
+      <div className="services-strip svc-whatwedo__strip">
         <div className="services-strip__viewport">
           <div className="services-strip__track">
-            {steps.map((s) => (
-              <div key={s.num} className="service-card-frame">
+            {cards.map((item) => (
+              <div key={item.num} className="service-card-frame">
                 <article className="service-card">
                   <div className="service-card__top">
-                    <span className="service-card__num">{s.num}</span>
+                    <span className="service-card__num">{item.num}</span>
                     <span className="service-card__icon" aria-hidden="true">
                       <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M4 12h10" />
@@ -198,8 +102,8 @@ function ProductionProcessesSection() {
                       </svg>
                     </span>
                   </div>
-                  <h3 className="service-card__title">{s.title}</h3>
-                  <p className="service-card__body">{s.desc}</p>
+                  <h3 className="service-card__title">{item.title}</h3>
+                  <p className="service-card__body">{item.desc}</p>
                   <Link href="/contacts" className="service-card__link">
                     Partner with us
                   </Link>
@@ -213,7 +117,7 @@ function ProductionProcessesSection() {
   );
 }
 
-/* ── Section 4: Tools of Our Trade ──────────────────────────────── */
+/* ── Section 3: Tools of Our Trade ──────────────────────────────── */
 function ToolsSection() {
   return (
     <section className="svc-tools">
@@ -253,7 +157,6 @@ export default function ServicesPage() {
       <main>
         <ServicesHero />
         <WhatWeDoSection />
-        <ProductionProcessesSection />
         <ToolsSection />
       </main>
       <RootFooter />

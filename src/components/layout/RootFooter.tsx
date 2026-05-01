@@ -12,7 +12,7 @@ const quickLinks = [
 ];
 
 const informationLinks = [
-  { href: "/terms", label: "Terms of Service" },
+  { href: "/terms-of-services", label: "Terms of Service" },
   { href: "/privacy", label: "Privacy Policy" },
   { href: "/cookies", label: "Cookies Settings" },
 ];
