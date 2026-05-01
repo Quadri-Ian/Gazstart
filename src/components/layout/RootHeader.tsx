@@ -122,10 +122,10 @@ export default function RootHeader({ forceBackground = false }: RootHeaderProps)
                     right: 0,
                     left: "auto",
                     zIndex: 50,
-                    width: "min(30rem, 92vw)",
+                    width: "60vw",
                   }}
                 >
-                  <div className="popover__content" style={{ maxHeight: "24rem", overflowY: "auto" }}>
+                  <div className="popover__content" style={{ maxHeight: "80vh", overflowY: "auto" }}>
                     <div className="security-hotline ui-light ui-light-background">
                       <a href="tel:88004447109" className="security-hotline__phone">8 800 444 71 09</a>
                       <div className="security-hotline__line"></div>
