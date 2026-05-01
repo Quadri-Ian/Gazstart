@@ -68,10 +68,10 @@ function setupTestimonialsRotator(container: HTMLElement): (() => void) | null {
     titleLines: string[];
   }> = [
     {
-      src: "https://images.pexels.com/photos/1382731/pexels-photo-1382731.jpeg?auto=compress&cs=tinysrgb&w=1400",
-      alt: "Ava Lin portrait",
-      name: "AVA LIN",
-      titleLines: ["CREATIVE DIRECTOR,", "SELAH STUDIO"],
+      src: "/nafassets/osa%20Idubor.webp",
+      alt: "Osa Idubor portrait",
+      name: "OSA IDUBOR",
+      titleLines: ["EXECUTIVE MANAGEMENT,", "BLUEFLARE ENERGY"],
     },
     {
       src: "https://images.pexels.com/photos/3777943/pexels-photo-3777943.jpeg?auto=compress&cs=tinysrgb&w=1400",

@@ -326,11 +326,11 @@ const testimonialsSectionHtml = `
       <div class="testimonials-section__left">
         <div class="testimonials-section__featured">
           <picture>
-            <img src="https://images.pexels.com/photos/1382731/pexels-photo-1382731.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Featured testimonial portrait" />
+            <img src="/nafassets/osa%20Idubor.webp" alt="CEO Osa Idubor" />
           </picture>
         </div>
         <div class="testimonials-section__thumbs">
-          <picture><img src="https://images.pexels.com/photos/3777943/pexels-photo-3777943.jpeg?auto=compress&cs=tinysrgb&w=400" alt="" /></picture>
+          <picture><img src="/nafassets/osa%20Idubor.webp" alt="" /></picture>
           <picture><img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400" alt="" /></picture>
         </div>
         <div class="testimonials-section__credit">

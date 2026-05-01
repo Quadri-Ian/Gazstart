@@ -171,7 +171,7 @@ function IntroHero({ title, subtitle, showBanners }: { title: string; subtitle: 
             style={
               showBanners
                 ? {
-                    maxWidth: "22ch",
+                    maxWidth: "19.8ch",
                     fontSize: "clamp(6rem, 5vw, 9.2rem)",
                   }
                 : undefined
@@ -251,11 +251,11 @@ function IntroHero({ title, subtitle, showBanners }: { title: string; subtitle: 
           }
         >
           <picture draggable="false">
-            <source srcSet="/nafassets/hero-image.webp" media="(min-width: 1920px)" />
-            <source srcSet="/nafassets/hero-image.webp" media="(min-width: 1440px)" />
-            <source srcSet="/nafassets/hero-image.webp" media="(min-width: 980px)" />
+            <source srcSet="/nafassets/hero%20image.webp" media="(min-width: 1920px)" />
+            <source srcSet="/nafassets/hero%20image.webp" media="(min-width: 1440px)" />
+            <source srcSet="/nafassets/hero%20image.webp" media="(min-width: 980px)" />
             <img
-              src="/nafassets/hero-image.webp"
+              src="/nafassets/hero%20image.webp"
               alt="Engineer in protective gear"
               width="800"
               height="1200"

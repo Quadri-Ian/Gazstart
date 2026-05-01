@@ -1,5 +1,6 @@
 import "./globals.css";
 import Script from "next/script";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export default function RootLayout({
   children,
@@ -24,6 +25,7 @@ export default function RootLayout({
         <link href="/local/templates/naftagaz/assets/stylesheets/social4b23.css" rel="stylesheet" />
       </head>
       <body>
+        <ScrollReveal />
         {children}
 
         {/* Legacy plugin/runtime bundles needed for tabs, hover cards, and scroll animations */}

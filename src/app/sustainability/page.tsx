@@ -178,7 +178,7 @@ function PrioritiesSection() {
 /* ── Section 4: Our Approach ─────────────────────────────────────── */
 function ApproachSection() {
   const approachImages = [
-    "/nafassets/9lq7jij2dmddqtcf9e8mimkfn6amt7zh.jpg",
+    "/nafassets/osa%20Idubor.webp",
     "/nafassets/pexels-quang-nguyen-vinh-222549-35105445.jpg",
     "/nafassets/vilkasss-ai-generated-8675589.jpg",
   ];
